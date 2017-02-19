@@ -1,0 +1,23 @@
+.navbar-default { /* Fondo menu principal */
+    background-color: #FF0000;
+    border-color: #e7e7e7;
+}
+
+.navbar-default .navbar-nav > li > a { /* Color letra menu principal */
+    color: #FFFF00;
+}
+
+.dropdown-menu { /* Color borde submenu */
+    background-color: #FF0000;
+}
+
+.dropdown-menu > li > a {
+	background-color: #FF0000; /* Color fondo submenu */ 
+    color: #0000FF; /* Color letra submenu */
+}
+
+@media (min-width: 767px) {
+    .navbar-nav .dropdown-menu .caret {
+	transform: rotate(-90deg);
+    }
+}

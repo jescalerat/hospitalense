@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /admin
+Disallow: /admin_web
+Disallow: /conf
+Disallow: /css
+Disallow: /flash
+Disallow: /foro
+Disallow: /graficas
+Disallow: /includes
+Disallow: /js
+Disallow: /logs
+Disallow: /paginas
+Disallow: /prueba
