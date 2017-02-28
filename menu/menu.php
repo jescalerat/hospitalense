@@ -1,6 +1,10 @@
+<?php 
+	require_once("conf/traduccion.php");
+	require_once("conf/funciones.php");
+?>
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container">
-		<img src="menu/logo.png" alt="Gatito" />
+		<img src="menu/logo.png" alt="Atl&eacute;tico Centro Hospitalense" title="Atl&eacute;tico Centro Hospitalense" />
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 				<span class="sr-only">Toggle navigation</span>
@@ -12,25 +16,37 @@
 		</div>
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="#" onclick="llamada_prototype('<?php print($_SESSION["rutaservidor"]); ?>paginas/principal.php','principal');"><?= cambiarAcentos(_MENUINICIO) ?></a></li>
+				<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/principal.php','principal');"><?= cambiarAcentos(_MENUINICIO) ?></a></li>
 				<li>
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= cambiarAcentos(_MENUCLUB) ?> <b class="caret"></b></a>
 
 					<ul class="dropdown-menu">
-						<li><a href="#" onclick="llamada_prototype('<?php print($_SESSION["rutaservidor"]); ?>paginas/historia.php','principal');"><?= cambiarAcentos(_MENUCLUBHISTORIA) ?></a></li>
-						<li><a href="#">Himno</a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/historia.php','principal');"><?= cambiarAcentos(_MENUCLUBHISTORIA) ?></a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/directiva.php','principal');"><?= cambiarAcentos(_MENUCLUBDIRECTIVA) ?></a></li>
 						<li>
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Plantillas <b class="caret"></b></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= cambiarAcentos(_MENUCLUBPLANTILLAS) ?> <b class="caret"></b></a>
 
 							<ul class="dropdown-menu">
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
+								<!--<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/plantillas.php?IdCategoria=1','principal');">Veteranos A</a></li>
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/plantillas.php?IdCategoria=28','principal');">Veteranos B</a></li>-->
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/plantillas.php?IdCategoria=2','principal');">Amateur A</a></li>
+								<!--<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/plantillas.php?IdCategoria=42','principal');">Amateur B</a></li>-->
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/plantillas.php?IdCategoria=3','principal');">Juvenil A</a></li>
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/plantillas.php?IdCategoria=4','principal');">Juvenil B</a></li>
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/plantillas.php?IdCategoria=6','principal');">Cadete A</a></li>
+								<!--<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/plantillas.php?IdCategoria=7','principal');">Cadete B</a></li>-->
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/plantillas.php?IdCategoria=9','principal');">Infantil A</a></li>
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/plantillas.php?IdCategoria=10','principal');">Infantil B</a></li>
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/plantillas.php?IdCategoria=11','principal');">Alevin A</a></li>
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/plantillas.php?IdCategoria=12','principal');">Alevin B</a></li>
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/plantillas.php?IdCategoria=14','principal');">Benjamin A</a></li>
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/plantillas.php?IdCategoria=38','principal');">Benjamin B</a></li>
 							</ul>
 						</li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/himno.php','principal');"><?= cambiarAcentos(_MENUCLUBHIMNO) ?></a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/socio.php','principal');"><?= cambiarAcentos(_MENUCLUBSOCIO) ?></a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/formularios.php','principal');"><?= cambiarAcentos(_MENUCLUBFORMULARIOS) ?></a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/horarios.php','principal');"><?= cambiarAcentos(_MENUCLUBHORARIOS) ?></a></li>
 					</ul>
 				</li>
 				<li>

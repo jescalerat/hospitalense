@@ -42,7 +42,7 @@
 	{
 		//$pasarela[$contador][0]=$fotos["Ruta"]."/".$fotos["Foto"];
 		//$pasarela[$contador][0]=$fotos["Imageshack"];
-		$pasarela[$contador][0]=$_SESSION["rutaservidor"]."includes/inc_mostar_foto.php?IdFoto=".$fotos['IdFoto'];
+		$pasarela[$contador][0]=$_SESSION["rutaservidor"]."includes/inc_mostrar_foto.php?IdFoto=".$fotos['IdFoto'];
 		//$pasarela[$contador][0]=$fotos["MediaFire"];
 		$pasarela[$contador][1]=$fotos["IdFoto"];
 		$pasarela[$contador][2]=$contador;

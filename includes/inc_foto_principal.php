@@ -36,7 +36,7 @@
 <table class="tabla_sin_borde w100" align="center">
 	<tr>
 		<td class="tabla_sin_borde" align="center">
-				<img src="<?php print($_SESSION["rutaservidor"]."includes/inc_mostar_foto.php?IdFoto=".$rowfoto["IdFoto"])?>" width="540" heigh="400" alt="<?php print(cambiarAcentos(_AMPLIARFOTO));?>" title="<?php print(cambiarAcentos(_AMPLIARFOTO));?>" border="0">
+				<img src="<?php print($_SESSION["rutaservidor"]."includes/inc_mostrar_foto.php?IdFoto=".$rowfoto["IdFoto"])?>" width="540" heigh="400" alt="<?php print(cambiarAcentos(_AMPLIARFOTO));?>" title="<?php print(cambiarAcentos(_AMPLIARFOTO));?>" border="0">
 		</td>
 	</tr>
 	<tr>	

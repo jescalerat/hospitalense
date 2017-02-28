@@ -33,7 +33,7 @@
 		<a href="<?php print($rutagaleria);?>" 
 			onclick="return GB_showCenter('<?php print(cambiarAcentos(_GALERIA));?>', this.href, 580, 975)"
 			title="<?php print(cambiarAcentos(_GALERIA));?>">
-			<img id="<?php print($x);?>" src="<?php print($_SESSION["rutaservidor"]."includes/inc_mostar_foto.php?IdFoto=".$rowfotoprincipal["IdFoto"]);?>" alt="<?php print(cambiarAcentos(_GALERIA));?>" title="<?php print(cambiarAcentos(_GALERIA));?>" width="100" heigh="50"/>
+			<img id="<?php print($x);?>" src="<?php print($_SESSION["rutaservidor"]."includes/inc_mostrar_foto.php?IdFoto=".$rowfotoprincipal["IdFoto"]);?>" alt="<?php print(cambiarAcentos(_GALERIA));?>" title="<?php print(cambiarAcentos(_GALERIA));?>" width="100" heigh="50"/>
 			<br>
 			<?php print(cambiarAcentos($descripcionGaleria));?>
 

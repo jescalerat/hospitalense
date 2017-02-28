@@ -10,7 +10,7 @@
 	$link=Conectarse();
 ?>
 	
-	<table class="tabla_sin_borde w80">
+	<table class="tabla_sin_borde w95">
 		<tr>
 			<td class="tabla_sin_borde">
 				<?php require_once($_SESSION["ruta"]."includes/inc_noticias.php"); ?>

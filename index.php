@@ -85,7 +85,7 @@
 	$ruta = substr($_SERVER['SCRIPT_FILENAME'], 0, strrpos($_SERVER['SCRIPT_FILENAME'], '/'));
 	$_SESSION["ruta"] = $ruta.="/";
 	//Servidor local
-	$_SESSION["rutaservidor"] = "http://".$_SERVER["SERVER_NAME"].":8081/hospitalense/";
+	$_SESSION["rutaservidor"] = "http://".$_SERVER["SERVER_NAME"].":8081/workspace/hospitalense/";
 	//Servidor internet
 	//$_SESSION["rutaservidor"] = "http://".$_SERVER["HTTP_HOST"]."/";
 	
@@ -138,6 +138,6 @@
                 <a href="http://www.ejemplocodigo.com">www.ejemplocodigo.com</a>
         </footer>
 
-
+		<input type="hidden" id="cargandotexto" name="cargandotexto" value="<?= cambiarAcentos(_CARGANDO) ?>"/>
 </body>
 </html>

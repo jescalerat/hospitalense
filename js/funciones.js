@@ -249,12 +249,18 @@ function llamada_prototype(URL,objetoDIV){
                 "valorCaja1" : valorCaja1,
                 "valorCaja2" : valorCaja2
         };*/
+	
+		var texto = '';
+		if (document.getElementById("cargandotexto")!=null){
+			texto = document.getElementById("cargandotexto").value;
+		}
+	
         $.ajax({
                 //data:  parametros,
                 url:   URL,
                 type:  'get',
                 beforeSend: function () {
-                        $("#"+objetoDIV).html("Procesando, espere por favor...");
+                        $("#"+objetoDIV).html("<img src='imagenes/loading.gif' align='middle' />"+texto);
                 },
                 success:  function (response) {
                         $("#"+objetoDIV).html(response);

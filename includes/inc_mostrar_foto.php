@@ -21,8 +21,14 @@
 	// Recuperamos la foto de la tabla
 	if (isset($_GET['IdFoto'])){
 		$query = "SELECT * FROM fotos_historia WHERE IdFoto = ".$_GET['IdFoto'];
+	} else if (isset($_GET['IdJugador'])){
+		$query = "SELECT * FROM jugadores WHERE IdJugador = ".$_GET['IdJugador'];
+	} else if (isset($_GET['IdCategoria'])){
+		$query = "SELECT * FROM categoria WHERE IdCategoria = ".$_GET['IdCategoria'];
 	} else if (isset($_GET['IdDirectiva'])){
-		$query = "SELECT * FROM directiva WHERE IdFoto = ".$_GET['IdDirectiva'];
+		$query = "SELECT * FROM directiva WHERE IdDirectiva = ".$_GET['IdDirectiva'];
+	} else if (isset($_GET['IdFormulario'])){
+		$query = "SELECT * FROM formularios WHERE IdFormulario = ".$_GET['IdFormulario'];
 	}
 	
 	$q=mysqli_query ($link, $query);
@@ -31,9 +37,17 @@
 	$imagen = $rowfoto["Foto"];
 	$mime = $rowfoto["Mime"];
 	
+	$nombreFormulario = "";
+	if ($mime == "application/msword"){
+		$nombreFormulario = "formulario.doc";
+	}else if ($mime == "application/pdf"){
+		$nombreFormulario = "formulario.pdf";
+	}
+	
 	// Gracias a esta cabecera, podemos ver la imagen 
 	// que acabamos de recuperar del campo blob
 	header("Content-Type: $mime");
+	header("Content-Disposition: ; filename=$nombreFormulario");
 	// Muestra la imagen
 	echo $imagen;
 

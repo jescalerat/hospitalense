@@ -30,7 +30,7 @@
 	<table border="1" width="100%">
 		<tr>
 			<td align="center" valign="middle">
-				<img src="<?php print($_SESSION["rutaservidor"]."includes/inc_mostar_foto.php?IdFoto=".$rowfoto["IdFoto"]);?>" width="<?php print ($anchura);?>" height="<?php print ($altura);?>" alt="<?php print (cambiarAcentos($descripcion));?>" title="<?php print (cambiarAcentos($descripcion));?>" border="0">
+				<img src="<?php print($_SESSION["rutaservidor"]."includes/inc_mostrar_foto.php?IdFoto=".$rowfoto["IdFoto"]);?>" width="<?php print ($anchura);?>" height="<?php print ($altura);?>" alt="<?php print (cambiarAcentos($descripcion));?>" title="<?php print (cambiarAcentos($descripcion));?>" border="0">
 			</td>
 		</tr>
 	</table>

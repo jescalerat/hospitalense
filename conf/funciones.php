@@ -462,21 +462,17 @@ function cambiarAcentos($cadena) {
 			$devuelveCadena=$devuelveCadena."&THORN;";
 		}
 //Otros signos
-		else if(strcmp($cadena[$x],"¡")==0)
+		else if(strcmp($cadena[$x],"¢")==0)
 		{
 			$devuelveCadena=$devuelveCadena."&cent;";
 		}
-		else if(strcmp($cadena[$x],"¢")==0)
+		else if(strcmp($cadena[$x],"£")==0)
 		{
 			$devuelveCadena=$devuelveCadena."&pound;";
 		}
-		else if(strcmp($cadena[$x],"£")==0)
-		{
-			$devuelveCadena=$devuelveCadena."&curren;";
-		}
 		else if(strcmp($cadena[$x],"¤")==0)
 		{
-			$devuelveCadena=$devuelveCadena."&yen;";
+			$devuelveCadena=$devuelveCadena."&curren;";
 		}
 		else if(strcmp($cadena[$x],"©")==0)
 		{

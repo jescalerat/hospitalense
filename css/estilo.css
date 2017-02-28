@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "MyWebFont";
+  src: url("myndraine/MYNDRAIN.TTF")  format("truetype");
+  src: url("myndraine/Myndraine.otf"),
+       url("myndraine/Myndraine.pfb"),
+       url("myndraine/Myndraine.pfm");
+}
+
 html {
     height:100%;
 	padding-top: 140px;
@@ -196,3 +204,296 @@ a.glidebutton:hover > span:first-child
 	-o-transform: translateY(-100%);
 	transform: translateY(-100%);
 }
+
+table.clasificacion
+{
+	border-width: 1px;
+	border-style: solid;
+	width: 100%;
+}
+
+table.clasificacion td
+{
+	border-width: 1px;
+	border-style: solid;
+	/*-moz-border-radius: 6px 6px 6px 6px; //CSS3*/
+}
+
+table.clasificacion th
+{
+	border-width: 1px;
+	border-style: solid;
+	background-color: white;
+	/*-moz-border-radius: 6px 6px 6px 6px; //CSS3*/
+}
+
+/*Para mostrar el equipo que sube*/
+tr.sube
+{
+	background-color : rgb(0,255,255); 
+}
+
+/*Para mostrar el equipo que promociona*/
+tr.promociona
+{
+	background-color : rgb(255,255,128); 
+}
+
+/*Para mostrar los equipos que bajan*/
+tr.desciende
+{
+	background-color : rgb(0,255,0); 
+}
+
+table.resultados
+{
+	border-width: 1px;
+	border-style: solid;
+	width: 100%;
+}
+
+table.resultados td
+{
+	border-width: 1px;
+	border-style: solid;
+}
+
+table.resultados th
+{
+	border-width: 1px;
+	border-style: solid;
+}
+
+table.resultados_principal
+{
+	border-width: 1px;
+	border-style: solid;
+	width: 100%;
+}
+
+table.resultados_principal td
+{
+	border-width: 1px;
+	border-style: solid;
+}
+
+table.resultados_principal th
+{
+	border-width: 1px;
+	border-style: solid;
+}
+
+table.horarios
+{
+	border-width: 1px;
+	border-style: solid;
+	width: 100%;
+}
+
+table.horarios td
+{
+	border-width: 1px;
+	border-style: solid;
+	/*-moz-border-radius: 6px 6px 6px 6px; //CSS3*/
+}
+
+table.horarios th
+{
+	border-width: 1px;
+	border-style: solid;
+	background-color: white;
+	/*-moz-border-radius: 6px 6px 6px 6px; //CSS3*/
+}
+
+table.economia
+{
+	border-width: 1px;
+	border-style: solid;
+}
+
+table.economia td
+{
+	border-width: 1px;
+	border-style: solid;
+	/*-moz-border-radius: 6px 6px 6px 6px; //CSS3*/
+}
+
+table.economia th
+{
+	border-width: 1px;
+	border-style: solid;
+	background-color: white;
+	/*-moz-border-radius: 6px 6px 6px 6px; //CSS3*/
+}
+
+table.formularios
+{
+	border-width: 1px;
+	border-style: solid;
+	width: 100%;
+}
+
+table.formularios td
+{
+	border-width: 1px;
+	border-style: solid;
+	/*-moz-border-radius: 6px 6px 6px 6px; //CSS3*/
+}
+
+table.formularios th
+{
+	border-width: 1px;
+	border-style: solid;
+	background-color: white;
+	/*-moz-border-radius: 6px 6px 6px 6px; //CSS3*/
+}
+
+table.tablagoleadores
+{
+	border-width: 1px;
+	border-style: solid;
+	width: 100%;
+}
+
+table.tablagoleadores td
+{
+	border-width: 1px;
+	border-style: solid;
+	/*-moz-border-radius: 6px 6px 6px 6px; //CSS3*/
+}
+
+table.tablagoleadores th
+{
+	border-width: 1px;
+	border-style: solid;
+	background-color: white;
+	/*-moz-border-radius: 6px 6px 6px 6px; //CSS3*/
+}
+
+p.historia{
+	font-family: 'MyWebFont', Tahoma, Verdana, Arial; 
+	color:red;
+	font-size : 14pt;
+}
+
+p.socios{
+	font-family: 'MyWebFont', Tahoma, Verdana, Arial; 
+	color:red;
+	font-size : 14pt;
+}
+
+td.plantilla
+{
+	font-family: 'MyWebFont', Tahoma, Verdana, Arial; 
+	color:red;
+	font-size : 12pt;
+}
+
+table.directiva
+{
+	border-width: 1px;
+	border-style: solid;
+}
+
+table.directiva th
+{
+	font-family: 'MyWebFont', Tahoma, Verdana, Arial; 
+	color:#2DCD19;
+	font-size : 14pt;
+	border-width: 1px;
+	border-style: solid;
+	background-color: white;
+	/*-moz-border-radius: 6px 6px 6px 6px; //CSS3*/
+}
+
+table.directiva td
+{
+	font-family: 'MyWebFont', Tahoma, Verdana, Arial; 
+	color:red;
+	font-size : 12pt;
+	border-width: 1px;
+	border-style: solid;
+	/*-moz-border-radius: 6px 6px 6px 6px; //CSS3*/
+}
+
+
+/*---------------------------------------------------------------------------------------------------------------*/
+/*Administración*/
+table.admin
+{
+	width: 100%;
+}
+
+table.admin td
+{
+	background-color: red;
+}
+
+table.admin th
+{
+	background-color: blue;
+}
+
+h1.admin
+{
+	color : red; 
+	font-family : Comic Sans MS, sans-serif;
+	font-size : 30pt; 
+	text-align: center;
+}
+
+h2.admin
+{
+	color : red; 
+	font-family : Comic Sans MS, sans-serif;
+	font-size : 15pt; 
+	text-align: center;
+}
+
+
+
+/*---------------------------------------------------------------------------------------------------------------*/
+/*Pestañas*/
+#ContTabul {
+      border-left: 1px solid #CCC;
+      border-right: 1px solid #CCC;
+      border-bottom: 1px solid #CCC;
+      padding: 10px 5px 1px 5px;
+}
+ul#tabnav {
+      list-style-type: none;
+      margin: 0;
+      padding-left: 0px;
+      /*padding-left: 40px;    Original*/
+      padding-bottom: 24px;
+      border-bottom: 1px solid #CCC;
+      font: 11px verdana, arial, sans-serif;
+}
+ul#tabnav li {
+      float: left;
+      height: 21px;
+      background-color: #E4E4E4;
+      color: #666;
+      /*margin: 2px 10px 0 2px;          Original*/
+      margin: 2px 2px 0 2px;
+      border: 1px solid #CCC;
+}
+ul#tabnav a:link, ul#tabnav a:visited {
+      display: block;
+      color: #666;
+      text-decoration: none;
+      padding: 4px;
+}
+ul#tabnav a:hover {
+      background-color: #CCC;
+      color: #666;
+}
+#tabnav .activo {
+      border-bottom: 1px solid #fff;
+      color: #000000;
+      background-color: #FFFFFF;
+}
+#tabnav .inactivo {}
+
+
+/*---------------------------------------------------------------------------------------------------------------*/

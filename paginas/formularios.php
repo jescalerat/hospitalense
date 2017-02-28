@@ -1,38 +1,28 @@
 <?php
     session_start();
 	unset($_SESSION["pagina"]);
-	$_SESSION["pagina"]=14;
+	$_SESSION["pagina"]=18;
 
 	require_once($_SESSION["ruta"]."conf/traduccion.php");
 	require_once($_SESSION["ruta"]."conf/funciones.php");
 	require_once($_SESSION["ruta"]."conf/conexion.php");
 	$link=Conectarse();
 ?>	
-
 	<center>
 		<table class="tabla_sin_borde w95">
 			<tr>
 				<td class="tabla_sin_borde">
-					<?php require_once($_SESSION["ruta"]."includes/inc_historia.php"); ?>
+					<?php require_once($_SESSION["ruta"]."includes/inc_formularios.php"); ?>
 				</td>
 			</tr>
 		</table>
 	</center>
 	
 <?php	
-	if(isset($_GET['identificador']))
-	{
-		$jornada_equipo=$_GET['identificador'];
-	}
-	else
-	{
-		$jornada_equipo=0;
-	}
-	
 	if (!isset($_SESSION["admin_web"]))
 	{
 		//Query para insertar los valores en la base de datos
-		$query="insert into paginasvistas (IP,Hora,Fecha,Pagina,JornadaEquipo) values (\"".getRealIP()."\",\"".date("H:i:s")."\",\"".date("Y-m-d")."\",".$_SESSION["pagina"].",".$jornada_equipo.")";
+		$query="insert into paginasvistas (IP,Hora,Fecha,Pagina) values (\"".getRealIP()."\",\"".date("H:i:s")."\",\"".date("Y-m-d")."\",".$_SESSION["pagina"].")";
 		mysqli_query($link, $query);
 	}
 ?>
