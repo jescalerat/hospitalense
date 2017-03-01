@@ -22,7 +22,7 @@
 
 					<ul class="dropdown-menu">
 						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/historia.php','principal');"><?= cambiarAcentos(_MENUCLUBHISTORIA) ?></a></li>
-						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/directiva.php','principal');"><?= cambiarAcentos(_MENUCLUBDIRECTIVA) ?></a></li>
+						<!-- <li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/directiva.php','principal');"><?= cambiarAcentos(_MENUCLUBDIRECTIVA) ?></a></li>-->
 						<li>
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= cambiarAcentos(_MENUCLUBPLANTILLAS) ?> <b class="caret"></b></a>
 
@@ -44,85 +44,74 @@
 							</ul>
 						</li>
 						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/himno.php','principal');"><?= cambiarAcentos(_MENUCLUBHIMNO) ?></a></li>
-						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/socio.php','principal');"><?= cambiarAcentos(_MENUCLUBSOCIO) ?></a></li>
+						<!-- <li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/socio.php','principal');"><?= cambiarAcentos(_MENUCLUBSOCIO) ?></a></li>
 						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/formularios.php','principal');"><?= cambiarAcentos(_MENUCLUBFORMULARIOS) ?></a></li>
 						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/horarios.php','principal');"><?= cambiarAcentos(_MENUCLUBHORARIOS) ?></a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/economia.php','principal');"><?= cambiarAcentos(_MENUCLUBECONOMIA) ?></a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/regimen_interno.php','principal');"><?= cambiarAcentos(_MENUCLUBREGIMENINTERNO) ?></a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/estatuto.php','principal');"><?= cambiarAcentos(_MENUCLUBESTATUTO) ?></a></li> -->
 					</ul>
 				</li>
 				<li>
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias <b class="caret"></b></a>
 
 					<ul class="dropdown-menu">
-						<li><a href="#">Veteranos A</a></li>
-						<li><a href="#">Veteranos B</a></li>
-						<li><a href="#">Amateur A</a></li>
-						<li><a href="#">Juvenil A</a></li>
-						<li><a href="#">Juvenil B</a></li>
-						<li><a href="#">Cadete A</a></li>
-						<li><a href="#">Infantil A</a></li>
-						<li><a href="#">Infantil B</a></li>
-						<li><a href="#">Alevin A</a></li>
-						<li><a href="#">Alevin B</a></li>
-						<li><a href="#">Benjamin A</a></li>
-						<li><a href="#">Benjamin B</a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=1','principal');">Veteranos A</a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=28','principal');">Veteranos B</a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=2','principal');">Amateur A</a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=3','principal');">Juvenil A</a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=4','principal');">Juvenil B</a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=6','principal');">Cadete A</a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=9','principal');">Infantil A</a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=10','principal');">Infantil B</a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=11','principal');">Alevin A</a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=12','principal');">Alevin B</a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=14','principal');">Benjamin A</a></li>
+						<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=38','principal');">Benjamin B</a></li>
 						<li>
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Femenino Escolar A <b class="caret"></b></a>
 
 							<ul class="dropdown-menu">
-								<li><a href="#">Fase 1 - Grupo A</a></li>
-								<!--<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>-->
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=45','principal');">Fase 1 - Grupo A</a></li>
 							</ul>
 						</li>
 						<li>
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Infantil/Cadete Escolar A <b class="caret"></b></a>
 
 							<ul class="dropdown-menu">
-								<li><a href="#">Fase 1 - Grupo A</a></li>
-								<!--<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>-->
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=39','principal');">Fase 1 - Grupo A</a></li>
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=40','principal');">Fase 2 - Grupo A</a></li>
 							</ul>
 						</li>
 						<li>
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Alevin Escolar C <b class="caret"></b></a>
 
 							<ul class="dropdown-menu">
-								<li><a href="#">Fase 1 - Grupo A</a></li>
-								<!--<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>-->
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=15','principal');">Fase 1 - Grupo A</a></li>
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=24','principal');">Fase 2 - Grupo A</a></li>
 							</ul>
 						</li>
 						<li>
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Benjamin Escolar C <b class="caret"></b></a>
 
 							<ul class="dropdown-menu">
-								<li><a href="#">Fase 1 - Grupo A</a></li>
-								<!--<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>-->
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=16','principal');">Fase 1 - Grupo A</a></li>
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=22','principal');">Fase 2 - Grupo A</a></li>
 							</ul>
 						</li>
 						<li>
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Benjamin Escolar D <b class="caret"></b></a>
 
 							<ul class="dropdown-menu">
-								<li><a href="#">Fase 1 - Grupo B</a></li>
-								<!--<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>
-								<li><a href="#">Veteranos A</a></li>-->
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=17','principal');">Fase 1 - Grupo B</a></li>
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=23','principal');">Fase 2 - Grupo A</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Pre Benjamin Escolar A <b class="caret"></b></a>
+
+							<ul class="dropdown-menu">
+								<li><a href="#" onclick="llamada_prototype('<?= $_SESSION["rutaservidor"] ?>paginas/resultados.php?IdCategoria=32','principal');">Fase 2 - Grupo A</a></li>
 							</ul>
 						</li>
 					</ul>

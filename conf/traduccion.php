@@ -14,7 +14,10 @@
 //Horarios=13
 
 
-$idioma=$_SESSION['idiomapagina'];
+$idioma=1;
+if (isset($_SESSION['idiomapagina'])){
+	$idioma=$_SESSION['idiomapagina'];
+}
 
 if ($idioma==1) //EspaÃ±ol
 {
@@ -1361,8 +1364,8 @@ else if ($idioma==3) //Catalan
 	define ('_PASSWORD','Parola d\'accesso');
 	define ('_ENTRAR','Entrare');
 	define ('_REGISTRAR','Registrazione');
-	define ('_NOENCONTRADO','Il nome dell\'utente o della parola d\'accesso è non valido');
-	define ('_ERRORREGISTRO','Il nome dell\'utente già esiste');
+	define ('_NOENCONTRADO','Il nome dell\'utente o della parola d\'accesso ï¿½ non valido');
+	define ('_ERRORREGISTRO','Il nome dell\'utente giï¿½ esiste');
 
 	//Registro
 	define ('_TITULOREGISTRO','MODULO DI REGISTRAZIONE');
@@ -1387,7 +1390,7 @@ else if ($idioma==3) //Catalan
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	http://www.allwords.com
 
-	//Página resultados
+	//Pï¿½gina resultados
 	define ('_RESULTADOS','Results');
 	define ('_IDA','First leg'); 
 	define ('_VUELTA','Second leg'); 
@@ -1401,7 +1404,7 @@ else if ($idioma==3) //Catalan
 	define ('_PROMOCION','Promote');
 	define ('_CALENDARIONODISPONIBLE','Calendar not available');
 
-	//Página quiniela
+	//Pï¿½gina quiniela
 	define ('_VOLVERQUINIELA','Return to quiniela'); 
 	define ('_PARTIDOS','Matches'); 
 	define ('_PARTIDO','Match'); 
@@ -1422,7 +1425,7 @@ else if ($idioma==3) //Catalan
 	define ('_ENVIARQUINIELA','Send');
 	define ('_TIEMPOTERMINADO','El tiempo para rellenar la quiniela a terminado');
 
-	//Página encuesta
+	//Pï¿½gina encuesta
 	define ('_ENCUESTA','Poll'); 
 	define ('_PREGUNTA','Who you think that Liga will win?'); 
 	define ('_EQUIPOENCUESTA','Team'); 
@@ -1435,14 +1438,14 @@ else if ($idioma==3) //Catalan
 	define ('_PORCENTAGESENCUESTA','Percentage');
 	define ('_VOTANTESSENCUESTA','Voters');
 	
-	//Página goleadores
+	//Pï¿½gina goleadores
 	define ('_VOLVERRESULTADOS','Return to results'); 
 	define ('_VOLVERPROMOCION','Return to promote');
 	define ('_CAMPO','Stadium'); 
 	define ('_SOLOREGISTRADOSCOMENTARIOS','Registered if you want to leave your commentary');
 	define ('_FECHAPARTIDO','Date');
 
-	//Página clasificación
+	//Pï¿½gina clasificaciï¿½n
 	define ('_CLASIFICACION','league table position'); 
 	define ('_EQUIPO','Team'); 
 	define ('_PUNTOS','Points'); 
@@ -1643,27 +1646,27 @@ else if ($idioma==3) //Catalan
 	define ('_ACTIVIDADES6','Ball games and football matches in order to capture in the field daily lessons.');
 	define ('_PLAZASLIMITADAS','Limited capacity in order of registration. (30 places)');
 	define ('_PRECIOS','PRICE LIST');
-	define ('_PRECIOSMAÑANA','Prices only in the morning (9:30 to 14:00)');
+	define ('_PRECIOSMAï¿½ANA','Prices only in the morning (9:30 to 14:00)');
 	define ('_PRECIOSTARDE','Prices only in the evening (16:00 to 18:00)');
 	define ('_PRECIOSTODODIA','PPrices for all day (9:30 to 18:00)');
 	define ('_UNASEMANA','A week');
 	define ('_DOSSEMANAS','Two weeks');
 	define ('_TRESSEMANAS','Three weeks');
 	define ('_COMEDOR','Dining room');
-	define ('_UNASEMANACOMEDOR','A week of dining room: 40 €');
-	define ('_UNDIACOMEDOR','One day dining: 8 €');
+	define ('_UNASEMANACOMEDOR','A week of dining room: 40 ï¿½');
+	define ('_UNDIACOMEDOR','One day dining: 8 ï¿½');
 	define ('_MASINFORMACION','For more information');
 	define ('_MASINFORMACION1','Go through the offices of the club every evening from 18:00 to 22:00.');
-	define ('_MASINFORMACION2','Call Center Coordinator of Atlético Centro Hospitalense, Francisco Bueno, phones:');
+	define ('_MASINFORMACION2','Call Center Coordinator of Atlï¿½tico Centro Hospitalense, Francisco Bueno, phones:');
 	
 	//Torneo
-	define ('_TORNEO','V TOURNAMENT JORDI ALBA ATLÉTICO CENTRO HOSPITALENSE');
+	define ('_TORNEO','V TOURNAMENT JORDI ALBA ATLï¿½TICO CENTRO HOSPITALENSE');
 	define ('_TORNEOEQUIPOS','Participating teams');
 	define ('_TORNEOREGLAMENTO','Regulation');
 	define ('_TORNEOPARTIDOS','Matches');
-	define ('_REGLAMENTOTITULO','Regulation of the V Tournament Jordi Alba Atlético Centro Hospitalense');
-	define ('_REGLAMENTONORMA1','The participating teams will comprise a maximum of 18 players into categories Infantil, Juvenil, Amateur and Veteran, and a maximum of 12 players on Promises, Pre-Benjamin, Benjamin and Alevín.');
-	define ('_REGLAMENTONORMA2','The tournament will be governed by the rules of F. C. F. for categories Benjamin, Alevín, Infantil, Juvenil, Amateur and Veterans, and the rules of the Consell Esportiu of L\'Hospitalet in Promises, Pre-Benjamin, Benjamin School and Alevin School.');
+	define ('_REGLAMENTOTITULO','Regulation of the V Tournament Jordi Alba Atlï¿½tico Centro Hospitalense');
+	define ('_REGLAMENTONORMA1','The participating teams will comprise a maximum of 18 players into categories Infantil, Juvenil, Amateur and Veteran, and a maximum of 12 players on Promises, Pre-Benjamin, Benjamin and Alevï¿½n.');
+	define ('_REGLAMENTONORMA2','The tournament will be governed by the rules of F. C. F. for categories Benjamin, Alevï¿½n, Infantil, Juvenil, Amateur and Veterans, and the rules of the Consell Esportiu of L\'Hospitalet in Promises, Pre-Benjamin, Benjamin School and Alevin School.');
 	define ('_REGLAMENTONORMA3','The tournament will be held in the form of triangular for all the youth football game and only the amateur and veterans.');
 	define ('_REGLAMENTONORMA4','TRIANGULAR: teams will play two games in two parts each, the time stipulated in the rules of the tournament to its category.');
 	define ('_REGLAMENTONORMA5','SINGLE MATCH: amateurs and veterans play a game with the stipulated time in its category.');
@@ -1671,7 +1674,7 @@ else if ($idioma==3) //Catalan
 	define ('_REGLAMENTONORMA7','Any player who is sent off with red card may not play the next game.');
 	define ('_REGLAMENTONORMA8','All teams must submit the appropriate tabs at least 20 minutes before starting the game.');
 	define ('_REGLAMENTONORMA9','The team that does not respect and follow the proper conduct of the tournament will be expelled from it. This standard includes the fans that came with the team.');
-	define ('_REGLAMENTONORMA10','It will allow the participation of three players with DNI in category Cadetes, Juvenil, Amateur and Veteran, and three players with DNI or Birth Certificate in categories Pre-Benjamin, Benjamin, Aleví and Infantil.');
+	define ('_REGLAMENTONORMA10','It will allow the participation of three players with DNI in category Cadetes, Juvenil, Amateur and Veteran, and three players with DNI or Birth Certificate in categories Pre-Benjamin, Benjamin, Alevï¿½ and Infantil.');
 	define ('_REGLAMENTONORMA11','The estimated times for the duration of the matches will be:<br><ul><li>Promises: 2 parts of 10 minutes and 5 minutes of rest (triangular).</li><li>Pre-Benjamin School: 2 parts of 10 minutes and 5 minutes of rest (triangular).</li><li>Benjamin School: 2 parts of 12 minutes and 5 minutes of rest (triangular).</li><li>Infantil/Cadet School: 2 parts of 20 minutes and 5 minutes of rest (triangular).</li><li>Pre-Benjamin Catalana: 2 parts of 10 minutes and 5 minutes of rest (triangular).</li><li>Benjamin Catalana: 2 parts of 12 minutes and 5 minutes of rest (triangular).</li><li>Alevin Catalana: 2 parts of 15 minutes and 5 minutes of rest (triangular).</li><li>Infantil: 2 parts of 18 minutes and 5 minutes of rest (triangular).</li><li>Juvenil: 2 partes of 30 minutes and 5 minutes of rest (triangular).</li><li>Amateur: 2 parts of 45 minutes.</li><li>Veterans: 2 parts of 45 minutes.</li></ul>');
 	define ('_REGLAMENTONORMA12','The tournament committee reserves the right to any changes in the functioning of the tournament in order to improve during the same.');
 	define ('_TORNEOTROFEOS','Trophies');
