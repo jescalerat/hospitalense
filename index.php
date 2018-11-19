@@ -5,7 +5,7 @@
 	{
 		$_SESSION["admin_web"]=$_GET["admin_web"];
 	}
-	
+	  
 	require_once("conf/traduccion.php");
 	require_once("conf/funciones.php");
 	include_once("conf/conexion.php");
