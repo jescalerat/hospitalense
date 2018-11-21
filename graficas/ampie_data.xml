@@ -1,0 +1,5 @@
+<pie>
+	<slice title="Ganados" pull_out="false">20</slice>
+	<slice title="Empatados" pull_out="false">5</slice>
+	<slice title="Perdidos" pull_out="false">10</slice>
+</pie>
