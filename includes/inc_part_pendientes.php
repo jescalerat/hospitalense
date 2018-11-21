@@ -1,8 +1,8 @@
 ﻿<?php
-	require_once($_SESSION["ruta"]."conf/traduccion.php");
-	require_once($_SESSION["ruta"]."conf/funciones.php");
-	require_once($_SESSION["ruta"]."conf/conexion.php");
-	$link=Conectarse();
+	/*require_once("conf/traduccion.php");
+	require_once("conf/funciones.php");
+	require_once("conf/conexion.php");
+	$link=Conectarse();*/
   
 	if (isset($_GET['IdCategoria']))
 	{

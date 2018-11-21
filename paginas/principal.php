@@ -21,7 +21,7 @@
 ?>
 
 	<div id="noticias">
-		<?php require_once($_SESSION["ruta"]."paginas/noticias.php"); ?>
+		<?php require_once("noticias.php"); ?>
 	</div>
 	
 	<br>
@@ -32,6 +32,7 @@
 		</tr>
 <?php	
 	
+	/*	
 	$query="select * from categoria c, liga l, ( ";
 	$query.="select idcategoria, max(jornada) as jornada from liga where idcategoria in ( ";
 	$query.="select idcategoria from categoria where retirado=0 order by orden ";
@@ -41,6 +42,16 @@
 	$query.="where l.IdCategoria=t.idcategoria and l.Jornada=t.jornada ";
 	$query.="AND ((l.equipo1=1 AND l.equipo2!=9999 and l.SubCategoriaLocal=right(c.Categoria,1)) OR (l.equipo1!=9999 AND l.equipo2=1 and l.SubCategoriaVisitante=right(c.Categoria,1))) ";
 	$query.="and c.IdCategoria=l.IdCategoria order by c.orden ";
+*/
+
+    $query  = "select * from categoria c, liga l, ( ";
+    $query .= "select idcategoria, max(Jornada) as Jornada from liga where ResultEquipo1 is not null and ResultEquipo2 is not null and idcategoria in ( ";
+    $query .= "select idcategoria from categoria where retirado=0 order by orden ";
+    $query .= ") group by idcategoria) t ";
+    $query .= "where l.IdCategoria=t.idcategoria and l.Jornada=t.jornada ";
+    $query .= "and c.IdCategoria=l.IdCategoria ";
+    $query .= "and (l.equipo1=1 or l.equipo2=1) ";
+    $query .= "order by c.orden ";
 	
 	$proximajornada=mysqli_query ($link, $query);
 	
@@ -86,6 +97,7 @@
 		</tr>
 <?php	
 	
+	/*	
 	$query="select * from categoria c, liga l, ( ";
 	$query.="select idcategoria, min(jornada) as jornada from liga where idcategoria in ( ";
 	$query.="select idcategoria from categoria where retirado=0 order by orden ";
@@ -95,7 +107,17 @@
 	$query.="where l.IdCategoria=t.idcategoria and l.Jornada=t.jornada ";
 	$query.="AND ((l.equipo1=1 AND l.equipo2!=9999 and l.SubCategoriaLocal=right(c.Categoria,1)) OR (l.equipo1!=9999 AND l.equipo2=1 and l.SubCategoriaVisitante=right(c.Categoria,1))) ";
 	$query.="and c.IdCategoria=l.IdCategoria order by c.orden ";
-	
+    */
+
+	$query  = "select * from categoria c, liga l, ( ";
+    $query .= "select idcategoria, max(Jornada)+1 as Jornada from liga where ResultEquipo1 is not null and ResultEquipo2 is not null and idcategoria in ( ";
+    $query .= "select idcategoria from categoria where retirado=0 order by orden ";
+    $query .= ") group by idcategoria) t ";
+    $query .= "where l.IdCategoria=t.idcategoria and l.Jornada=t.jornada ";
+    $query .= "and c.IdCategoria=l.IdCategoria ";
+    $query .= "and (l.equipo1=1 or l.equipo2=1) ";
+    $query .= "order by c.orden ";
+        
 	$proximajornada=mysqli_query ($link, $query);
 	
 	while($principal=mysqli_fetch_array($proximajornada, MYSQLI_BOTH))

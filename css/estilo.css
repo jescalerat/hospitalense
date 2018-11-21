@@ -105,6 +105,7 @@ td
 {
 	border-collapse: collapse;
 	border: 0px;
+	border-style: none;
 }
 
 h1

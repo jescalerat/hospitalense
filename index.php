@@ -82,10 +82,10 @@
 	}
 	print ("<body class=\"principal\" onload=\"startList();cargarPagina(".$pagina.");\">");
     
-	$ruta = substr($_SERVER['SCRIPT_FILENAME'], 0, strrpos($_SERVER['SCRIPT_FILENAME'], '/'));
-	$_SESSION["ruta"] = $ruta.="/";
+	//$ruta = substr($_SERVER['SCRIPT_FILENAME'], 0, strrpos($_SERVER['SCRIPT_FILENAME'], '/'));
+	//$_SESSION["ruta"] = $ruta.="/";
 	//Servidor local
-	$_SESSION["rutaservidor"] = "http://".$_SERVER["SERVER_NAME"].":8081/workspace/hospitalense/";
+	//$_SESSION["rutaservidor"] = "http://".$_SERVER["SERVER_NAME"].":8081/workspace/hospitalense/";
 	//Servidor internet
 	//$_SESSION["rutaservidor"] = "http://".$_SERVER["HTTP_HOST"]."/";
 	
@@ -114,14 +114,14 @@
 
         <!-- Cabecera -->
         <header>
-            <?php require_once($_SESSION["ruta"]."menu/menu.php"); ?>
+            <?php require_once("menu/menu.php"); ?>
         </header>
 
         <!-- Contenido -->
         <section>
             
             <div id="principal">
-				<?php require_once($_SESSION["ruta"]."paginas/principal.php"); ?>
+				<?php require_once("paginas/principal.php"); ?>
 			</div>
         </section>
 

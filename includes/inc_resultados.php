@@ -1,18 +1,6 @@
 ﻿<?php
-	if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    }
-	$nueva_ruta = $_SESSION["ruta"];
-	/*if (!isset($link))
-	{
-		$nueva_ruta = "../";
-		$nueva_ruta_sevidor = "../";
-		require_once($nueva_ruta."conf/funciones.php");
-		require_once($nueva_ruta."conf/conexion.php");
-		require_once($nueva_ruta."conf/traduccion.php");
-		$link=Conectarse();
-	}*/
+    session_start();
+    require_once("conexiones.php");
     
 	if (isset($_GET['IdCategoria']))
 	{
@@ -28,22 +16,6 @@
 	{
 		$jornada=$_GET['Jornada'];
 	}
-	/*else if (isset($_SESSION['jornadasessionresult']))
-	{
-		$jornada=$_SESSION['jornadasessionresult'];
-		if ($categoria == 15 || $categoria == 16 || $categoria == 19 || $categoria == 20 || $categoria == 21 || $categoria == 24)
-		{
-			$query="select max(Jornada) as Jornada from liga where ResultEquipo1 is not null and ResultEquipo2 is not null and IdCategoria=".$categoria;
-	    $q=mysql_query ($query,$link);
-	
-		  $jornada=mysql_result($q,0,"Jornada");
-		  
-		  if ($jornada==null)
-		  {
-		  	$jornada=1;
-		  }
-		}
-	}*/
 	else
 	{
 		$query="select max(Jornada) as Jornada from liga where ResultEquipo1 is not null and ResultEquipo2 is not null and IdCategoria=".$categoria;
@@ -70,13 +42,13 @@
 	$tipo=1;
 	if (!isset($_GET["recarga"]))
 	{
-		include($nueva_ruta."includes/inc_jornada_cabecera.php");
+		include("inc_jornada_cabecera.php");
 	}
 
 ?>	
 	<div id="cargando_resultados">
 <?php		
-	print ($jornada.superindice($jornada)." "._JORNADA);
+	print ("<center>".$jornada.superindice($jornada)." "._JORNADA."</center>");
 
 	//Query
 	$query="Select * from liga where Jornada=".$jornada." and IdCategoria=".$categoria." order by IdLiga";
@@ -105,7 +77,7 @@
 
 	$fecha=$dia."-".$mes."-".$any;
 ?>
-   	<table class="tabla_sin_borde resultados w90">
+   	<table class="tabla_sin_borde w90">
    		<tr>
 			<th class="w20"><?= cambiarAcentos(_INCIDENCIAS) ?></th>
        		<th colspan="3"><center><?= $fecha ?></center></th>
@@ -186,7 +158,7 @@
 		}
 ?>
 		<tr>
-			<td colspan="4">
+			<td class="tabla_sin_borde" colspan="4">
 				<table align="center" class="tabla_sin_borde w50">
 					<tr>
 <?php 					
@@ -194,13 +166,13 @@
 						if ($jornadaanterior == 0)
 						{
 ?>
-							<td class="w40">&nbsp;</td>
+							<td class="tabla_sin_borde w40">&nbsp;</td>
 <?php 							
 						}
 						else
 						{
 ?>
-							<td class="w40"><a href="javascript:llamada_prototype('includes/inc_resultados.php?Jornada=<?= $jornadaanterior ?>&IdCategoria=<?= $categoria ?>&recarga=1','cargando_resultados')" class="resultados"><?= cambiarAcentos(_JORNADAANTERIOR) ?></a></td>
+							<td class="tabla_sin_borde w40"><a href="javascript:llamada_prototype('includes/inc_resultados.php?Jornada=<?= $jornadaanterior ?>&IdCategoria=<?= $categoria ?>&recarga=1','cargando_resultados')" class="resultados"><?= cambiarAcentos(_JORNADAANTERIOR) ?></a></td>
 <?php 							
 						}
 						if ($rowparametros["IdaVuelta"] == 1)
@@ -209,14 +181,14 @@
 							{
 								$jornadaida=$jornada-($totaljornadas/2);
 ?>								
-									<td><center><a href="javascript:llamada_prototype('includes/inc_resultados.php?Jornada=<?= $jornadaida ?>&IdCategoria=<?= $categoria ?>&recarga=1','cargando_resultados')" class="resultados"><?= _IDA ?></a></center></td>
+									<td class="tabla_sin_borde"><center><a href="javascript:llamada_prototype('includes/inc_resultados.php?Jornada=<?= $jornadaida ?>&IdCategoria=<?= $categoria ?>&recarga=1','cargando_resultados')" class="resultados"><?= _IDA ?></a></center></td>
 <?php 									
 							}
 							else
 							{
 								$jornadavuelta=$jornada+($totaljornadas/2);
 ?>								
-									<td><center><a href="javascript:llamada_prototype('includes/inc_resultados.php?Jornada=<?= $jornadavuelta ?>&IdCategoria=<?= $categoria ?>&recarga=1','cargando_resultados')" class="resultados"><?= _VUELTA ?></a></center></td>
+									<td class="tabla_sin_borde"><center><a href="javascript:llamada_prototype('includes/inc_resultados.php?Jornada=<?= $jornadavuelta ?>&IdCategoria=<?= $categoria ?>&recarga=1','cargando_resultados')" class="resultados"><?= _VUELTA ?></a></center></td>
 <?php 									
 							}
 						}
@@ -224,16 +196,16 @@
 						if ($jornadasiguiente > $totaljornadas)
 						{
 ?>							
-							<td class="w40">&nbsp;</td>
+							<td class="tabla_sin_borde w40">&nbsp;</td>
 <?php 							
 						}
 						else
 						{
 ?> 						
-							<td class="w40"><a href="javascript:llamada_prototype('includes/inc_resultados.php?Jornada=<?= $jornadasiguiente ?>&IdCategoria=<?= $categoria ?>&recarga=1','cargando_resultados')" class="resultados"><?= cambiarAcentos(_JORNADASIGUIENTE) ?></a></td>
+							<td class="tabla_sin_borde w40"><a href="javascript:llamada_prototype('includes/inc_resultados.php?Jornada=<?= $jornadasiguiente ?>&IdCategoria=<?= $categoria ?>&recarga=1','cargando_resultados')" class="resultados"><?= cambiarAcentos(_JORNADASIGUIENTE) ?></a></td>
 <?php 							
 						}
-?>>
+?>
 					</tr>						
 				</table>
 			</td>
