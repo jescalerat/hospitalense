@@ -64,11 +64,11 @@
 
 	<form name="cambiar_boton" method="post">
 		<ul id="tabnav">
-		<li class="<?php if ($tipo_clasificacion==0){print ("activo");}else{print ("inactivo");}?>" id="bt1"><a href="javascript:llamada_prototype('inc_mostrar_clasificacion.php?tipo_clasificacion=0&IdCategoria=<?php print ($categoria);?>','ContTabul');CambiarEstilo('bt1');"><?php print (_TABTODO);?></a></li>
-		<li class="<?php if ($tipo_clasificacion==1){print ("activo");}else{print ("inactivo");}?>" id="bt2"><a href="javascript:llamada_prototype('inc_mostrar_clasificacion.php?tipo_clasificacion=1&IdCategoria=<?php print ($categoria);?>','ContTabul');CambiarEstilo('bt2');"><?php print (_TABCASA);?></a></li>
-		<li class="<?php if ($tipo_clasificacion==2){print ("activo");}else{print ("inactivo");}?>" id="bt3"><a href="javascript:llamada_prototype('inc_mostrar_clasificacion.php?tipo_clasificacion=2&IdCategoria=<?php print ($categoria);?>','ContTabul');CambiarEstilo('bt3');"><?php print (_TABFUERA);?></a></li>
-		<li class="<?php if ($tipo_clasificacion==3){print ("activo");}else{print ("inactivo");}?>" id="bt4"><a href="javascript:llamada_prototype('inc_mostrar_clasificacion.php?tipo_clasificacion=3&IdCategoria=<?php print ($categoria);?>','ContTabul');CambiarEstilo('bt4');"><?php print (cambiarAcentos(_TAB1VUELTA));?></a></li>
-		<li class="<?php if ($tipo_clasificacion==4){print ("activo");}else{print ("inactivo");}?>" id="bt5"><a href="javascript:llamada_prototype('inc_mostrar_clasificacion.php?tipo_clasificacion=4&IdCategoria=<?php print ($categoria);?>','ContTabul');CambiarEstilo('bt5');"><?php print (cambiarAcentos(_TAB2VUELTA));?></a></li>
+    		<li class="<?php if ($tipo_clasificacion==0){print ("activo");}else{print ("inactivo");}?>" id="bt1"><a href="javascript:llamada_prototype('includes/inc_mostrar_clasificacion.php?tipo_clasificacion=0&IdCategoria=<?php print ($categoria);?>','ContTabul');CambiarEstilo('bt1');"><?php print (_TABTODO);?></a></li>
+    		<li class="<?php if ($tipo_clasificacion==1){print ("activo");}else{print ("inactivo");}?>" id="bt2"><a href="javascript:llamada_prototype('includes/inc_mostrar_clasificacion.php?tipo_clasificacion=1&IdCategoria=<?php print ($categoria);?>','ContTabul');CambiarEstilo('bt2');"><?php print (_TABCASA);?></a></li>
+    		<li class="<?php if ($tipo_clasificacion==2){print ("activo");}else{print ("inactivo");}?>" id="bt3"><a href="javascript:llamada_prototype('includes/inc_mostrar_clasificacion.php?tipo_clasificacion=2&IdCategoria=<?php print ($categoria);?>','ContTabul');CambiarEstilo('bt3');"><?php print (_TABFUERA);?></a></li>
+    		<li class="<?php if ($tipo_clasificacion==3){print ("activo");}else{print ("inactivo");}?>" id="bt4"><a href="javascript:llamada_prototype('includes/inc_mostrar_clasificacion.php?tipo_clasificacion=3&IdCategoria=<?php print ($categoria);?>','ContTabul');CambiarEstilo('bt4');"><?php print (cambiarAcentos(_TAB1VUELTA));?></a></li>
+    		<li class="<?php if ($tipo_clasificacion==4){print ("activo");}else{print ("inactivo");}?>" id="bt5"><a href="javascript:llamada_prototype('includes/inc_mostrar_clasificacion.php?tipo_clasificacion=4&IdCategoria=<?php print ($categoria);?>','ContTabul');CambiarEstilo('bt5');"><?php print (cambiarAcentos(_TAB2VUELTA));?></a></li>
 		</ul>
 		<div id="ContTabul">
 		<?php
