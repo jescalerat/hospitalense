@@ -9,47 +9,50 @@
 </head>
 
 <body>
-	<?php
-	 require_once("../conf/funciones.php");
-	 require_once("../conf/traduccion.php");
-	 require_once("../conf/conexion.php");
-   $link=Conectarse();
-   mysql_query ("SET NAMES 'utf8'");
+<?php
+    require_once("../conf/funciones.php");
+	require_once("../conf/traduccion.php");
+    require_once("../conf/conexion.php");
+    $link=Conectarse();
+    //mysqli_query ("SET NAMES 'utf8'");
 
 
-	 $id=$_GET['idequipo'];
-   $jornada=$_GET['Jornada'];
-	 $tipo_clasificacion=$_GET['tipoclasificacion'];
-	 $categoria=$_GET['IdCategoria'];
+	$id=$_GET['idequipo'];
+    $jornada=$_GET['Jornada'];
+	$tipo_clasificacion=$_GET['tipoclasificacion'];
+	$categoria=$_GET['IdCategoria'];
 	 
 	 //Query
-  $query="Select * from liga where Equipo1=".$id." and IdCategoria=".$categoria;
-	$q=mysql_query ($query,$link);
-	$SubCategoriaEquipo=mysql_result($q,0,"SubCategoriaLocal");
+    $query="Select * from liga where Equipo1=".$id." and IdCategoria=".$categoria;
+    $q=mysqli_query ($link, $query);
+    $rowliga=mysqli_fetch_array($q);
+    $SubCategoriaEquipo=$rowliga["SubCategoriaLocal"];
 
-   //Borrar la clasificacion anterior
-   $query="delete from clasificacion";
-   mysql_query($query,$link);
+    //Borrar la clasificacion anterior
+    $query="delete from clasificacion";
+    mysqli_query ($link, $query);
 
 	//Llamamos a la creación de la clasificacion
 	setClasificacion($jornada,$tipo_clasificacion,$categoria,$link);
 	
 	//Query
-  $query="select * from clasificacion where IdEquipo=".$id;
-  $q=mysql_query($query,$link);
+    $query="select * from clasificacion where IdEquipo=".$id;
+    $q=mysqli_query ($link, $query);
+    $rowclasificacion=mysqli_fetch_array($q);
   
-  //Query
-  $query="select * from equipos where IdEquipo=".$id;
-  $qequipo=mysql_query($query,$link);
+    //Query
+    $query="select * from equipos where IdEquipo=".$id;
+    $qequipo=mysqli_query ($link, $query);
+    $rowequipo=mysqli_fetch_array($qequipo);
   
-  $nombreequipo = mysql_result($qequipo,0,"NombreEquipo")." '".$SubCategoriaEquipo."'";
+    $nombreequipo = $rowequipo["NombreEquipo"]." '".$SubCategoriaEquipo."'";
 
 	$archivodatos = "datos/ampie_data".$id.".xml";
 	$fp = fopen($archivodatos, "w");
 	$string = "\n <pie>";
-	$string .= "\n <slice title=\""._GANADOS."\" pull_out=\"false\">".mysql_result($q,0,"Ganados")."</slice>";
-	$string .= "\n <slice title=\""._EMPATADOS."\" pull_out=\"false\">".mysql_result($q,0,"Empatados")."</slice>";
-	$string .= "\n <slice title=\""._PERDIDOS."\" pull_out=\"false\">".mysql_result($q,0,"Perdidos")."</slice>";
+	$string .= "\n <slice title=\""._GANADOS."\" pull_out=\"false\">".$rowclasificacion["Ganados"]."</slice>";
+	$string .= "\n <slice title=\""._EMPATADOS."\" pull_out=\"false\">".$rowclasificacion["Empatados"]."</slice>";
+	$string .= "\n <slice title=\""._PERDIDOS."\" pull_out=\"false\">".$rowclasificacion["Perdidos"]."</slice>";
 	$string .= "\n </pie>";
 	$write = fputs($fp, $string);
 	fclose($fp);

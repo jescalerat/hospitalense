@@ -131,6 +131,33 @@
 				</li>
 				<li><a href="#">Contacta</a></li>
 			</ul>
+			<form name="cambiar_idioma" id="cambiar_idioma" method="post" action="#">
+            	<center>
+            	<table border="0" width="50%">
+            		<tr>
+            			<?php
+                    			$query="select * from idiomas where IdIdioma <> ".$_SESSION['idiomapagina'];
+                    			$qidiomas=mysqli_query ($link, $query);
+                    			$filas=mysqli_num_rows($qidiomas);
+                    			$tantopociento=100/$filas;
+                    			
+                    			while($idioma=mysqli_fetch_array($qidiomas, MYSQLI_BOTH))
+            					{
+            			?>
+            					<td width="<?= $tantopociento ?>%" align="center">
+            						<a href="#"
+            							onclick="cargarCambioIdioma(<?= $idioma["IdIdioma"] ?>)"
+            							title="<?= cambiarAcentos(_CAMBIARIDIOMA) ?>">
+            							<img src="imagenes/<?= $idioma["Ruta"] ?>" width="30" height="20" alt="<?= cambiarAcentos($idioma["Idioma"]) ?>" title="<?= cambiarAcentos($idioma["Idioma"]) ?>"/>
+            						</a>
+            					</td>
+            			<?php
+            					}
+            			?>	
+            		</tr>
+            	</table>
+            	</center>
+            </form>
 		</div><!--/.nav-collapse -->
 	</div>
 </div>

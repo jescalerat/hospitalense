@@ -311,10 +311,9 @@ if ($idioma==1) //Español
 	define ('_MENUCLASIFICACIONFUERA','Fuera');
 	define ('_MENUCLASIFICACION1VUELTA','1ª vuelta');
 	define ('_MENUCLASIFICACION2VUELTA','2ª vuelta');
+	define ('_MENUEQUIPOS','Equipos');
 	define ('_MENUCAMPOS','Campos');
 	define ('_MENUTORNEO','Torneo');
-	define ('_MENUEQUIPOS','Otros equipos');
-	define ('_MENUEQUIPOSGRUPO','Equipos grupo');
 	define ('_MENUPAGINASAMIGAS','P&aacute;ginas amigas'); 
 	define ('_MENUPUBLICIDAD','Publicidad'); 
 	define ('_MENUFORO','Foro');
@@ -750,10 +749,9 @@ else if ($idioma==2) //Inglés
 	define ('_MENUCLASIFICACIONFUERA','Visitor');
 	define ('_MENUCLASIFICACION1VUELTA','1st leg');
 	define ('_MENUCLASIFICACION2VUELTA','2nd leg');
+	define ('_MENUEQUIPOS','Teams');
 	define ('_MENUCAMPOS','Stadiums');
 	define ('_MENUTORNEO','Tournament');
-	define ('_MENUEQUIPOS','Others teams');
-	define ('_MENUEQUIPOSGRUPO','Group teams');	
 	define ('_MENUPAGINASAMIGAS','Friendly pages'); 
 	define ('_MENUPUBLICIDAD','Partners'); 
 	define ('_MENUFORO','Forum');
@@ -1188,10 +1186,9 @@ else if ($idioma==3) //Catalan
 	define ('_MENUCLASIFICACIONFUERA','Fora');
 	define ('_MENUCLASIFICACION1VUELTA','1ª volta');
 	define ('_MENUCLASIFICACION2VUELTA','2ª volta');
+	define ('_MENUEQUIPOS','Equips');
 	define ('_MENUCAMPOS','Camps');
 	define ('_MENUTORNEO','Torneig');
-	define ('_MENUEQUIPOS','Altres equips');
-	define ('_MENUEQUIPOSGRUPO','Equips grup');
 	define ('_MENUPAGINASAMIGAS','Pàgines amigues'); 
 	define ('_MENUPUBLICIDAD','Publicitat'); 
 	define ('_MENUFORO','Fórum');

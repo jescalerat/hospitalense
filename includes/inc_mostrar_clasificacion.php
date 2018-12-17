@@ -39,7 +39,6 @@
     //Query
     $query = "select * from clasificacion where IdCategoria=" . $categoria . " and IdEquipo!=9999 order by Puntos desc, Golaverage desc, GolesFavor desc, GolesContra asc, Ganados desc, Empatados desc, Perdidos desc";
     $q=mysqli_query ($link, $query);
-    $rowclasificacion=mysqli_fetch_array($q);
 
     //Obtener el numero de filas devuelto
     $filas = mysqli_num_rows($q);
@@ -123,25 +122,26 @@
         }
 
         //Mostrar los valores de la base de datos
+        $x=0;
         while($clasificacion=mysqli_fetch_array($q, MYSQLI_BOTH))
         {
             $query="Select * from equipos where IdEquipo=".$clasificacion["IdEquipo"];
             $qequipo=mysqli_query ($link, $query);
             $rowequipo=mysqli_fetch_array($qequipo);
+            
+            $nombreEquipo = cambiarAcentos($rowequipo["NombreEquipo"])." '".$clasificacion["SubCategoria"]."'";
+            $partidosGanados = $clasificacion["Ganados"];
+            $partidosEmpatados = $clasificacion["Empatados"];
+            $partidosPerdidos = $clasificacion["Perdidos"];
 
             print($colores[$x]);
 
             print("<td width=5%><center>".($x+1)."</td>");
             print("<td width=20%>".cambiarAcentos($rowequipo["NombreEquipo"])." '".$clasificacion["SubCategoria"]."'</td>");
             print("<td width=5%><center>");
-            $coords="?idequipo=".$clasificacion["IdEquipo"]."&tipoclasificacion=".$tipo_clasificacion."&Jornada=".$jornada."&IdCategoria=".$categoria;
-?>
-	<a href="graficas/index.php<?= $coords ?>" 
-       onclick="return GB_showCenter('<?= cambiarAcentos(_GRAFICA) ?>', this.href, 500, 550)"
-       title="<?= cambiarAcentos(_GRAFICA) ?>">
-            <img src="graficas/icono_grafica.gif" alt="<?= cambiarAcentos(_GRAFICA) ?>" title="<?= cambiarAcentos(_GRAFICA) ?>" border="0">
-	</a>
-<?php
+            
+            include("inc_grafica_modal.php");
+            
             print("</td>");
             print("<td width=10%><center>".$clasificacion["Puntos"]."</td>");
             print("<td width=10%><center>".$clasificacion["Jugados"]."</td>");
@@ -151,6 +151,7 @@
             print("<td width=10%><center>".$clasificacion["GolesFavor"]."</td>");
             print("<td width=10%><center>".$clasificacion["GolesContra"]."</td>");
         print("</tr>");
+        $x++;
     }
     print ("</table>");
 

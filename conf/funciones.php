@@ -1,4 +1,25 @@
 ﻿<?php
+function idiomaPagina()
+{
+    //Comprobar idioma del navegador cliente
+    if ($_SERVER['HTTP_ACCEPT_LANGUAGE'] != ''){
+        // Miramos que idiomas ha definido:
+        $idiomas = explode(",", $_SERVER['HTTP_ACCEPT_LANGUAGE']); # Convertimos HTTP_ACCEPT_LANGUAGE en array
+        /* Recorremos el array hasta que encontramos un idioma del visitante que coincida con los idiomas en que está disponible nuestra web */
+        if (substr($idiomas[0], 0, 2) == "es"){$idioma = 1;}
+        else if (substr($idiomas[0], 0, 2) == "en"){$idioma = 2;}
+        else if (substr($idiomas[0], 0, 2) == "ca"){$idioma = 3;}
+        //else if (substr($idiomas[0], 0, 2) == "eu"){$idioma = 3;}
+        //else if (substr($idiomas[0], 0, 2) == "gl"){$idioma = 4;}
+        else {$idioma=1;}
+    }
+    
+    if (!isset($_SESSION["idiomapagina"]))
+    {
+        $_SESSION["idiomapagina"]=$idioma;
+    }
+}
+
 function diaSemana($diaDeSemana)
 {
 	switch ($diaDeSemana) {
