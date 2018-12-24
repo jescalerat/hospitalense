@@ -17,15 +17,15 @@
 	mysqli_free_result($qhistoria);
 
 ?>
-<h1 class="centrar"><?= cambiarAcentos(mb_strtoupper(_HISTORIA)) ?></h1>
+<h1 class="text-center"><?= cambiarAcentos(mb_strtoupper(_HISTORIA)) ?></h1>
 
-<table class="tabla_sin_borde w100">
+<table class="table">
 	<tr>
-		<td class="tabla_sin_borde w80" valign="top">
+		<td valign="top">
 			<p class="historia"><?= cambiarAcentos($descripcion) ?></p>
 		</td>
-		<td class="tabla_sin_borde w20" valign="top">
-			<?php require_once($_SESSION["ruta"]."includes/inc_galeria_fotos.php"); ?>
+		<td valign="top">
+			<?php require_once("inc_galeria_fotos.php"); ?>
 		</td>
 	</tr>
 </table>

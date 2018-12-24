@@ -1,10 +1,12 @@
 <center><h1><?= cambiarAcentos(strtoupper(_FORMULARIOS)) ?></h1></center>
 
-<table class="formularios w100">
-	<tr>
-		<th class="centrar w80"><?= cambiarAcentos(_FORMDESCRIPCION) ?></th>
-		<th class="centrar w20"><?= cambiarAcentos(_FORMDESCARGA) ?></th>
-	</tr>
+<table class="table">
+	<thead class="thead-dark">
+		<tr>
+			<th class="text-center"><?= cambiarAcentos(_FORMDESCRIPCION) ?></th>
+			<th class="text-center"><?= cambiarAcentos(_FORMDESCARGA) ?></th>
+		</tr>
+	</thead>
 	
 <?php
 	//Query
@@ -28,9 +30,9 @@
 			<td class="texto_destacado_negro">
 				<?= cambiarAcentos($descripcion) ?>
 			</td>
-			<td class="centrar">
+			<td class="text-center">
 				<a href="includes/inc_mostrar_foto.php?IdFormulario=<?= $formularios["IdFormulario"] ?>">
-					<img src="<?= $_SESSION["rutaservidor"] ?>imagenes/doc.png" height="42" width="42"/>
+					<img src="imagenes/doc.png" height="42" width="42"/>
 				</a> 
 			</td>
 		</tr>

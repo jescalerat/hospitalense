@@ -50,8 +50,8 @@
 
 ?>	
 	<div id="cargando_resultados">
+		<p class="text-center"><?= $jornada.superindice($jornada)." "._JORNADA ?></p>
 <?php		
-	print ("<center>".$jornada.superindice($jornada)." "._JORNADA."</center>");
 
 	//Query
 	$query="Select * from liga where Jornada=".$jornada." and IdCategoria=".$categoria." order by IdLiga";
@@ -80,11 +80,13 @@
 
 	$fecha=$dia."-".$mes."-".$any;
 ?>
-   	<table class="tabla_sin_borde w90">
-   		<tr>
-			<th class="w20"><?= cambiarAcentos(_INCIDENCIAS) ?></th>
-       		<th colspan="3"><center><?= $fecha ?></center></th>
-       	</tr>
+   	<table class="table table-bordered">
+   		<thead class="thead-dark">
+	   		<tr class="d-flex">
+				<th class="col-3 text-center"><?= cambiarAcentos(_INCIDENCIAS) ?></th>
+	       		<th class="col-9 text-center"><?= $fecha ?></th>
+	       	</tr>
+		</thead>
 <?php 
    	    //Mostrar los valores de la base de datos
 		while($liga=mysqli_fetch_array($qliga, MYSQLI_BOTH))
@@ -125,57 +127,57 @@
 			if (!$descansa)
 			{
 ?>				
-				<tr>
-					<td><?= $incidencias ?></td>	
-					<td class="w25"><?= cambiarAcentos($rowequipo1["NombreEquipo"])." '".$SubCategoriaEquipo1."'" ?></td>
+				<tr class="d-flex">
+					<td class="col-3"><?= $incidencias ?></td>	
+					<td class="col-4"><?= cambiarAcentos($rowequipo1["NombreEquipo"])." '".$SubCategoriaEquipo1."'" ?></td>
 <?php 					
 					if ($liga["Aplazado"]==1)
 					{
 ?>
-						<td class="w10"><center><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados"><?= _APLAZADO ?></center></td>
+						<td class="col-1"><center><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados"><?= _APLAZADO ?></center></td>
 <?php 						
 					}
 					else if ($liga["Aplazado"]==2)
 					{
 ?>						
-						<td class="w10"><center><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados"><?= _SUSPENDIDO ?></center></td>
+						<td class="col-1"><center><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados"><?= _SUSPENDIDO ?></center></td>
 <?php 						
 					}
 					else if (strcmp($liga["ResultEquipo1"],"")==0)
 					{
 ?>
-						<td class="w10"><center><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados">+info</center></td>
+						<td class="col-1"><center><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados">+info</center></td>
 <?php 						
 					}
 					else
 					{
 ?>						
-						<td class="w10"><center><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados"><?= $liga["ResultEquipo1"]."-".$liga["ResultEquipo2"] ?></a></center></td>
+						<td class="col-1"><center><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados"><?= $liga["ResultEquipo1"]."-".$liga["ResultEquipo2"] ?></a></center></td>
 <?php 						
 					}
 ?>					
-					<td class="w25"><?= cambiarAcentos($rowequipo2["NombreEquipo"])." '".$SubCategoriaEquipo2."'" ?></td>
+					<td class="col-4"><?= cambiarAcentos($rowequipo2["NombreEquipo"])." '".$SubCategoriaEquipo2."'" ?></td>
 				</tr>
 <?php 					
 			}
 		}
 ?>
 		<tr>
-			<td class="tabla_sin_borde" colspan="4">
-				<table align="center" class="tabla_sin_borde w50">
-					<tr>
+			<td colspan="4">
+				<nav aria-label="Page navigation example">
+			  		<ul class="pagination pagination-sm justify-content-center">
 <?php 					
 						$jornadaanterior = $jornada-1;
 						if ($jornadaanterior == 0)
 						{
 ?>
-							<td class="tabla_sin_borde w40">&nbsp;</td>
+							&nbsp;
 <?php 							
 						}
 						else
 						{
 ?>
-							<td class="tabla_sin_borde w40"><a href="javascript:llamada_prototype('includes/inc_resultados.php?Jornada=<?= $jornadaanterior ?>&IdCategoria=<?= $categoria ?>&recarga=1','cargando_resultados')" class="resultados"><?= cambiarAcentos(_JORNADAANTERIOR) ?></a></td>
+							<li class="page-item"><a class="page-link" href="javascript:llamada_prototype('includes/inc_resultados.php?Jornada=<?= $jornadaanterior ?>&IdCategoria=<?= $categoria ?>&recarga=1','cargando_resultados')"><?= cambiarAcentos(_JORNADAANTERIOR) ?></a></li>
 <?php 							
 						}
 						if ($rowparametros["IdaVuelta"] == 1)
@@ -184,14 +186,14 @@
 							{
 								$jornadaida=$jornada-($totaljornadas/2);
 ?>								
-									<td class="tabla_sin_borde"><center><a href="javascript:llamada_prototype('includes/inc_resultados.php?Jornada=<?= $jornadaida ?>&IdCategoria=<?= $categoria ?>&recarga=1','cargando_resultados')" class="resultados"><?= _IDA ?></a></center></td>
+									<li class="page-item"><a class="page-link" href="javascript:llamada_prototype('includes/inc_resultados.php?Jornada=<?= $jornadaida ?>&IdCategoria=<?= $categoria ?>&recarga=1','cargando_resultados')"><?= cambiarAcentos(_IDA) ?></a></li>
 <?php 									
 							}
 							else
 							{
 								$jornadavuelta=$jornada+($totaljornadas/2);
 ?>								
-									<td class="tabla_sin_borde"><center><a href="javascript:llamada_prototype('includes/inc_resultados.php?Jornada=<?= $jornadavuelta ?>&IdCategoria=<?= $categoria ?>&recarga=1','cargando_resultados')" class="resultados"><?= _VUELTA ?></a></center></td>
+									<li class="page-item"><a class="page-link" href="javascript:llamada_prototype('includes/inc_resultados.php?Jornada=<?= $jornadavuelta ?>&IdCategoria=<?= $categoria ?>&recarga=1','cargando_resultados')"><?= cambiarAcentos(_VUELTA) ?></a></li>
 <?php 									
 							}
 						}
@@ -199,18 +201,18 @@
 						if ($jornadasiguiente > $totaljornadas)
 						{
 ?>							
-							<td class="tabla_sin_borde w40">&nbsp;</td>
+							&nbsp;
 <?php 							
 						}
 						else
 						{
 ?> 						
-							<td class="tabla_sin_borde w40"><a href="javascript:llamada_prototype('includes/inc_resultados.php?Jornada=<?= $jornadasiguiente ?>&IdCategoria=<?= $categoria ?>&recarga=1','cargando_resultados')" class="resultados"><?= cambiarAcentos(_JORNADASIGUIENTE) ?></a></td>
+							<li class="page-item"><a class="page-link" href="javascript:llamada_prototype('includes/inc_resultados.php?Jornada=<?= $jornadasiguiente ?>&IdCategoria=<?= $categoria ?>&recarga=1','cargando_resultados')"><?= cambiarAcentos(_JORNADASIGUIENTE) ?></a></li>
 <?php 							
 						}
 ?>
-					</tr>						
-				</table>
+					</ul>						
+				</nav>
 			</td>
 		</tr>
 	</table>	

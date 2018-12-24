@@ -6,11 +6,11 @@
 	$rowcategoria=mysqli_fetch_array($qcategoria);
 	
 ?>
-<center><h1><?= cambiarAcentos(strtoupper($rowcategoria["Categoria"]))?></h1></center>
+<h1 class="text-center"><?= cambiarAcentos(strtoupper($rowcategoria["Categoria"]))?></h1>
 
-<table class="tabla_sin_borde w100">
+<table class="table">
   <tr>
-    <td class="centrar">
+    <td class="text-center">
 		<?php
 			if ($rowcategoria["Foto"] != ""){
 		?>
@@ -42,20 +42,20 @@
 	if ($filasentrenadores > 0){
 ?>
 
-<center><h2><?= cambiarAcentos(strtoupper(_PLANTILLAENTRENADORES))?></h2></center>
+<h2 class="text-center"><?= cambiarAcentos(strtoupper(_PLANTILLAENTRENADORES))?></h2>
 
 <?php
 	}
 ?>
 
-<table class="w100">
+<table class="table">
 <?php
 	//Mostrar los valores de la base de datos
 	while($entrenadores=mysqli_fetch_array($qentrenadores, MYSQLI_BOTH))
 	{
 ?>
 	  <tr>
-		<td class="centrar w30">
+		<td class="text-center">
 			<?php
 				if ($entrenadores["Foto"] != ""){
 			?>
@@ -68,7 +68,7 @@
 				}
 			?>
 		</td>	
-		<td class="plantilla w70"><?= cambiarAcentos($entrenadores["Nombre"]." ".$entrenadores["Apellido1"]." ".$entrenadores["Apellido2"])?></td>
+		<td ><?= cambiarAcentos($entrenadores["Nombre"]." ".$entrenadores["Apellido1"]." ".$entrenadores["Apellido2"])?></td>
 	  </tr>
 <?php
 	}
@@ -89,20 +89,20 @@
 	if ($filasjugadores > 0){
 ?>
 
-<center><h2><?= cambiarAcentos(strtoupper(_PLANTILLAJUGADORES))?></h2></center>
+<h2 class="text-center"><?= cambiarAcentos(strtoupper(_PLANTILLAJUGADORES))?></h2>
 
 <?php
 	}
 ?>
 
-<table class="w100">
+<table class="table">
 <?php
 	//Mostrar los valores de la base de datos
 	while($jugadores=mysqli_fetch_array($qjugadores, MYSQLI_BOTH))
 	{
 ?>
 	  <tr>
-		<td class="centrar w30">
+		<td class="text-center">
 			<?php
 				if ($jugadores["Foto"] != ""){
 			?>
@@ -115,7 +115,7 @@
 				}
 			?>
 		</td>
-		<td class="plantilla w70"><?= cambiarAcentos($jugadores["Nombre"]." ".$jugadores["Apellido1"]." ".$jugadores["Apellido2"])?></td>
+		<td><?= cambiarAcentos($jugadores["Nombre"]." ".$jugadores["Apellido1"]." ".$jugadores["Apellido2"])?></td>
 	  </tr>
 <?php
 	}

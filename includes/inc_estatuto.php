@@ -3,11 +3,11 @@
 	$qestatuto = mysqli_query ($link, $query);
 	$rowestatuto=mysqli_fetch_array($qestatuto);
 ?>
-<center><h1><?= cambiarAcentos(strtoupper(_ESTATUTO)) ?></h1></center>
+<h1 class="text-center"><?= cambiarAcentos(strtoupper(_ESTATUTO)) ?></h1>
 
-<center>
+<p class="text-center">
 	<embed src="includes/inc_mostrar_foto.php?IdFormulario=<?= $rowestatuto["IdFormulario"] ?>" width="800" height="500"/>
-</center>
+</p>
 
 <?php
 	mysqli_free_result($qestatuto);

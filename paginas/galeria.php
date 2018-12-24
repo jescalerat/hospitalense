@@ -12,7 +12,7 @@
 	<table class="tabla_sin_borde w100">
 		<tr>
 			<td class="tabla_sin_borde">
-				<?php require_once($_SESSION["ruta"]."includes/inc_galeria.php"); ?>
+				<?php require_once("includes/inc_galeria.php"); ?>
 			</td>
 		</tr>
 	</table>

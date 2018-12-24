@@ -1,6 +1,4 @@
 <?php
-
-
 	
 //---------------------------------------------------------------------------------------------------------------
 		//Paginación
@@ -33,8 +31,10 @@
 		if ($totalnoticias > 0){
 ?>
 		<div id="noticias">
-			<table class="tabla_sin_borde w100">
+			<table class="table table-striped table-sm">
+			<div class="list-group">
 <?php			
+				$cont = 1;
 				while($noticias=mysqli_fetch_array($resultados, MYSQLI_BOTH))
 				{
 					$titulo="";
@@ -59,41 +59,52 @@
 					}
 ?>
 					<tr>
-						<td class="tabla_sin_borde">
+						<td>
 							<h1><?= cambiarAcentos($titulo) ?></h1>
 						</td>
 					</tr>
 					<tr>
-						<td class="tabla_sin_borde">
-							<h4><a class="noticias" href="javascript:ampliarNoticia('<?= cambiarAcentos($titulo) ?>','<?= cambiarAcentos($noticia) ?>',800,600)")><?= cambiarAcentos($noticiatrunc) ?></a></h4>
-							
+						<td>
+							<h4>
+								<a class="list-group-item list-group-item-action list-group-item-light" data-toggle="modal" data-target="#noticia<?= $cont ?>">
+									<?= cambiarAcentos($noticiatrunc) ?>
+								</a>
+							</h4>
+							<div class="modal fade" id="noticia<?= $cont ?>" tabindex="-1" role="dialog" aria-labelledby="noticiaTitle" aria-hidden="true">
+							  <div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <h5 class="modal-title" id="noticiaTitulo"><?= cambiarAcentos($titulo) ?></h5>
+							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							          <span aria-hidden="true">&times;</span>
+							        </button>
+							      </div>
+							      <div class="modal-body">
+							        <?= cambiarAcentos($noticia) ?>
+							      </div>
+							    </div>
+							  </div>
+							</div>
 						</td>
 					</tr>
 <?php
+					$cont++;
 				} //while($noticias=mysql_fetch_array($resultados))
 ?>
+			</div>
 			</table>
 <?php				
 			mysqli_free_result($resultados);
-
-			$division=$total_paginas*3; //El 3 es el tanto por ciento que se le da a cada pagina
-			$resta=(100-$division)/2;  //Resto el tanto por ciento que ocupan las paginas y lo divido para poner Anterior y Siguiente
 ?>
-			<p><center>
+			<p>
 
-			<table class="tabla_sin_borde w80">
-				<tr>
+			<nav aria-label="Page navigation example">
+			  <ul class="pagination pagination-sm justify-content-center">
 <?php
 				if(($pagina - 1) > 0)
 				{
 ?>				
-					<td class="tabla_sin_borde derecha" width="<?= $resta ?>%"><a href=javascript:llamada_prototype('paginas/noticias.php?paginacion=<?= ($pagina-1) ?>','noticias')><?= cambiarAcentos(_BUSCARANTERIOR) ?></a>&nbsp;&nbsp;</td>
-<?php				
-				}
-				else
-				{
-?>				
-					<td class="tabla_sin_borde" width="<?= $resta ?>%"></td>
+					<li class="page-item"><a class="page-link" href="javascript:llamada_prototype('paginas/noticias.php?paginacion=<?= ($pagina-1) ?>','noticias');"><?= cambiarAcentos(_BUSCARANTERIOR) ?></a></li>
 <?php				
 				}
 				
@@ -101,13 +112,13 @@
 					if ($pagina == $i)
 					{
 ?>					
-						<td class="tabla_sin_borde" width="3%"><b><?= $pagina ?></b></td>
+						<li class="page-item active"><a class="page-link" href="#"><?= $pagina ?></a></li>
 <?php					
 					}
 					else
 					{
 ?>					
-						<td class="tabla_sin_borde" width="3%"><a href=javascript:llamada_prototype('paginas/noticias.php?paginacion=<?= ($i) ?>','noticias')> <?= ($i) ?> </a></td>
+						<li class="page-item"><a class="page-link" href="javascript:llamada_prototype('paginas/noticias.php?paginacion=<?= ($i) ?>','noticias');"> <?= ($i) ?> </a></li>
 <?php
 					}
 				}
@@ -115,19 +126,12 @@
 				if(($pagina + 1)<=$total_paginas)
 				{
 ?>				
-					<td class="tabla_sin_borde" width="<?= $resta ?>%"><a href=javascript:llamada_prototype('paginas/noticias.php?paginacion=<?= ($pagina+1) ?>','noticias')><?= cambiarAcentos(_BUSCARSIGUIENTE) ?></a></td>
-<?php				
-				}
-				else
-				{
-?>				
-					<td class="tabla_sin_borde" width="<?= $resta ?>%"></td>
+					<li class="page-item"><a class="page-link" href="javascript:llamada_prototype('paginas/noticias.php?paginacion=<?= ($pagina+1) ?>','noticias');"><?= cambiarAcentos(_BUSCARSIGUIENTE) ?></a></li>
 <?php				
 				}
 ?>			
-				</tr>
-			</table>
-			</center>
+				</ul>
+			</nav>
 		</div>
 <?php	
 		}//if ($totalnoticias > 0)

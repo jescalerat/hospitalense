@@ -16,6 +16,6 @@
 	
 	mysqli_free_result($qsocio);
 ?>
-<center><h1><?= cambiarAcentos(strtoupper(_HACERTESOCIO)) ?></h1></center>
+<h1 class="text-center"><?= cambiarAcentos(strtoupper(_HACERTESOCIO)) ?></h1>
 
-<p class="socios"><?= cambiarAcentos($descripcion) ?></p>
+<p><?= cambiarAcentos($descripcion) ?></p>

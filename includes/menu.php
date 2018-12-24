@@ -2,7 +2,7 @@
 
 <div class="fixed-top">
 	<ul id="nav">
-		<li class="current"><a href="#" onclick="llamada_prototype('paginas/principal.php','principal');"><?= cambiarAcentos(_MENUINICIO) ?></a></li>
+		<li class="current"><a href="index.php"><?= cambiarAcentos(_MENUINICIO) ?></a></li>
 		<li><a href="#"><?= cambiarAcentos(_MENUCLUB) ?></a>
 			<ul>
 				<li><a href="#" onclick="llamada_prototype('paginas/historia.php','principal');"><?= cambiarAcentos(_MENUCLUBHISTORIA) ?></a></li>

@@ -13,7 +13,7 @@
 		<div class="row">
             <div class="col" id="principal">
 <?php
-              require_once("/paginas/principal.php");
+              require_once("/includes/inc_principal.php");
 ?>
             </div>
         </div>

@@ -4,24 +4,29 @@
 
 <!-- Modal -->
 <div class="modal fade" id="myModal<?= $x ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
+	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-					&times;
-				</button>
 				<h4 class="modal-title" id="myModalLabel">
 					<?= $nombreEquipo ?>
 				</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
 			</div>
 			<div class="modal-body">
 				<div id="chartContainer<?= $x ?>"></div>
 <?php
+
                     $totalPartidos = $partidosGanados + $partidosEmpatados + $partidosPerdidos;
                                         
                     $tantoganados = ($partidosGanados * 100) / $totalPartidos;
                     $tantoempatados = ($partidosEmpatados * 100) / $totalPartidos;
                     $tantoperdidos = ($partidosPerdidos * 100) / $totalPartidos;
+                    $tantoganados = round ($tantoganados, 2);
+                    $tantoempatados = round ($tantoempatados, 2);
+                    $tantoperdidos = round ($tantoperdidos, 2);
+                 
 
                     $dataPoints = array(
                         array("y" => $tantoganados, "legendText" => _GANADOS, "label" => _GANADOS),

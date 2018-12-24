@@ -1,8 +1,7 @@
-<center><h1><?= cambiarAcentos(strtoupper(_HIMNO)) ?></h1></center>
+<h1 class="text-center"><?= cambiarAcentos(strtoupper(_HIMNO)) ?></h1>
 
-<center>
+<p class="text-center">
 	<audio src="imagenes/himno.mp3" preload="auto" controls>
-	<p>Tu navegador no implementa el elemento audio</p>
 	</audio>
 	
 	<br><br>
@@ -67,4 +66,4 @@
 	Hospitalense, lucha y vencer&aacute;s <br>
 	Hospitalense, &iexcl;&iexcl;&iexcl;vamos a ganar!!!
 
-</center>
+</p>

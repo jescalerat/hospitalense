@@ -6,12 +6,12 @@
 	//Obtener el numero de filas devuelto
 	$filasdirectiva=mysqli_num_rows($qdirectiva);
 ?>
-<center><h1><?= cambiarAcentos(strtoupper(_DIRECTIVA)) ?></h1></center>
+<h1 class="text-center"><?= cambiarAcentos(strtoupper(_DIRECTIVA)) ?></h1>
 
 <?php
 	if ($filasdirectiva > 0){
 ?>
-		<table class="w100 directiva">
+		<table class="table">
 			
 			<?php
 				while($directiva=mysqli_fetch_array($qdirectiva, MYSQLI_BOTH))
@@ -26,13 +26,15 @@
 					}
 					$nombreDirectivo = $directiva["Nombre"]." ".$directiva["Apellido1"]." ". $directiva["Apellido2"];
 			?>	
+					<thead class="thead-dark">
+						<tr>
+							<th colspan="2" class="text-center">
+								<?= cambiarAcentos($cargo) ?>
+							</th>
+						</tr>
+					</thead>
 					<tr>
-						<th colspan="2" class="centrar">
-							<?= cambiarAcentos($cargo) ?>
-						</th>
-					</tr>
-					<tr>
-						<td class="w20 centrar">
+						<td class="text-center">
 						<?php
 							if ($directiva["Foto"] != ""){
 						?>

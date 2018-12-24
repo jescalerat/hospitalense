@@ -3,12 +3,8 @@
 	unset($_SESSION["pagina"]);
 	$_SESSION["pagina"]=2;
 	
-	require_once("../conf/traduccion.php");
-	require_once("../conf/conexion.php");
-	require_once("../conf/funciones.php");
-	
+	require_once("../includes/conexiones.php");
 
-	$link=Conectarse();
 	$query="Select * from categoria where IdCategoria=".$_GET['IdCategoria'];
 	$qcategoriares=mysqli_query ($link, $query);
 	$rowcategoria=mysqli_fetch_array($qcategoriares);
@@ -34,16 +30,16 @@
 	if ($calendario)
 	{
 ?>			
-		<center>
-			<table class="tabla_sin_borde w95">
+		<p class="text-center">
+			<table class="table">
 				<tr>
 					<td>
-						<h2><center><?= cambiarAcentos(strtoupper($rowcategoria["Categoria"]))." ".cambiarAcentos(strtoupper($rowcategoria["Division"])) ?></h2>
+						<h2 class="text-center"><?= cambiarAcentos(strtoupper($rowcategoria["Categoria"]))." ".cambiarAcentos(strtoupper($rowcategoria["Division"])) ?></h2>
 					</td>
 				</tr>
 				<tr>
 					<td>		
-						<h2><center><?= cambiarAcentos(strtoupper(_RESULTADOS)) ?></h2>
+						<h3 class="text-center"><?= cambiarAcentos(strtoupper(_RESULTADOS)) ?></h3>
 						<?php require_once("../includes/inc_resultados.php"); ?>
 					</td>
 				</tr>
