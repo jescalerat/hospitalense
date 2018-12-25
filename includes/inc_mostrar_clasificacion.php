@@ -54,70 +54,85 @@
     {
         if (!empty($jornada))
         {
-            print ("<h3><center>"._HASTAJORNADA." ".$jornada."</center></h3>");
+?>
+            <h6 class="text-center"><?= _HASTAJORNADA." ".$jornada ?></h6>
+<?php 
         }
         print ("<p>");
     }
 
     if ($tipo_clasificacion==1)
     {
-        print ("<h3><center>".cambiarAcentos(_PARTIDOSCASA)."</center></h3>");
+?>
+		<h3 class="text-center"><?= cambiarAcentos(_PARTIDOSCASA) ?></h3>
+<?php 
     }
     else if ($tipo_clasificacion==2)
     {
-        print ("<h3><center>".cambiarAcentos(_PARTIDOSFUERA)."</center></h3>");
+?>
+   		<h3 class="text-center"><?= cambiarAcentos(_PARTIDOSFUERA) ?></h3>
+<?php
     }
     else if ($tipo_clasificacion==3)
     {
-        print ("<h3><center>".cambiarAcentos(_PARTIDOS1VUELTA)."</center></h3>");
+?>
+		<h3 class="text-center"><?= cambiarAcentos(_PARTIDOS1VUELTA) ?></h3>
+<?php
     }
     else if ($tipo_clasificacion==4)
     {
-        print ("<h3><center>".cambiarAcentos(_PARTIDOS2VUELTA)."</center></h3>");
+?>
+   		<h3 class="text-center"><?= cambiarAcentos(_PARTIDOS2VUELTA) ?></h3>
+<?php
     }
+?>
+	
+	<table class="table table-bordered">
+   		<thead class="thead-dark">
+	   		<tr class="d-flex">
+	   			<th class="col-1 text-center"><?= cambiarAcentos(_POSICION) ?></th>  <!-- Posicion  -->
+	   			<th class="col-3 text-center"><?= cambiarAcentos(_EQUIPO) ?></th>  <!-- Nombre equipo  -->
+	   			<th class="col-1 text-center">&nbsp;</th> <!-- Grafica  -->
+	   			<th class="col-1 text-center"><?= cambiarAcentos(_PUNTOS) ?></th> <!-- Puntos  -->
+	   			<th class="col-1 text-center"><?= cambiarAcentos(_JUGADOS) ?></th> <!-- Jugados  -->
+	   			<th class="col-1 text-center"><?= cambiarAcentos(_GANADOS) ?></th> <!-- Ganados  -->
+	   			<th class="col-1 text-center"><?= cambiarAcentos(_EMPATADOS) ?></th> <!-- Empatados  -->
+	   			<th class="col-1 text-center"><?= cambiarAcentos(_PERDIDOS) ?></th> <!-- Perdidos  -->
+	   			<th class="col-1 text-center"><?= cambiarAcentos(_GF) ?></th> <!-- GF  -->
+	   			<th class="col-1 text-center"><?= cambiarAcentos(_GC) ?></th> <!-- GC  -->
+   			</tr>  
+   		</thead>
+  
 
-    print ("<table class=clasificacion>");
-        print ("<tr>");
-            print ("<th><center>".cambiarAcentos(_POSICION)."</th>"); //Nombre equipo
-            print ("<th><center>"._EQUIPO."</th>"); //Nombre equipo
-            print ("<th><center></th>"); //Grafica
-            print ("<th><center>"._PUNTOS."</th>"); //Puntos
-            print ("<th><center>"._JUGADOS."</th>"); //Jugados
-            print ("<th><center>"._GANADOS."</th>"); //Ganados
-            print ("<th><center>"._EMPATADOS."</th>"); //Empatados
-            print ("<th><center>"._PERDIDOS."</th>"); //Perdidos
-            print ("<th><center>"._GF."</th>"); //Goles a favor
-            print ("<th><center>"._GC."</th>"); //Goles en contra
-        print ("</tr>");
-
+<?php 
         $query="Select * from categoria where IdCategoria=".$categoria;
         $qcategoria=mysqli_query ($link, $query);
         $rowcategoria=mysqli_fetch_array($qcategoria);
 
         for ($x=0; $x < $filas; $x++)
         {
-            $colores[$x]="<tr>";
+            $colores[$x]="<tr class=\"d-flex\">";
         } 
 
         $totalsuben=0;
         $cuentasuben=$rowcategoria["Suben"];
         for ($x=0; $x < $cuentasuben; $x++)
         {
-            $colores[$x]="<tr class=sube>";
+            $colores[$x]="<tr class=\"bg-primary d-flex\">";
             $totalsuben++;
         }
         $totalpromocionan=$totalsuben;
         $cuentapromocionan=$rowcategoria["Promocionan"];
         for ($x=0; $x < $cuentapromocionan; $x++)
         {
-            $colores[$totalpromocionan]="<tr class=promociona>";
+            $colores[$totalpromocionan]="<tr class=\"table-warning d-flex\">";
             $totalpromocionan++;
         }
         $totalbajan=$filas-1;
         $cuentabajan=$rowcategoria["Bajan"];
         for ($x=0; $x < $cuentabajan; $x++)
         {
-            $colores[$totalbajan]="<tr class=desciende>";
+            $colores[$totalbajan]="<tr class=\"table-danger d-flex\">";
             $totalbajan--;
         }
 
@@ -135,60 +150,64 @@
             $partidosPerdidos = $clasificacion["Perdidos"];
 
             print($colores[$x]);
-
-            print("<td width=5%><center>".($x+1)."</td>");
-            print("<td width=20%>".cambiarAcentos($rowequipo["NombreEquipo"])." '".$clasificacion["SubCategoria"]."'</td>");
-            print("<td width=5%><center>");
-            
-            include("inc_grafica_modal.php");
-            
-            print("</td>");
-            print("<td width=10%><center>".$clasificacion["Puntos"]."</td>");
-            print("<td width=10%><center>".$clasificacion["Jugados"]."</td>");
-            print("<td width=10%><center><a href=javascript:llamada_prototype('paginas/estadisticas.php?equipo=".$clasificacion["IdEquipo"]."&SubCategoria=".$clasificacion["SubCategoria"]."&tipoclasificacion=".$tipo_clasificacion."&tipo=1&IdCategoria=".$categoria."&Jornada=".$jornada."','principal')>".$clasificacion["Ganados"]."</a></td>");
-            print("<td width=10%><center><a href=javascript:llamada_prototype('paginas/estadisticas.php?equipo=".$clasificacion["IdEquipo"]."&SubCategoria=".$clasificacion["SubCategoria"]."&tipoclasificacion=".$tipo_clasificacion."&tipo=0&IdCategoria=".$categoria."&Jornada=".$jornada."','principal')>".$clasificacion["Empatados"]."</a></td>");
-            print("<td width=10%><center><a href=javascript:llamada_prototype('paginas/estadisticas.php?equipo=".$clasificacion["IdEquipo"]."&SubCategoria=".$clasificacion["SubCategoria"]."&tipoclasificacion=".$tipo_clasificacion."&tipo=2&IdCategoria=".$categoria."&Jornada=".$jornada."','principal')>".$clasificacion["Perdidos"]."</a></td>");
-            print("<td width=10%><center>".$clasificacion["GolesFavor"]."</td>");
-            print("<td width=10%><center>".$clasificacion["GolesContra"]."</td>");
-        print("</tr>");
+?>
+            <td class="col-1 text-center"><?= ($x+1) ?></td>
+            <td class="col-3"><?= cambiarAcentos($rowequipo["NombreEquipo"])." '".$clasificacion["SubCategoria"]."'" ?></td>
+            <td class="col-1 text-center">
+            	<?php include("inc_grafica_modal.php"); ?>
+            </td>
+			<td class="col-1 text-center"><?= $clasificacion["Puntos"] ?></td>
+			<td class="col-1 text-center"><?= $clasificacion["Jugados"] ?></td>
+			<td class="col-1 text-center"><a href="javascript:llamada_prototype('paginas/estadisticas.php?equipo=<?= $clasificacion["IdEquipo"] ?>&SubCategoria=<?= $clasificacion["SubCategoria"] ?>&tipoclasificacion=<?= $tipo_clasificacion ?>&tipo=1&IdCategoria=<?= $categoria ?>&Jornada=<?= $jornada ?>','principal')"><?= $clasificacion["Ganados"] ?></a></td>
+			<td class="col-1 text-center"><a href="javascript:llamada_prototype('paginas/estadisticas.php?equipo=<?= $clasificacion["IdEquipo"] ?>&SubCategoria=<?= $clasificacion["SubCategoria"] ?>&tipoclasificacion=<?= $tipo_clasificacion ?>&tipo=0&IdCategoria=<?= $categoria ?>&Jornada=<?= $jornada ?>','principal')"><?= $clasificacion["Empatados"] ?></a></td>
+			<td class="col-1 text-center"><a href="javascript:llamada_prototype('paginas/estadisticas.php?equipo=<?= $clasificacion["IdEquipo"] ?>&SubCategoria=<?= $clasificacion["SubCategoria"] ?>&tipoclasificacion=<?= $tipo_clasificacion ?>&tipo=2&IdCategoria=<?= $categoria ?>&Jornada=<?= $jornada ?>','principal')"><?= $clasificacion["Perdidos"] ?></a></td>
+			<td class="col-1 text-center"><?= $clasificacion["GolesFavor"] ?></td>
+			<td class="col-1 text-center"><?= $clasificacion["GolesContra"] ?></td>
+        </tr>
+<?php 
         $x++;
     }
-    print ("</table>");
+?>    
+    </table>
 
+<?php 
     if ($tipo_clasificacion==0)
     {
-        print ("<p>");
-        print ("<table border=1 width=30% align=left>");
+?>
+        <p>
+        <table class="table col-4">
+<?php 
         if ($rowcategoria["Suben"]>0)
         {
-            print ("</td></tr><tr class=sube>");
-            print ("<td>".cambiarAcentos(_ASCIENDE)." ".cambiarAcentos($rowcategoria["Ascenso"]));
+?>
+            </td></tr><tr class="bg-primary">
+            <td><?= cambiarAcentos(_ASCIENDE)." ".cambiarAcentos($rowcategoria["Ascenso"]) ?>
+<?php 
         }
         if ($rowcategoria["Promocionan"]>0)
         {
-            print ("</td></tr><tr class=promociona>");
-            print ("<td>".cambiarAcentos(_PROMOCIONA)." ".cambiarAcentos($rowcategoria["Ascenso"]));
+?>
+            </td></tr><tr class="table-warning">
+            <td><?= cambiarAcentos(_PROMOCIONA)." ".cambiarAcentos($rowcategoria["Ascenso"]) ?>
+<?php 
         }
         if ($rowcategoria["Bajan"]>0)
         {
-            print ("</td></tr><tr class=desciende>");
-            print ("<td>".cambiarAcentos(_DESCIENDE)." ".cambiarAcentos($rowcategoria["Descenso"]));
+?>
+            </td></tr><tr class="table-danger">
+            <td><?= cambiarAcentos(_DESCIENDE)." ".cambiarAcentos($rowcategoria["Descenso"]) ?>
+<?php 
         }
-        print ("</td></tr>");
-    print ("</table>");
-
+?>
+        </td></tr>
+    	</table>
+<?php 
     $contarsancionados=count($equipossancionados);
     for ($x=0;$x<$contarsancionados;$x++)
     {
-        print ("<br>".cambiarAcentos($equipossancionados[$x][0].": "._SANCION.$equipossancionados[$x][1]." ".strtolower(_PUNTOS)));
-    }
-    print ("<br>");
-    print ("<br>");
-    print ("<br>");
-    if ($rowcategoria["Bajan"]>0)
-    {
-        print ("<br>");
-        print ("<br>");
+?>
+        <br><?= cambiarAcentos($equipossancionados[$x][0].": "._SANCION.$equipossancionados[$x][1]." ".strtolower(_PUNTOS)) ?>
+<?php
     }
 }
 

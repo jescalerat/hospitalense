@@ -3,23 +3,9 @@
 	unset($_SESSION["pagina"]);
 	$_SESSION["pagina"]=15;
 
-	require_once($_SESSION["ruta"]."conf/traduccion.php");
-	require_once($_SESSION["ruta"]."conf/funciones.php");
-	require_once($_SESSION["ruta"]."conf/conexion.php");
-	$link=Conectarse();
-?>	
+	require_once("../includes/conexiones.php");
+	require_once("../includes/inc_directiva.php");
 
-	<center>
-		<table class="tabla_sin_borde w95">
-			<tr>
-				<td class="tabla_sin_borde">
-					<?php require_once($_SESSION["ruta"]."includes/inc_directiva.php"); ?>
-				</td>
-			</tr>
-		</table>
-	</center>
-	
-<?php	
 	if (!isset($_SESSION["admin_web"]))
 	{
 		//Query para insertar los valores en la base de datos

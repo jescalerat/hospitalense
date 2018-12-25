@@ -1,6 +1,6 @@
-<center><h1><?= cambiarAcentos(mb_strtoupper(_ECONOMIA)) ?></h1></center>
+<h1 class="text-center"><?= cambiarAcentos(mb_strtoupper(_ECONOMIA)) ?></h1>
 
-<center><h3><?= cambiarAcentos(mb_strtoupper(_ECONOMIAINGRESOS)) ?></h3></center>
+<h3 class="text-center"><?= cambiarAcentos(mb_strtoupper(_ECONOMIAINGRESOS)) ?></h3>
 
 <?php
 	//Query
@@ -9,11 +9,13 @@
 
 ?>
 
-<table class="economia w100">
-  <tr>
-    <th class="centrar w70"><?= cambiarAcentos(_ECONOMIACONCEPTO) ?></th>
-    <th class="centrar w30"><?= cambiarAcentos(_ECONOMIAIMPORTE) ?></th>
-  </tr>
+<table class="table table-bordered">
+	<thead class="thead-dark">
+		<tr>
+		    <th class="text-center"><?= cambiarAcentos(_ECONOMIACONCEPTO) ?></th>
+		    <th class="text-center"><?= cambiarAcentos(_ECONOMIAIMPORTE) ?></th>
+	  	</tr>
+	</thead>
 <?php
 	//Mostrar los valores de la base de datos
 	$totalIngresos = 0;
@@ -30,25 +32,25 @@
 		$totalIngresos += $ingresos["Importe"];
 ?>
 	  <tr>
-		<td class="texto_destacado_negro"><?= cambiarAcentos($conceptoIngreso) ?></td>
-		<td class="centrar"><?= $ingresos["Importe"] ?> &euro;</td>
+		<td class="font-weight-bold"><?= cambiarAcentos($conceptoIngreso) ?></td>
+		<td class="text-center"><?= $ingresos["Importe"] ?> &euro;</td>
 	  </tr>
 <?php
 	}
 	mysqli_free_result($qingresos);
 ?>	  
-</table>
-
-<table class="economia w50" align="right">
-  <tr>
-    <th class="derecha texto_destacado_negro w40"><?= cambiarAcentos(strtoupper(_ECONOMIATOTAL)) ?>: </th>
-    <th class="centrar w60"><?= $totalIngresos ?> &euro;</th>
-  </tr>
+	<tr>
+	    <td colspan="2"></td>
+	</tr>
+	<tr>
+	    <td class="text-right font-weight-bold"><?= cambiarAcentos(strtoupper(_ECONOMIATOTAL)) ?>: </td>
+	    <td class="text-center"><?= $totalIngresos ?> &euro;</td>
+	</tr>
 </table>
 
 </br></br></br></br>
 
-<center><h3><?= cambiarAcentos(strtoupper(_ECONOMIAGASTOS)) ?></h3></center>
+<h3 class="text-center"><?= cambiarAcentos(strtoupper(_ECONOMIAGASTOS)) ?></h3>
 
 <?php
 	//Query
@@ -57,11 +59,13 @@
 	
 ?>
 
-<table border="1" class="economia w100">
-  <tr>
-    <th class="centrar w70"><?print (cambiarAcentos(_ECONOMIACONCEPTO));?></th>
-    <th class="centrar w30"><?print (cambiarAcentos(_ECONOMIAIMPORTE));?></th>
-  </tr>
+<table class="table table-bordered">
+	<thead class="thead-dark">
+  		<tr>
+		    <th class="text-center"><?print (cambiarAcentos(_ECONOMIACONCEPTO));?></th>
+		    <th class="text-center"><?print (cambiarAcentos(_ECONOMIAIMPORTE));?></th>
+		</tr>
+	</thead>
 <?php
 	//Mostrar los valores de la base de datos
 	$totalGastos = 0;
@@ -78,18 +82,18 @@
 		$totalGastos += $gastos["Importe"];
 ?>  
 	<tr>
-		<td class="texto_destacado_negro"><?= cambiarAcentos($conceptoGasto) ?></td>
-		<td class="centrar"><?= $gastos["Importe"] ?> &euro;</td>
+		<td class="font-weight-bold"><?= cambiarAcentos($conceptoGasto) ?></td>
+		<td class="text-center"><?= $gastos["Importe"] ?> &euro;</td>
 	</tr>
 <?php
 	}
 	mysqli_free_result($qgastos);
 ?>	
-</table>
-
-<table class="economia w50" align="right">
-  <tr>
-    <th class="derecha texto_destacado_negro w40"><?= cambiarAcentos(strtoupper(_ECONOMIATOTAL)) ?>: </th>
-    <th class="centrar w60"><?= $totalGastos ?> &euro;</th>
-  </tr>
+	<tr>
+	    <td colspan="2"></td>
+	</tr>
+	<tr>
+	    <td class="text-right font-weight-bold"><?= cambiarAcentos(strtoupper(_ECONOMIATOTAL)) ?>: </td>
+	    <td class="text-center"><?= $totalGastos ?> &euro;</td>
+	</tr>
 </table>

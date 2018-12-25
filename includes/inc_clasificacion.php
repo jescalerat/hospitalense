@@ -52,16 +52,9 @@
 		$categoria=$_SESSION['IdCategoria'];
 	}	
   
-	//Eliminar archivos de graficas
-	foreach (glob("../graficas/datos/*.xml") as $filename)
-	{
-		unlink($filename);
-	}
-	
- 	print ("<H2><center>".cambiarAcentos(strtoupper(_CLASIFICACION))."</H2>");
-
 	?>
 
+	<h3 class="text-center"><?= cambiarAcentos(mb_strtoupper(_CLASIFICACION)) ?></h3>
 	<form name="cambiar_boton" method="post">
 		<ul id="tabnav">
     		<li class="<?php if ($tipo_clasificacion==0){print ("activo");}else{print ("inactivo");}?>" id="bt1"><a href="javascript:llamada_prototype('includes/inc_mostrar_clasificacion.php?tipo_clasificacion=0&IdCategoria=<?php print ($categoria);?>','ContTabul');CambiarEstilo('bt1');"><?php print (_TABTODO);?></a></li>

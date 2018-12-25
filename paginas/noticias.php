@@ -1,19 +1,6 @@
-<?php
-	if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    }
-	
 
+<?php 
+	require_once("../includes/conexiones.php");
+	require_once("../includes/inc_noticias.php");
 ?>
-	
-	<table class="tabla_sin_borde w95">
-		<tr>
-			<td class="tabla_sin_borde">
-				<?php require_once("includes/inc_noticias.php"); ?>
-			</td>
-		</tr>
-	</table>
-
-
 

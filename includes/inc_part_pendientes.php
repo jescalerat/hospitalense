@@ -1,8 +1,4 @@
 ﻿<?php
-	/*require_once("conf/traduccion.php");
-	require_once("conf/funciones.php");
-	require_once("conf/conexion.php");
-	$link=Conectarse();*/
   
 	if (isset($_GET['IdCategoria']))
 	{
@@ -22,64 +18,68 @@
 	
 	if ($totalpartidospendientes > 0)
 	{
-		print ("<h1><center>".strtoupper(_PARTIDOSPENDIENTES)."</center></h1>");
-
-		print ("<table border=1 width=80% align=center>");
-			print ("<tr>");
-				print ("<th width=10%>"._PARTPENJORNADA);
-				print ("<th width=30%>"._PARTPENFECHA);
-				print ("<th>"._PARTPENPARTIDO);
-				print ("<th width=20%>"._PARTPENCAUSA);
-
-				while($partidospendientes=mysqli_fetch_array($qpendientes, MYSQLI_BOTH))
-				{
-					$fecha_larga=explode('-',$partidospendientes["Fecha"]);
-					$dia=$fecha_larga[0];
-					$mes_entero=$fecha_larga[1];
-					$any=$fecha_larga[2];
-
-					//Llamamos a la traducción del mes
-					$mes=mesAny($mes_entero);
-
-					$fecha=$dia."-".$mes."-".$any;
-
-					//Traducción del nombre de los equipos
-					$Equipo1=$partidospendientes["Equipo1"];
-					$SubCategoriaLocal=$partidospendientes["SubCategoriaLocal"];
-					$Equipo2=$partidospendientes["Equipo2"];
-					$SubCategoriaVisitante=$partidospendientes["SubCategoriaVisitante"];
-						
-					//Query para mostrar los nombres correctos de los equipos a partir
-					//de sus ids
-					$query="Select * from equipos where IdEquipo=".$Equipo1;
-					$qequipo1=mysqli_query ($link, $query);
-					$rowequipo1=mysqli_fetch_array($qequipo1);
-
-					$query="Select * from equipos where IdEquipo=".$Equipo2;
-					$qequipo2=mysqli_query ($link, $query);
-					$rowequipo2=mysqli_fetch_array($qequipo2);
-
-					if ($partidospendientes["Aplazado"]==1)
-					{
-						$causa=_APLAZADO;
-					}
-					else if ($partidospendientes["Aplazado"]==2)
-					{
-						$causa=_SUSPENDIDO;
-					}
-
-					print ("<tr>");
-						print ("<td><center>".$partidospendientes["Jornada"].superindice($partidospendientes["Jornada"])."</center>");
-						print ("<td>".$fecha);
-						print ("<td>".cambiarAcentos($rowequipo1["NombreEquipo"])." '".$SubCategoriaLocal."' - ".cambiarAcentos($rowequipo2["NombreEquipo"])." '".$SubCategoriaVisitante."'");
-						print ("<td>".$causa);
-						
-					mysqli_free_result($qequipo1);
-					mysqli_free_result($qequipo2);
-				}
-		print ("</table>");
+?>
+		<h3 class="text-center"><?= strtoupper(_PARTIDOSPENDIENTES) ?></h3>
+		
+		<div class="row">
+            <div class="col-2">
+                &nbsp;
+            </div>
+            <div class="col-8">
+                <table class="table table-bordered">
+                	<thead class="thead-dark">
+						<tr>
+							<th><?= _PARTPENJORNADA ?></th>
+							<th><?= _PARTPENFECHA ?></th>
+							<th><?= _PARTPENPARTIDO ?></th>
+							<th><?= _PARTPENCAUSA ?></th>
+						</tr>
+					</thead>
+<?php 
+							while($partidospendientes=mysqli_fetch_array($qpendientes, MYSQLI_BOTH))
+							{
+								$fecha_larga=explode('-',$partidospendientes["Fecha"]);
+								$dia=$fecha_larga[0];
+								$mes_entero=$fecha_larga[1];
+								$any=$fecha_larga[2];
+							
+								//Llamamos a la traducción del mes
+								$mes=mesAny($mes_entero);
+							
+								$fecha=$dia."-".$mes."-".$any;
+							
+								//Traducción del nombre de los equipos
+								$Equipo1=buscaEquipo($partidospendientes["Equipo1"],$link);
+								$SubCategoriaLocal=$partidospendientes["SubCategoriaLocal"];
+								$Equipo2=buscaEquipo($partidospendientes["Equipo2"],$link);
+								$SubCategoriaVisitante=$partidospendientes["SubCategoriaVisitante"];
+							
+							
+								if ($partidospendientes["Aplazado"]==1)
+								{
+									$causa=_APLAZADO;
+								}
+								else if ($partidospendientes["Aplazado"]==2)
+								{
+									$causa=_SUSPENDIDO;
+								}
+?>
+							<tr>
+								<td class="text-center"><?= $partidospendientes["Jornada"].superindice($partidospendientes["Jornada"]) ?></td>
+								<td><?= $fecha ?></td>
+								<td><?= $Equipo1." '".$SubCategoriaLocal."' - ".$Equipo2." '".$SubCategoriaVisitante."'" ?></td>
+								<td><?= $causa ?></td>
+							</tr>
+<?php 
+							}	
+?>
+                </table>
+            </div>
+            <div class="col-2">
+                &nbsp;
+            </div>
+       </div>
+<?php 
 	}
-	
 	mysqli_free_result($qpendientes);
-	
 ?>
