@@ -1,21 +1,11 @@
 <?php
     session_start();
-	unset($_SESSION["pagina"]);
-	$_SESSION["pagina"]=7;
+    unset($_SESSION["pagina"]);
+    $_SESSION["pagina"]=7;
+    
+    require_once("../includes/conexiones.php");
+    require_once("../includes/inc_estadisticas.php");
 
-	require_once("conexiones.php");
-?>	
-	<center>
-		<table class="tabla_sin_borde w95">
-			<tr>
-				<td class="tabla_sin_borde">
-					<?php require_once("inc_estadisticas.php"); ?>
-				</td>
-			</tr>
-		</table>
-	</center>
-	
-<?php	
 	if (!isset($_SESSION["admin_web"]))
 	{
 		//Query para insertar los valores en la base de datos

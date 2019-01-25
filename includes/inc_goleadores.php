@@ -40,7 +40,7 @@
 	$mes_entero=$fecha_larga[1];
 	$any=$fecha_larga[2];
 
-	//Llamamos a la traducción del mes
+	//Llamamos a la traducciï¿½n del mes
 	$mes=mesAny($mes_entero);
 
 	$fecha=$dia."-".$mes."-".$any;
@@ -71,75 +71,82 @@
 	if (isset($_GET['promo']))
 	{
 ?>	    
-		<center><a href="javascript:llamada_prototype('paginas/promocion.php?Jornada=<?= $_SESSION['jornadapromosessionresult'] ?>&IdCategoria=<?= $categoria ?>','principal')"> <?= cambiarAcentos(_VOLVERPROMOCION) ?></a></center>
+		<p class="text-center"><a class="btn btn-default btn-block" href="javascript:llamada_prototype('paginas/promocion.php?Jornada=<?= $_SESSION['jornadapromosessionresult'] ?>&IdCategoria=<?= $categoria ?>','principal')"><?= _VOLVERPROMOCION ?></a></p>
 <?php 		
 	}
 	else
 	{
 ?>
-		<center><a href="javascript:llamada_prototype('paginas/resultados.php?Jornada=<?= $_SESSION['jornadasessionresult'] ?>&IdCategoria=<?= $categoria ?>','principal')"> <?= cambiarAcentos(_VOLVERRESULTADOS) ?></a></center>
+		<p class="text-center"><a class="btn btn-default btn-block" href="javascript:llamada_prototype('paginas/resultados.php?Jornada=<?= $_SESSION['jornadasessionresult'] ?>&IdCategoria=<?= $categoria ?>','principal')"><?= _VOLVERRESULTADOS ?></a></p>
 <?php 
 	}
 
 	//Comprobar que existan los escudos
-	$foto_archivo1="../imagenes/escudos/".$escudo_equipo1;
-	$foto_archivo2="../imagenes/escudos/".$escudo_equipo2;
+	//$foto_archivo1="../imagenes/escudos/".$escudo_equipo1;
+	//$foto_archivo2="../imagenes/escudos/".$escudo_equipo2;
 	
-	$archivo1=$_SERVER['DOCUMENT_ROOT']."/imagenes/escudos/".$escudo_equipo1;
-	$archivo2=$_SERVER['DOCUMENT_ROOT']."/imagenes/escudos/".$escudo_equipo2;
+	$archivo1="imagenes/escudos/".$escudo_equipo1;
+	$archivo2="imagenes/escudos/".$escudo_equipo2;
 
 	if($_SESSION['idiomapagina']==1)
 	{
-		$nodisponible="../imagenes/no-disponible.gif";
+		$nodisponible="imagenes/no-disponible.gif";
 	}
 	else if ($_SESSION['idiomapagina']==2)
 	{
-		$nodisponible="../imagenes/no-disponible-en.gif";
+		$nodisponible="imagenes/no-disponible-en.gif";
 	}
 
- 	if ((file_exists($archivo1)||buscaEscudo($foto_archivo1))&&strcmp($escudo_equipo1,"")!=0)
+ 	//if ((file_exists($archivo1)||buscaEscudo($foto_archivo1))&&strcmp($escudo_equipo1,"")!=0)
+ 	if ((file_exists($archivo1)||buscaEscudo($archivo1))&&strcmp($escudo_equipo1,"")!=0)
 	{
-		$escudo_equipo1=$foto_archivo1;
+	    $escudo_equipo1=$archivo1;
 	}
 	else
 	{
 		$escudo_equipo1=$nodisponible;
 	}
 
-	if ((file_exists($archivo2)||buscaEscudo($foto_archivo2))&&strcmp($escudo_equipo2,"")!=0)
+	//if ((file_exists($archivo2)||buscaEscudo($foto_archivo2))&&strcmp($escudo_equipo2,"")!=0)
+	if ((file_exists($archivo2)||buscaEscudo($archivo2))&&strcmp($escudo_equipo1,"")!=0)
 	{
-		$escudo_equipo2=$foto_archivo2;
+	    $escudo_equipo2=$archivo2;
 	}
 	else
 	{
 		$escudo_equipo2=$nodisponible;
 	}
 ?>
-	<table border="1" class="w100">
-		<tr>
-			<td class="w50">
-				<center><img src="<?= $escudo_equipo1 ?>"></center>
-			</td>
-			<td>
-				<center><img src="<?= $escudo_equipo2 ?>"></center>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<center><?= cambiarAcentos($nombre_equipo1) ?></center>
-			</td>
-			<td>
-				<center><?= cambiarAcentos($nombre_equipo2) ?></center>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<center><?= $gol_eq1 ?></center>
-			</td>
-			<td>
-				<center><?= $gol_eq2 ?></center>
-			</td>
-		</tr>
+	<div class="row">
+        <div class="col-3">
+            &nbsp;
+        </div>
+        <div class="col-6">
+        	<table class="table table-bordered">
+        		<tr>
+        			<td class="text-center">
+        				<img src="<?= $escudo_equipo1 ?>">
+        			</td>
+        			<td class="text-center">
+        				<img src="<?= $escudo_equipo2 ?>">
+        			</td>
+        		</tr>
+        		<tr>
+        			<td class="text-center">
+        				<?= cambiarAcentos($nombre_equipo1) ?>
+        			</td>
+        			<td class="text-center">
+        				<?= cambiarAcentos($nombre_equipo2) ?>
+        			</td>
+        		</tr>
+        		<tr>
+        			<td class="text-center">
+        				<?= $gol_eq1 ?>
+        			</td>
+        			<td class="text-center">
+        				<?= $gol_eq2 ?>
+        			</td>
+        		</tr>
 <?php 
             //Query
             $query="Select * from goleadores where IdLiga=".$id." order by IdGoleador";
@@ -150,8 +157,8 @@
 				<tr>
         			<td colspan="2">
         				<br>
-        				<center>
-        					<table class="tabla_sin_borde w75">
+        				<p class="text-center">
+        					<table class="table">
 <?php 
                                 while($goleadores=mysqli_fetch_array($qgoleadores, MYSQLI_BOTH))
                                 {
@@ -170,72 +177,90 @@
                                     }
                                        
 ?>
-									<tr>
-										<td class="tabla_sin_borde w70">
+									<tr class="d-flex">
+										<td class="col-8">
 											<?= cambiarAcentos($nombre) ?>
 										</td>
-										<td class="tabla_sin_borde w20">
-											<center><?= $goleadores["Resultado"] ?></center>
+										<td class="text-center col-2">
+											<?= $goleadores["Resultado"] ?>
 										</td>
-										<td class="tabla_sin_borde w10">
-											<center><?= $goleadores["Minuto"] ?></center>
+										<td class="text-center col-2">
+											<?= $goleadores["Minuto"] ?>
 										</td>
 									</tr>
 <?php 
                                 } //while($goleadores=mysqli_fetch_array($qgoleadores, MYSQLI_BOTH))
 ?>
         					</table>
-        				</center>
+        				</p>
         				<br>
         			</td>
         		</tr>
 <?php 
             } //if (mysqli_num_rows($qgoleadores) > 0){
 ?>
-	</table>		
+			</table>
+		</div>
+		<div class="col-3">
+            &nbsp;
+        </div>
+	</div>		
 
 <!-- Incidencias -->
       	
 	</p>
-	<table border="1" class="w100">
-		<tr>
-			<td colspan="2">
-				<center><?= cambiarAcentos(_INCIDENCIAS) ?></center>
-			</td>
-		</tr>
-		<tr>
-			<th class="w20">
-				<?= cambiarAcentos(_FECHAPARTIDO) ?>
-			</th>
-			<td>
-				<?= cambiarAcentos($fecha) ?>
-			</td>
-		</tr>
-		<tr>
-			<th class="w20">
-				<?= cambiarAcentos(_CAMPO) ?>
-			</th>
-			<td>
-				<?= cambiarAcentos($estadio) ?>
-			</td>
-		</tr>
-		<tr>
-			<th class="w20">
-				<?= cambiarAcentos(_HORA) ?>
-			</th>
-			<td>
-				<?= $hora.":".$minutos ?>
-			</td>
-		</tr>
-		<tr>
-			<th class="w20">
-				<?= cambiarAcentos(_DIA) ?>
-			</th>
-			<td>
-				<?= diaSemana($dia_s) ?>
-			</td>
-		</tr>
-	</table>
+	
+	<div class="row">
+        <div class="col-3">
+            &nbsp;
+        </div>
+        <div class="col-6">
+        	<table class="table table-bordered">
+        		<thead class="thead-dark">
+            		<tr>
+            			<td colspan="2" class="text-center">
+            				<?= cambiarAcentos(_INCIDENCIAS) ?>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>
+            				<?= cambiarAcentos(_FECHAPARTIDO) ?>
+            			</th>
+            			<td>
+            				<?= cambiarAcentos($fecha) ?>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>
+            				<?= cambiarAcentos(_CAMPO) ?>
+            			</th>
+            			<td>
+            				<?= cambiarAcentos($estadio) ?>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>
+            				<?= cambiarAcentos(_HORA) ?>
+            			</th>
+            			<td>
+            				<?= $hora.":".$minutos ?>
+            			</td>
+            		</tr>
+            		<tr>
+            			<th>
+            				<?= cambiarAcentos(_DIA) ?>
+            			</th>
+            			<td>
+            				<?= diaSemana($dia_s) ?>
+            			</td>
+            		</tr>
+            	</thead>
+        	</table>
+        </div>
+        <div class="col-3">
+            &nbsp;
+        </div>
+	</div>
 
 <?php 
             //Query
@@ -244,19 +269,20 @@
             
             if (mysqli_num_rows($qcomentarios) > 0){
 ?>
-			<center><h2><?= strtoupper(_COMENTARIOS) ?></h2></center>
+			<p/>
+			<h4 class="text-center"><?= strtoupper(_COMENTARIOS) ?></h4>
 			
-			<table border="1" class="w100">
+			<table class="table table-bordered">
 <?php 
                     while($comentario=mysqli_fetch_array($qcomentarios, MYSQLI_BOTH))
                     {
 ?>
-						<tr>
-							<td class="w10"><?= _AUTOR ?></td>
-							<td class="w20"><?= cambiarAcentos($comentario["Autor"]) ?></td>
-							<td class="w5">&nbsp;</td>
-							<td class="w15"><?= _COMENTARIO ?></td>
-							<td class="w50"><?= cambiarAcentos($comentario["Comentario"]) ?></td>
+						<tr class="d-flex">
+							<td class="col-1"><?= _AUTOR ?></td>
+							<td class="col-2"><?= cambiarAcentos($comentario["Autor"]) ?></td>
+							<td class="col-1">&nbsp;</td>
+							<td class="col-1"><?= _COMENTARIO ?></td>
+							<td class="col-7"><?= cambiarAcentos($comentario["Comentario"]) ?></td>
 						</tr>
 						<tr>
 							<td colspan="5">&nbsp;</td>

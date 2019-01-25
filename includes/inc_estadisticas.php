@@ -27,7 +27,7 @@
         $totaljornadas=$jornada;
     }
 
-	//Buscar todos los partidos jugados por el equipo. Toda la clasificación
+	//Buscar todos los partidos jugados por el equipo. Toda la clasificaciï¿½n
 	if ($_GET["tipoclasificacion"]==0)
 	{
 		$query="Select * from liga where ((Equipo1=".$IdEquipo." and SubCategoriaLocal='".$SubCategoria."') or (Equipo2=".$IdEquipo." and SubCategoriaVisitante='".$SubCategoria."')) and Jornada<=".$totaljornadas." and IdCategoria=".$categoria;
@@ -65,108 +65,99 @@
 
     if ($_GET["tipo"]==1)
     {
-        print ("<H2><center>"._PARTIDOSGANADOS." ".$nequipo." '".$SubCategoria."'</H2>");
+?>
+		<h2 class="text-center"><?= _PARTIDOSGANADOS." ".$nequipo." '".$SubCategoria."'" ?></h2>        
+<?php 
     }
     else if ($_GET["tipo"]==0)
     {
-        print ("<H2><center>"._PARTIDOSEMPATADOS." ".$nequipo." '".$SubCategoria."'</H2>");
+?>
+        <h2 class="text-center"><?= _PARTIDOSEMPATADOS." ".$nequipo." '".$SubCategoria."'" ?></h2>
+<?php 
     }
     else if ($_GET["tipo"]==2)
     {
-        print ("<H2><center>"._PARTIDOSPERDIDOS." ".$nequipo." '".$SubCategoria."'</H2>");
-    }    
-		
-	print ("<table border=1 width=100%>");
-		print ("<tr>");
-			print ("<td><center>"._JORNADA."</center>");
-			print ("<td width=25%><center>"._FECHAOTROSEQUIPOS."</center>");
-			print ("<td width=30%><center>"._LOCAL."</center>");
-			print ("<td width=10%><center>"._RESULTADO."</center>");
-			print ("<td width=30%><center>"._VISITANTE."</center>");
-		//Mostrar los valores de la base de datos
-        while($equipo=mysqli_fetch_array($qequipo, MYSQLI_BOTH))
-		{
-			if ($qequipo["Equipo1"]==$_GET["equipo"])
-			{
-				$resultado_equipo1="ResultEquipo1";
-				$resultado_equipo2="ResultEquipo2";
-
-				//Buscar el nombre del equipo con el ID
-				$nombre_equipo1=buscaEquipo($IdEquipo,$link)." '".$SubCategoria."'";
-
-				//Buscar el nombre del equipo con el ID
-				$nombre_equipo2=buscaEquipo($qequipo["Equipo2"],$link)." '".$SubCategoria."'";
-            }
-			else
-			{
-				$resultado_equipo1="ResultEquipo2";
-				$resultado_equipo2="ResultEquipo1";
-
-				//Buscar el nombre del equipo con el ID
-				$query="Select * from equipos where IdEquipo=".mysql_result($qequipo,$x,"Equipo1");
-				$qequipo1=mysql_query ($query,$link);	
-				$nombre_equipo1=cambiarAcentos(mysql_result($qequipo1,0,"NombreEquipo"))." '".$SubCategoria."'";
-
-				//Buscar el nombre del equipo con el ID
-				$query="Select * from equipos where IdEquipo=".mysql_result($qequipo,$x,"Equipo2");
-				$qequipo2=mysql_query ($query,$link);	
-				$nombre_equipo2=cambiarAcentos(strtoupper(mysql_result($qequipo2,0,"NombreEquipo")))." '".$SubCategoria."'";
-			}
-
-			if ($_GET["tipo"]==1)
-			{
-				if (mysql_result($qequipo,$x,$resultado_equipo1)>mysql_result($qequipo,$x,$resultado_equipo2))
-				{
-					print("<tr>");
-					print ("<td><center>".mysql_result($qequipo,$x,"Jornada").superindice(mysql_result($qequipo,$x,"Jornada")));
-					$dia=devolverDia(mysql_result($qequipo,$x,"Fecha"));
-					$mes=mesAny(devolverMes(mysql_result($qequipo,$x,"Fecha")));
-					$any=devolverAny(mysql_result($qequipo,$x,"Fecha"));
-					$fecha=$dia."-".$mes."-".$any;
-					print ("<td><center>".cambiarAcentos($fecha)."</center>");
-					print ("<td><center>".$nombre_equipo1."</center>");
-					print ("<td><center>".mysql_result($qequipo,$x,"ResultEquipo1")."-".mysql_result($qequipo,$x,"ResultEquipo2")."</center>");
-					print ("<td><center>".$nombre_equipo2."</center>");
-				}
-			}
-			else if ($_GET["tipo"]==0)
-			{
-				if (mysql_result($qequipo,$x,$resultado_equipo1)==mysql_result($qequipo,$x,$resultado_equipo2)&&mysql_result($qequipo,$x,$resultado_equipo1) != null)
-				{
-					print("<tr>");
-					print ("<td><center>".mysql_result($qequipo,$x,"Jornada").superindice(mysql_result($qequipo,$x,"Jornada")));
-					$dia=devolverDia(mysql_result($qequipo,$x,"Fecha"));
-					$mes=mesAny(devolverMes(mysql_result($qequipo,$x,"Fecha")));
-					$any=devolverAny(mysql_result($qequipo,$x,"Fecha"));
-					$fecha=$dia."-".$mes."-".$any;
-					print ("<td><center>".cambiarAcentos($fecha)."</center>");
-					print ("<td><center>".$nombre_equipo1."</center>");
-					print ("<td><center>".mysql_result($qequipo,$x,"ResultEquipo1")."-".mysql_result($qequipo,$x,"ResultEquipo2")."</center>");
-					print ("<td><center>".$nombre_equipo2."</center>");
-				}
-			}
-			else if ($_GET["tipo"]==2)
-			{
-				if (mysql_result($qequipo,$x,$resultado_equipo1)<mysql_result($qequipo,$x,$resultado_equipo2))
-				{
-					print("<tr>");
-					print ("<td><center>".mysql_result($qequipo,$x,"Jornada").superindice(mysql_result($qequipo,$x,"Jornada")));
-					$dia=devolverDia(mysql_result($qequipo,$x,"Fecha"));
-					$mes=mesAny(devolverMes(mysql_result($qequipo,$x,"Fecha")));
-					$any=devolverAny(mysql_result($qequipo,$x,"Fecha"));
-					$fecha=$dia."-".$mes."-".$any;
-					print ("<td><center>".cambiarAcentos($fecha)."</center>");
-					print ("<td><center>".$nombre_equipo1."</center>");
-					print ("<td><center>".mysql_result($qequipo,$x,"ResultEquipo1")."-".mysql_result($qequipo,$x,"ResultEquipo2")."</center>");
-					print ("<td><center>".$nombre_equipo2."</center>");
-				}
-			}
-		}
-	print ("</table>");
-	$jornada=0;
-	if (isset($_GET['Jornada']))
-  {
-  	$jornada=$_GET['Jornada'];
-  }
-	print ("<center><a href=javascript:llamada_prototype('paginas/resultados.php?tipo_clasificacion=".$_GET["tipoclasificacion"]."&IdCategoria=".$categoria."&jornadaClas=".$jornada."','principal') class=resultados>".cambiarAcentos(_VOLVERCLASIFICACION)."</a></center>");
 ?>
+		<h2 class="text-center"><?= _PARTIDOSPERDIDOS." ".$nequipo." '".$SubCategoria."'" ?></h2>
+<?php 
+    } 
+?>
+
+	<table class="table table-bordered">
+		<thead class="thead-dark">
+	   		<tr class="d-flex">
+	   			<th class="col-1 text-center"><?= cambiarAcentos(_JORNADA) ?></th>
+	   			<th class="col-2 text-center"><?= cambiarAcentos(_FECHAOTROSEQUIPOS) ?></th>
+	   			<th class="col-4 text-center"><?= cambiarAcentos(_LOCAL) ?></th>
+	   			<th class="col-1 text-center"><?= cambiarAcentos(_RESULTADO) ?></th>
+	   			<th class="col-4 text-center"><?= cambiarAcentos(_VISITANTE) ?></th>
+   			</tr>  
+   		</thead>
+<?php 
+
+            //Mostrar los valores de la base de datos
+            while($equipo=mysqli_fetch_array($qequipo, MYSQLI_BOTH))
+            {
+                if ($equipo["Equipo1"]==$_GET["equipo"])
+                {
+                    $resultado_equipo1="ResultEquipo1";
+                    $resultado_equipo2="ResultEquipo2";
+                    
+                    //Buscar el nombre del equipo con el ID
+                    $nombre_equipo1=mb_strtoupper(buscaEquipo($equipo["Equipo1"],$link)." '".$equipo["SubCategoriaLocal"]."'");
+                    
+                    //Buscar el nombre del equipo con el ID
+                    $nombre_equipo2=buscaEquipo($equipo["Equipo2"],$link)." '".$equipo["SubCategoriaVisitante"]."'";
+                }
+                else
+                {
+                    $resultado_equipo1="ResultEquipo2";
+                    $resultado_equipo2="ResultEquipo1";
+                    
+                    //Buscar el nombre del equipo con el ID
+                    $nombre_equipo1=buscaEquipo($equipo["Equipo1"],$link)." '".$equipo["SubCategoriaLocal"]."'";
+                    
+                    //Buscar el nombre del equipo con el ID
+                    $nombre_equipo2=mb_strtoupper(buscaEquipo($equipo["Equipo2"],$link)." '".$equipo["SubCategoriaVisitante"]."'");
+                }
+                
+                $jornadaMostrar=$equipo["Jornada"].superindice($equipo["Jornada"]);
+                $fechaMostrar=devolverFecha($equipo["Fecha"]);
+                $localMostrar=$nombre_equipo1;
+                $resultadoMosrar=$equipo["ResultEquipo1"]."-".$equipo["ResultEquipo2"];
+                $visitanteMostrar=$nombre_equipo2;
+                
+                if ($_GET["tipo"]==1)
+                {
+                    if ($equipo[$resultado_equipo1]>$equipo[$resultado_equipo2])
+                    {
+                        require("inc_estadisticas_partidos.php");
+                    }
+                }
+                if ($_GET["tipo"]==0)
+                {
+                    if ($equipo[$resultado_equipo1] != null &&
+                        $equipo[$resultado_equipo1]==$equipo[$resultado_equipo2])
+                    {
+                        require("inc_estadisticas_partidos.php");
+                    }
+                }
+                if ($_GET["tipo"]==2)
+                {
+                    if ($equipo[$resultado_equipo1]<$equipo[$resultado_equipo2])
+                    {
+                        require("inc_estadisticas_partidos.php");
+                    }
+                }
+            }
+?>   		
+	</table>		
+	
+<?php 
+    $jornada=0;
+    if (isset($_GET['Jornada']))
+    {
+        $jornada=$_GET['Jornada'];
+    }
+?>
+<p class="text-center"><a class="btn btn-default btn-block" href="javascript:llamada_prototype('paginas/resultados.php?tipo_clasificacion=<?= $_GET["tipoclasificacion"] ?>&IdCategoria=<?= $categoria ?>&jornadaClas=<?= $jornada ?>','principal')"><?= cambiarAcentos(_VOLVERCLASIFICACION) ?></a></p>

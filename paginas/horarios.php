@@ -1,7 +1,7 @@
 <?php
     session_start();
 	unset($_SESSION["pagina"]);
-	$_SESSION["pagina"]=24;
+	$_SESSION["pagina"]=13;
 
 	require_once("../includes/conexiones.php");
 	require_once("../includes/inc_horarios.php");

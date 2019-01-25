@@ -208,7 +208,7 @@ function cargarPagina(pagina){
 	}
 }
 
-/*Validación formulario de contacto*/
+/*Validaciï¿½n formulario de contacto*/
 function validar(ok) {
 	if (ok==1)
 	{
@@ -245,27 +245,40 @@ function validar(ok) {
 }
 
 function llamada_prototype(URL,objetoDIV){
-        /*var parametros = {
-                "valorCaja1" : valorCaja1,
-                "valorCaja2" : valorCaja2
-        };*/
-	
+	llamada_prototype(URL,objetoDIV,1,'');
+}
+
+function llamada_prototype(URL,objetoDIV,tipo,formulario){
 		var texto = '';
 		if (document.getElementById("cargandotexto")!=null){
 			texto = document.getElementById("cargandotexto").value;
 		}
 	
-        $.ajax({
-                //data:  parametros,
-                url:   URL,
-                type:  'get',
+		if (tipo == 1){
+	        $.ajax({
+	                url:   URL,
+	                type:  'get',
+	                beforeSend: function () {
+	                        $("#"+objetoDIV).html("<img src='imagenes/loading.gif' align='middle' />"+texto);
+	                },
+	                success:  function (response) {
+	                        $("#"+objetoDIV).html(response);
+	                }
+	        });
+		}
+		else {
+			$.ajax({
+                data:  $("#"+formulario).serialize(), //datos que se envian a traves de ajax
+                url:   URL, //archivo que recibe la peticion
+                type:  'post', //mÃ©todo de envio
                 beforeSend: function () {
-                        $("#"+objetoDIV).html("<img src='imagenes/loading.gif' align='middle' />"+texto);
-                },
-                success:  function (response) {
-                        $("#"+objetoDIV).html(response);
-                }
+                    $("#"+objetoDIV).html("<img src='imagenes/loading.gif' align='middle' />"+texto);
+	            },
+	            success:  function (response) {
+	                    $("#"+objetoDIV).html(response);
+	            }
         });
+		}
 }
 
 
@@ -321,22 +334,22 @@ function cerrar_ampliacion(){
 //-----------------------------------------------------------------------------------------------------------------
 
 /*--------------------------------------------------------------------------------------------------------------*/
-/*Pestañas*/
+/*PestaÃ±as*/
 function CambiarEstilo(id, id2) {
-	var elementosMenu = getElementsByClassName(document, "li", "activo");
+	var elementosMenu = getElementsByClassName(document, "a", "active");
 	for (k = 0; k< elementosMenu.length; k++) {
-	elementosMenu[k].className = "inactivo";
+		elementosMenu[k].className = "nav-link";
 	}
 	var identity=document.getElementById(id);
-	identity.className="activo";
+	identity.className="nav-link active";
 	
-	if (id2!='')
+	/*if (id2!='')
 	{
 		var identity=document.getElementById(id2);
-		identity.className="activo";
+		identity.className="nav-link active";
 		
 		document.getElementById("botonactual").value=id;
-	}
+	}*/
 }
 
 /*
@@ -359,7 +372,7 @@ function getElementsByClassName(oElm, strTagName, strClassName){
     }
     return (arrReturnElements)
 }
-/*Fin de pestañas*/
+/*Fin de pestaï¿½as*/
 /*--------------------------------------------------------------------------------------------------------------*/
 
 function cargarCambioIdioma(idioma)

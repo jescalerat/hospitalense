@@ -1,7 +1,7 @@
 <?php
 	
 //---------------------------------------------------------------------------------------------------------------
-		//Paginación
+		//PaginaciÃ³n
 		$registros = 5;
 
 		if (!isset($_GET['paginacion'])) {
@@ -12,10 +12,10 @@
 			$pagina=$_GET['paginacion'];
 			$inicio = ($pagina - 1) * $registros; 
 		} 
-		//Fin paginación
+		//Fin paginaciÃ³n
 //---------------------------------------------------------------------------------------------------------------
 
-		//Buscar las poblaciones de los equipos que tengo
+		//Buscar las noticias
 		$query="select * from noticias order by Orden asc";
 		$qnoticias=mysqli_query($link, $query);
 		
@@ -137,11 +137,3 @@
 		}//if ($totalnoticias > 0)
 ?>
 
-<div id="ampliacion" style="padding:2 2 2 2px; position:absolute; left: 200px; top: 100px; visibility: hidden; border: 1px solid #666666; background-color:#16C8DD;"> 
-	<div id="c1"> 
-
-	</div> 
-	<div id="cerrarampliacion" style="background-color:333333; font-family:arial,verdana; font-size:8pt; line-height:20px; text-align:right;float:right; height: 20px; padding-right:5px; font-weight: normal; "> 
-		<a href="javascript:cerrar_ampliacion()" style="color:#ffffff;">[X] <?= cambiarAcentos(_CERRAR) ?></a> 
-	</div> 
-</div> 

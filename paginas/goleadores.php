@@ -1,24 +1,12 @@
 <?php
-    session_start();
-    unset($_SESSION["pagina"]);
-    $_SESSION["pagina"]=8;
-	
-    require_once("../conf/traduccion.php");
-    require_once("../conf/funciones.php");
-    require_once("../conf/conexion.php");
-    $link=Conectarse();
-?>
-	<table class="tabla_sin_borde w90">
-		<tr>
-			<td class="tabla_sin_borde">
-				<div id="cargando">
-					<?php require_once("../includes/inc_goleadores.php"); ?>
-				</div>
-			</td>
-		</tr>
-	</table>
+	session_start();
+	unset($_SESSION["pagina"]);
+	$_SESSION["pagina"]=8;
+
+	require_once("../includes/conexiones.php");
+	require_once("../includes/inc_goleadores.php");
 		
-<?php
+
     $jornada_equipo=$_GET['identificador'];
 
     if (!isset($_SESSION["admin_web"]))

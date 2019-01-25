@@ -134,25 +134,25 @@
 					if ($liga["Aplazado"]==1)
 					{
 ?>
-						<td class="col-1"><center><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados"><?= _APLAZADO ?></center></td>
+						<td class="col-1 text-center"><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados"><?= _APLAZADO ?></td>
 <?php 						
 					}
 					else if ($liga["Aplazado"]==2)
 					{
 ?>						
-						<td class="col-1"><center><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados"><?= _SUSPENDIDO ?></center></td>
+						<td class="col-1 text-center"><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados"><?= _SUSPENDIDO ?></td>
 <?php 						
 					}
 					else if (strcmp($liga["ResultEquipo1"],"")==0)
 					{
 ?>
-						<td class="col-1"><center><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados">+info</center></td>
+						<td class="col-1 text-center"><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados">+info</td>
 <?php 						
 					}
 					else
 					{
 ?>						
-						<td class="col-1"><center><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados"><?= $liga["ResultEquipo1"]."-".$liga["ResultEquipo2"] ?></a></center></td>
+						<td class="col-1 text-center"><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados"><?= $liga["ResultEquipo1"]."-".$liga["ResultEquipo2"] ?></a></td>
 <?php 						
 					}
 ?>					

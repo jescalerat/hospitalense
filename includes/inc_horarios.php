@@ -1,4 +1,4 @@
-<center><h1><?= cambiarAcentos(strtoupper(_HORARIOSENTRENO)) ?></h1></center>
+<h1 class="text-center"><?= cambiarAcentos(strtoupper(_HORARIOSENTRENO)) ?></h1>
 
 <table class="table table-bordered">
 	<thead class="thead-dark">

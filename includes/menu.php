@@ -82,8 +82,8 @@
 				</li>
 			</ul>
 		</li>	
-		<li><a href="#">Equipos</a></li>
-		<li><a href="#">Campos</a></li>
+		<li><a href="#" onclick="llamada_prototype('paginas/equipos.php','principal');"><?= cambiarAcentos(_MENUEQUIPOS) ?></a></li>
+		<li><a href="#" onclick="llamada_prototype('paginas/campos.php','principal');"><?= cambiarAcentos(_MENUCAMPOS) ?></a></li>
 		<li><a href="#">Torneo</a></li>
 		<li><a href="#">Paginas amigas</a>
 			<ul>
@@ -93,6 +93,6 @@
 				<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=1','principal');">Todo deporte</a></li>
 			</ul>
 		</li>				
-		<li><a href="#">Contacta</a></li>
+		<li><a href="#" onclick="llamada_prototype('paginas/contactar.php','principal');"><?= cambiarAcentos(_MENUCONTACTA) ?></a></li>
 	</ul>
 </div> 

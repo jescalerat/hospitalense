@@ -60,9 +60,9 @@
 	else
 	{
 ?>			
-		<h2><center><?= cambiarAcentos(strtoupper($rowcategoria["Categoria"])) ?></h2>
+		<h2 class="text-center"><?= cambiarAcentos(strtoupper($rowcategoria["Categoria"])) ?></h2>
 		<br><br>
-		<h3><center><?= cambiarAcentos(strtoupper(_CALENDARIONODISPONIBLE)) ?></h3>
+		<h3 class="text-center"><?= cambiarAcentos(strtoupper(_CALENDARIONODISPONIBLE)) ?></h3>
 <?php 			
 	}
 

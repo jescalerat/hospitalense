@@ -1,17 +1,28 @@
 ﻿<?php
 //Club=1
-//Resultados=2
+//Resultados=2 --
 //Clasificación=3
-//Equipos=4
-//Contactar=5
-//Campos=6
-//Estadisticas=7
-//Goleadores=8
-//Mostrar equipos=9
-//Mostrar campos=10
+//Equipos=4 --
+//Contactar=5 --
+//Contactar2=52 --
+//Campos=6 --
+//Estadisticas=7 --
+//Goleadores=8 --
+//Mostrar equipos=9 --
+//Mostrar campos=10 --
 //Campus=11
 //Torneo=12
-//Horarios=13
+//Horarios=13 --
+//Historia=14 --
+//Directiva=15 --
+//Himno=16 --
+//Socio=17 --
+//Formularios=18 --
+//Economia=19 --
+//Plantillas=20 --
+//Galeria=21 --
+//Regimen Interno=22 --
+//Estatuto=23 --
 
 
 $idioma=1;
@@ -161,7 +172,9 @@ if ($idioma==1) //Español
 	define ('_PARTIDOSPERDIDOS','Partidos perdidos por el');
 
 	//Campos
-	define ('_CAMPOS','Campos');
+	define ('_CAMPOSBUSCADOR','Campos');
+	define ('_CAMPOSBUSCADORNOMBRE','Nombre campo');
+	define ('_CAMPOSBUSCADORPOBLACION','Población');
 	define ('_DIRECCION','Dirección'); 
 	define ('_POBLACION','Población'); 
 	define ('_EQUIPOS','Equipos');
@@ -182,6 +195,8 @@ if ($idioma==1) //Español
 
 	//Equipos
 	define ('_EQUIPOSBUSCADOR','Equipos');
+	define ('_EQUIPOSBUSCADORNOMBRE','Nombre equipo');
+	define ('_EQUIPOSBUSCADORPOBLACION','Población');
 	define ('_CAMPOOTROSEQUIPOS','Campo');
 	define ('_WEB','Web'); 
 	define ('_TWITTER','Twitter'); 
@@ -452,7 +467,7 @@ if ($idioma==1) //Español
 	define ('_ECONOMIACONCEPTO','Concepto');
 	define ('_ECONOMIAIMPORTE','Importe');
 	define ('_ECONOMIATOTAL','Total');
-	
+
 	
 
 }

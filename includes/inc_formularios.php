@@ -1,4 +1,4 @@
-<center><h1><?= cambiarAcentos(strtoupper(_FORMULARIOS)) ?></h1></center>
+<h1 class="text-center"><?= cambiarAcentos(strtoupper(_FORMULARIOS)) ?></h1>
 
 <table class="table">
 	<thead class="thead-dark">
