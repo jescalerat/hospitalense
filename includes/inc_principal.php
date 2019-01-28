@@ -79,15 +79,9 @@
 
 ?>
 		<tr>
-<<<<<<< HEAD
 			<td class="align-middle text-center"><?= $titulo ?></td>
 			<td class="align-middle text-center"><?= $equipos ?></td>
 			<td class="align-middle text-center"><?= $resultados ?></td>
-=======
-			<td class="align-middle"><center><?php print($titulo);?></center></td>
-			<td class="align-middle"><center><?php print($equipos);?></center></td>
-			<td class="align-middle"><center><?php print($resultados);?></center></td>
->>>>>>> 3e99eb307cc46bd20b9151aa7652dd522267772e
 		</tr>
 <?php			
 	}
@@ -168,15 +162,9 @@
 			
 ?>
 			<tr>
-<<<<<<< HEAD
 				<td class="align-middle text-center"><?= $titulo ?></td>
 				<td class="align-middle text-center"><?= $equipos ?></td>
 				<td class="align-middle text-center"><?= $fecha ?></td>
-=======
-				<td class="align-middle"><center><?php print($titulo);?></center></td>
-				<td class="align-middle"><center><?php print($equipos);?></center></td>
-				<td class="align-middle"><center><?php print($fecha);?></center></td>
->>>>>>> 3e99eb307cc46bd20b9151aa7652dd522267772e
 			</tr>
 <?php			
 	}

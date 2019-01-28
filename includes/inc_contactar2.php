@@ -1,4 +1,5 @@
 <?php
+    
   	$nombre=$_POST['nombre'];
   	$email=$_POST['correo'];
   	$mensaje=$_POST['mensaje'];
@@ -10,66 +11,13 @@
 	//En el campo De aparecerá javi@calendario
     $email2="webmaster.hospitalense@gmail.com";
     $asunto="Sugerencias";
-    $cuerpo="Nombre: ".$nombre."<br> Email: ".$email."<br> Mensaje: ".$mensaje;
-	//mail($email2,$asunto,$cuerpo,"From: Contacta Hospitalense");
-	
-    //incluimos la clase PHPMailer
-   /* require_once('../conf/PHPMailer/PHPMailerAutoload.php');
+    $cuerpo="Nombre: ".$nombre."\r\nEmail: ".$email."\r\nMensaje: ".$mensaje;
+    //$cabeceras = 'From: webmaster@example.com';
+    $cabeceras = 'From: contacta@hospitalense.es';
+    //mail($email2,$asunto,$cuerpo,"From: Contacta Hospitalense");
     
-    //instancio un objeto de la clase PHPMailer
-	$correo = new PHPMailer();
+    imap_mail($email2, $asunto, $cuerpo, $cabeceras);
 	
-	//$correo->SMTPDebug = 1;
-	
-	$correo->IsSMTP();
-	
-	$correo->SMTPAuth = true;
-	
-	$correo->SMTPSecure = 'tls';
-	
-	$correo->Host = "smtp.gmail.com";
-	
-	$correo->Port = 587;
-	
-	$correo->Username = "puntairesmari@gmail.com";
-	
-	$correo->Password   = "torres2008";
-	
-	$correo->SMTPOptions = array(
-			'ssl' => array(
-					'verify_peer' => false,
-					'verify_peer_name' => false,
-					'allow_self_signed' => true
-			)
-	);
-	
-	$correo->IsHTML(true);
-	$correo->CharSet = 'UTF-8';
-	
-	//$correo->SetFrom("puntairesmari@gmail.com", "Mi Codigo PHP");
-	$correo->SetFrom($email, $nombre);
-	
-	//$correo->AddReplyTo("puntairesmari@gmail.com","Mi Codigo PHP");
-	//$correo->AddReplyTo($email2, "Sugerencias");
-	
-	//$correo->AddAddress("destino@correo.com", "Jorge");
-	$correo->AddAddress($email2, "Sugerencias");
-	
-	//$correo->Subject = "Mi primero correo con PHPMailer";
-	$correo->Subject = $asunto;
-	
-	//$correo->MsgHTML("Mi Mensaje en <strong>HTML</strong>");
-	$correo->MsgHTML($cuerpo);
-	
-	//$correo->AddAttachment("images/phpmailer.gif");
-	
-	$correo->Send();*/
-	/*if(!$correo->Send()) {
-	  echo "Hubo un error: " . $correo->ErrorInfo;
-	} else {
-	  echo "Mensaje enviado con exito.";
-	}*/
-
 ?>
     <table border="0" width="100%">
 		<tr>

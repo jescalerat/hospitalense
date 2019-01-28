@@ -56,15 +56,15 @@
     //Comprobar que existan los escudos
     $escudo_equipo=$rowequipo["Escudo"];
     //$foto_archivo=$_SESSION["rutaservidor"]."imagenes/escudos/".$escudo_equipo;
-    $archivo=$_SERVER['DOCUMENT_ROOT']."/imagenes/escudos/".$escudo_equipo;
+    $archivo="../imagenes/escudos/".$escudo_equipo;
 
     if($_SESSION['idiomapagina']==1)
     {
-        $nodisponible="imagenes/no-disponible.gif";
+        $nodisponible="../imagenes/no-disponible.gif";
 	}
 	else if ($_SESSION['idiomapagina']==2)
 	{
-		$nodisponible="imagenes/no-disponible-en.gif";
+		$nodisponible="../imagenes/no-disponible-en.gif";
 	}
 
 	//if ((file_exists($archivo)||buscaEscudo($foto_archivo))&&strcmp($escudo_equipo,"")!=0)

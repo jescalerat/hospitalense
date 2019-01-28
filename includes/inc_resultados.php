@@ -134,41 +134,25 @@
 					if ($liga["Aplazado"]==1)
 					{
 ?>
-<<<<<<< HEAD
 						<td class="col-1 text-center"><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados"><?= _APLAZADO ?></td>
-=======
-						<td class="col-1"><center><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados"><?= _APLAZADO ?></center></td>
->>>>>>> 3e99eb307cc46bd20b9151aa7652dd522267772e
 <?php 						
 					}
 					else if ($liga["Aplazado"]==2)
 					{
 ?>						
-<<<<<<< HEAD
 						<td class="col-1 text-center"><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados"><?= _SUSPENDIDO ?></td>
-=======
-						<td class="col-1"><center><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados"><?= _SUSPENDIDO ?></center></td>
->>>>>>> 3e99eb307cc46bd20b9151aa7652dd522267772e
 <?php 						
 					}
 					else if (strcmp($liga["ResultEquipo1"],"")==0)
 					{
 ?>
-<<<<<<< HEAD
 						<td class="col-1 text-center"><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados">+info</td>
-=======
-						<td class="col-1"><center><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados">+info</center></td>
->>>>>>> 3e99eb307cc46bd20b9151aa7652dd522267772e
 <?php 						
 					}
 					else
 					{
 ?>						
-<<<<<<< HEAD
 						<td class="col-1 text-center"><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados"><?= $liga["ResultEquipo1"]."-".$liga["ResultEquipo2"] ?></a></td>
-=======
-						<td class="col-1"><center><a href="javascript:llamada_prototype('paginas/goleadores.php?identificador=<?= $liga["IdLiga"] ?>&IdCategoria=<?= $categoria ?>','principal')" class="resultados"><?= $liga["ResultEquipo1"]."-".$liga["ResultEquipo2"] ?></a></center></td>
->>>>>>> 3e99eb307cc46bd20b9151aa7652dd522267772e
 <?php 						
 					}
 ?>					

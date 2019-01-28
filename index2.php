@@ -1,5 +1,5 @@
 <?php
-    require_once("/includes/cabecera.php");
+    require_once("includes/cabecera.php");
 ?>
 	<div class="container-fluid">
     	<div class="row">    
@@ -14,7 +14,7 @@
            		<input type="hidden" id="cargandotexto" name="cargandotexto" value="<?= cambiarAcentos(_CARGANDO) ?>"/>
 				<input type="hidden" name="cambiandoIdioma" id="cambiandoIdioma" value="<?print(_CAMBIOIDIOMA);?>"/>
 <?php
-            require_once("/includes/pie.php");
+            require_once("includes/pie.php");
 ?>
         	</div>
         </div>

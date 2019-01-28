@@ -196,7 +196,8 @@
 	<div class="row">
 <?php 
     //Buscar las fotos del campo
-    $query="select * from fotos where IdCampo=".$id;
+    //$query="select * from fotos where IdCampo=".$id;
+$query="select * from fotos where IdCampo=9999";
     $qfotoscampo=mysqli_query ($link, $query);
     
     while($foto=mysqli_fetch_array($qfotoscampo, MYSQLI_BOTH))
@@ -208,17 +209,17 @@
         if ($foto["Photobucket"]==1)
         {
             //$url_photobucket="\"http://i166.photobucket.com/albums/u81/dinamicobatllo/Campos/".mysql_result($qfotoscampo,$x,"Foto")."\"";
-            $url_photobucket="http://i166.photobucket.com/albums/u81/dinamicobatllo/Campos/".$foto["Foto"];
+            $url_photobucket="https://i166.photobucket.com/albums/u81/dinamicobatllo/Campos/".$foto["Foto"];
         }
         else if ($foto["Photobucket"]==2)
         {
             //$url_photobucket="\"http://i166.photobucket.com/albums/u81/dinamicobatllo/Campos2/".mysql_result($qfotoscampo,$x,"Foto")."\"";
-            $url_photobucket="http://i166.photobucket.com/albums/u81/dinamicobatllo/Campos2/".$foto["Foto"];
+            $url_photobucket="https://i166.photobucket.com/albums/u81/dinamicobatllo/Campos2/".$foto["Foto"];
         }
         else if ($foto["Photobucket"]==3)
         {
             //$url_photobucket="\"http://i166.photobucket.com/albums/u81/dinamicobatllo/Campos3/".mysql_result($qfotoscampo,$x,"Foto")."\"";
-            $url_photobucket="http://i166.photobucket.com/albums/u81/dinamicobatllo/Campos3/".$foto["Foto"];
+            $url_photobucket="https://i166.photobucket.com/albums/u81/dinamicobatllo/Campos3/".$foto["Foto"];
         }
         //$url_imageshack="\"".mysql_result($qfotoscampo,$x,"Imageshack")."\"";
         $url_imageshack=$foto["Imageshack"];

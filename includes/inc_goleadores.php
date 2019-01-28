@@ -85,16 +85,16 @@
 	//$foto_archivo1="../imagenes/escudos/".$escudo_equipo1;
 	//$foto_archivo2="../imagenes/escudos/".$escudo_equipo2;
 	
-	$archivo1="imagenes/escudos/".$escudo_equipo1;
-	$archivo2="imagenes/escudos/".$escudo_equipo2;
+	$archivo1="../imagenes/escudos/".$escudo_equipo1;
+	$archivo2="../imagenes/escudos/".$escudo_equipo2;
 
 	if($_SESSION['idiomapagina']==1)
 	{
-		$nodisponible="imagenes/no-disponible.gif";
+		$nodisponible="../imagenes/no-disponible.gif";
 	}
 	else if ($_SESSION['idiomapagina']==2)
 	{
-		$nodisponible="imagenes/no-disponible-en.gif";
+		$nodisponible="../imagenes/no-disponible-en.gif";
 	}
 
  	//if ((file_exists($archivo1)||buscaEscudo($foto_archivo1))&&strcmp($escudo_equipo1,"")!=0)
@@ -108,7 +108,7 @@
 	}
 
 	//if ((file_exists($archivo2)||buscaEscudo($foto_archivo2))&&strcmp($escudo_equipo2,"")!=0)
-	if ((file_exists($archivo2)||buscaEscudo($archivo2))&&strcmp($escudo_equipo1,"")!=0)
+	if ((file_exists($archivo2)||buscaEscudo($archivo2))&&strcmp($escudo_equipo2,"")!=0)
 	{
 	    $escudo_equipo2=$archivo2;
 	}
@@ -116,6 +116,7 @@
 	{
 		$escudo_equipo2=$nodisponible;
 	}
+
 ?>
 	<div class="row">
         <div class="col-3">
