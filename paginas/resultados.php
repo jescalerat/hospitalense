@@ -65,22 +65,6 @@
 		<h3 class="text-center"><?= cambiarAcentos(strtoupper(_CALENDARIONODISPONIBLE)) ?></h3>
 <?php 			
 	}
-
-	if(isset($_GET['Jornada']))
-	{
-		$jornada_equipo=$_GET['Jornada'];
-	}
-	else
-	{
-		$jornada_equipo=0;
-	}
-	
-	if (!isset($_SESSION["admin_web"]))
-	{
-		//Query para insertar los valores en la base de datos
-		$query="insert into paginasvistas (IP,Hora,Fecha,Pagina,JornadaEquipo) values (\"".getRealIP()."\",\"".date("H:i:s")."\",\"".date("Y-m-d")."\",".$_SESSION["pagina"].",".$jornada_equipo.")";
-		mysqli_query($link, $query);
-	}
 		
 	mysqli_free_result($qcategoriares);
 	mysqli_free_result($qcontador);

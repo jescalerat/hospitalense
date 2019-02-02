@@ -23,7 +23,7 @@
 //Galeria=21 --
 //Regimen Interno=22 --
 //Estatuto=23 --
-
+//Paginsa amigas = 24
 
 $idioma=1;
 if (isset($_SESSION['idiomapagina'])){

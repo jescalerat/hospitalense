@@ -5,6 +5,24 @@
     if (isset($_GET["admin_web"])) {
         $_SESSION["admin_web"] = $_GET["admin_web"];
     }
+
+    $ruta = $_SERVER['REQUEST_URI'];
+
+    if (strpos($ruta, "admin") > 0){
+        $pos = strpos($ruta, "admin");
+        $ruta = substr($ruta, 0, $pos);
+        if (!isset($_SESSION['registrado']))
+        {
+            header("Location:login.php");
+        }
+    }
+    if (strpos($ruta, "php") > 0){
+        $pos = strripos($ruta, "/");
+        $ruta = substr($ruta, 0, $pos);
+    }
+    if (strcmp($ruta, "/") == 0){
+        $ruta = "";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -32,13 +50,13 @@
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import bootstrap.css-->
-        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"  media="screen,projection"/>
-        
+        <link type="text/css" rel="stylesheet" href="<?= $ruta ?>/css/bootstrap.min.css"  media="screen,projection"/>
+
         <!-- Mapas -->
-        <link type="text/css" rel="stylesheet" href="css/leaflet.css"/>
+        <link type="text/css" rel="stylesheet" href="<?= $ruta ?>/css/leaflet.css"/>
         
         <!-- Menu -->
-        <link type="text/css" rel="stylesheet" href="css/menu.css"/>
+        <link type="text/css" rel="stylesheet" href="<?= $ruta ?>/css/menu.css"/>
 
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -61,6 +79,12 @@
             idiomaPagina();
             require_once("../conf/traduccion.php");
             require_once("../conf/conexion.php");
+            $link = Conectarse();
+        } else if (file_exists("../../conf/funciones.php")) {
+            require_once("../../conf/funciones.php");
+            idiomaPagina();
+            require_once("../../conf/traduccion.php");
+            require_once("../../conf/conexion.php");
             $link = Conectarse();
         }
 ?>

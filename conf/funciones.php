@@ -235,6 +235,18 @@ function devolverFecha($fecha)
 	return $fechaTraducida;
 }
 
+function devolverFechaBBDD($fecha)
+{
+    $fechacompleta=explode("-",$fecha);
+    $dia=$fechacompleta[2];
+    $fechacompleta=explode("-",$fecha);
+    $mes=mesAny($fechacompleta[1]);
+    $fechacompleta=explode("-",$fecha);
+    $any=$fechacompleta[0];
+    $fechaTraducida=$dia."-".$mes."-".$any;
+    return $fechaTraducida;
+}
+
 function cambiarAcentos($cadena) {
 	$long=strlen($cadena);
 	$devuelveCadena="";

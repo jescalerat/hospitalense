@@ -244,7 +244,7 @@
     if (!isset($_SESSION["admin_web"]))
     {
         //Query para insertar los valores en la base de datos
-        $query="insert into paginasvistas (IP,Hora,Fecha,Pagina,JornadaEquipo) values (\"".getRealIP()."\",\"".date("H:i:s")."\",\"".date("Y-m-d")."\",".$_SESSION["pagina"].",\"".$jornada_equipo."\")";
+        $query="insert into paginasvistas (IP,Hora,Fecha,Pagina,JornadaEquipo) values (\"".getRealIP()."\",\"".date("H:i:s")."\",\"".date("Y-m-d")."\",3,\"".$jornada_equipo."\")";
         mysqli_query($link, $query);
     }
 ?>

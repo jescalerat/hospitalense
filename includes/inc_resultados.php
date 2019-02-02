@@ -224,6 +224,22 @@
 	mysqli_free_result($qequipo1);
 	mysqli_free_result($qequipo2);
 	mysqli_free_result($qcomentarios);
+
+	$jornada_equipo=$_GET['IdCategoria']."-";
+	if(isset($_GET['Jornada']))
+	{
+	    $jornada_equipo.=$_GET['Jornada'];
+	}
+	else
+	{
+	    $jornada_equipo.=0;
+	}
 	
+	if (!isset($_SESSION["admin_web"]))
+	{
+	    //Query para insertar los valores en la base de datos
+	    $query="insert into paginasvistas (IP,Hora,Fecha,Pagina,JornadaEquipo) values (\"".getRealIP()."\",\"".date("H:i:s")."\",\"".date("Y-m-d")."\",".$_SESSION["pagina"].",'".$jornada_equipo."')";
+	    mysqli_query($link, $query);
+	}
 ?>
 </div>
