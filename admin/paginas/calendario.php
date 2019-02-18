@@ -4,7 +4,7 @@
     {
         header("Location:login.php");
     }
-
+    
     require_once("../includes/cabecera.php");
 ?>
 	<div class="container">
@@ -16,7 +16,7 @@
         	</div>
         	<div class="col-9" id="pagina">
 <?php
-              require_once("../includes/inc_bbdd.php");
+              require_once("../includes/inc_calendario.php");
 ?>
         	</div>
     	</div>

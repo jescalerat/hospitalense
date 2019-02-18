@@ -1,5 +1,10 @@
 <?php
-    require_once("../../includes/cabecera.php");
+    session_start();
+    if (!isset($_SESSION['registrado']))
+    {
+        header("Location:login.php");
+    }
+    require_once("../includes/cabecera.php");
 ?>
 	<div class="container">
     	<div class="row">    

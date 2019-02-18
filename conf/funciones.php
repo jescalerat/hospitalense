@@ -1341,6 +1341,17 @@ function buscaEquipo($equipo,$link)
 	return $equipo;
 }
 
+function buscaTwitter($equipo,$link)
+{
+    $query="select * from equipos where IdEquipo=".$equipo;
+    $qequipo=mysqli_query ($link, $query);
+    $rowequipo=mysqli_fetch_array($qequipo);
+    
+    $twitter = cambiarAcentos($rowequipo["Twitter"]);
+    mysqli_free_result($qequipo);
+    return $twitter;
+}
+
 function posicionClasificacion($categoria, $equipo, $link)
 {
 	$query="select * from clasificacion where IdCategoria=".$categoria." order by Puntos desc, Golaverage desc, GolesFavor desc, GolesContra asc, Ganados desc, Empatados desc, Perdidos desc";

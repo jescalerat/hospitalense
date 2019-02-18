@@ -1,6 +1,10 @@
 <?php 
     $nombre = $_SESSION['nombre'];
     $tipo_usuario = $_SESSION['tipo_usuario'];
+    $rutaMenu = "";
+    if (isset($rutaAdmin)){
+        $rutaMenu = $rutaAdmin;
+    }
 ?>
 <h4 class="text-center"><?= $nombre ?></h4>
 	
@@ -14,27 +18,27 @@
 ?>
 			<tr>
 				<td>
-					<a class="list-group-item list-group-item-action list-group-item-light" href="bbdd.php">BBDD</a>
+					<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>bbdd.php">BBDD</a>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<a class="list-group-item list-group-item-action list-group-item-light" href="comprobar_visitas.php">Comprobar visitas</a>
+					<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>comprobar_visitas.php">Comprobar visitas</a>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<a class="list-group-item list-group-item-action list-group-item-light" href="comprobar_paginas_vistas.php">Comprobar paginas vistas</a>
+					<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>comprobar_paginas_vistas.php">Comprobar paginas vistas</a>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<a class="list-group-item list-group-item-action list-group-item-light" href="usuarios.php">Usuarios</a>
+					<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>usuarios.php">Usuarios</a>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<a class="list-group-item list-group-item-action list-group-item-light" href="categorias.php">Categorias</a>
+					<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>categorias.php">Categorias</a>
 				</td>
 			</tr>
 <?php 

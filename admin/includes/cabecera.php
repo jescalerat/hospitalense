@@ -1,11 +1,4 @@
 ﻿<?php
-    session_start();
-    unset($_SESSION["admin_web"]);
-
-    if (isset($_GET["admin_web"])) {
-        $_SESSION["admin_web"] = $_GET["admin_web"];
-    }
-
     $ruta = $_SERVER['REQUEST_URI'];
 
     if (strpos($ruta, "admin") > 0){

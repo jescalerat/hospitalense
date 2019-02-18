@@ -42,8 +42,6 @@
 	        header("Location:index.php");
 	    } else if ($pagina == 2){
 	        header("Location:paginas/bbdd.php");
-	        //print("Registrado comprobar: ".$_SESSION['registrado']);
-	        
 	    } else if ($pagina == 3){
 	        header("Location:comprobar_visitas.php");
 	    } else if ($pagina == 4){

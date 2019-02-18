@@ -1,19 +1,13 @@
-<?
-	session_start();
-  if (!isset($_SESSION['registrado']))
-	{
-		header("Location:login.php");	
-	}
-	require_once("../conf/conexion.php");
-	require_once("../conf/funciones.php");
-	$link=Conectarse();
-	mysql_query ("SET NAMES 'utf8'");
-	
+<?php
 	$accion = "A";
 	
+	if (isset($_GET['Accion']))
+	{
+		$accion = $_GET['Accion'];	
+	}
 	if (isset($_POST['Accion']))
 	{
-		$accion = $_POST['Accion'];	
+	    $accion = $_POST['Accion'];
 	}
 	
 	$idUsuario="";
@@ -22,147 +16,143 @@
 	$password="";
 	$tipoUsuario="";
 	
-	if ($_POST['nombre'] != "" && $accion == "A")
-  {
+	if (isset($_POST['nombre']) && $_POST['nombre'] != "" && $accion == "A")
+    {
 	  	//Query
 	    $query="insert into usuarios (Nombre,Usuario,Password,Tipo) values (";
 	    $query.="'".$_POST['nombre']."'";
 	    $query.=",'".$_POST['usuario']."'";
 	    $query.=",'".$_POST['pass']."'";
 	    $query.=",".$_POST['tipou'].")";
-			mysql_query ($query,$link);
-			$accion = "A";
-  }
-  else if ($accion == "M")
-  {
+	    mysqli_query ($link, $query);
+		$accion = "A";
+    }
+    else if ($accion == "M")
+    {
 	  	//Query
 	    $query="update usuarios set Nombre='".$_POST['nombre']."'";
 	    $query.=", Usuario='".$_POST['usuario']."'";
 	    $query.=", Tipo=".$_POST['tipou'];
 	    $query.=" where IdUsuario=".$_POST['IdUsuario'];
-			mysql_query ($query,$link);
-			$accion = "A";
-  }
-  else if ($accion == "B")
-  {
-  	//Query
-    $query="select * from usuarios where IdUsuario=".$_POST['IdUsuario'];
-		$q=mysql_query ($query,$link);
-
-		$idUsuario = mysql_result($q,0,"IdUsuario");
-		$nombre = mysql_result($q,0,"Nombre");
-		$usuario = mysql_result($q,0,"Usuario");
-		$password = mysql_result($q,0,"Password");
-		$tipoUsuario = mysql_result($q,0,"Tipo");
-		$accion = "M";
-  }
-  else if ($accion == "E")
-  {
-  	//Query
-    $query="delete from usuarios where IdUsuario=".$_POST['IdUsuario'];
-		mysql_query ($query,$link);
+	    mysqli_query ($link, $query);
 		$accion = "A";
-  }
+    }
+    else if ($accion == "B")
+    {
+      	//Query
+        $query="select * from usuarios where IdUsuario=".$_GET['IdUsuario'];
+		$queryUsuario=mysqli_query ($link, $query);
+		$rowUsuario=mysqli_fetch_array($queryUsuario);
+
+		$idUsuario = $rowUsuario["IdUsuario"];
+		$nombre = $rowUsuario["Nombre"];
+		$usuario = $rowUsuario["Usuario"];
+		$password = $rowUsuario["Password"];
+		$tipoUsuario = $rowUsuario["Tipo"];
+		$accion = "M";
+		mysqli_free_result($queryUsuario);
+    }
+    else if ($accion == "E")
+    {
+      	//Query
+        $query="delete from usuarios where IdUsuario=".$_GET['IdUsuario'];
+        mysqli_query ($link, $query);
+		$accion = "A";
+    }
 ?>
-<h1 class="admin">USUARIOS</h1>
-<form action="javascript:llamada_prototype('categorias.php','principal', 4);" method="POST" name="usuario" id="usuario">
-	<input type="hidden" name="Accion" id="Accion" value=<?=$accion?>>
-	<input type="hidden" name="IdUsuario" id="IdUsuario" value=<?=$idUsuario?>>
-	<table align="center" border="0" width="80%">
-		<tr>
-			<td width="23%" align="right">Nombre:</td>
-			<td width="23%"><input type="text" size="20" name="nombre" id="nombre" value="<?=$nombre?>"></td>
-			<td width="8%">&nbsp;</td>
-			<td width="23%" align="right">Tipo Usuario:</td>
-			<td width="23%">
-				<SELECT name="tipou" id="tipou">
-						<option value="">Tipo Usuario</option>
-						<?
-							//Query
-					    $query="select * from tipo_usuario order by IdTipoUsuario";
-							$q=mysql_query ($query,$link);
-					
-					    //Obtener el numero de filas devuelto
-					    $filas=mysql_num_rows($q);
-							for ($x=0;$x<$filas;$x++)
-							{
-								$seleccionado = "";
-								if ($tipoUsuario == mysql_result($q,$x,"IdTipoUsuario"))
-								{
-									$seleccionado = "selected";
-								}
-						?>
-								<option value="<?=mysql_result($q,$x,"IdTipoUsuario")?>" <?= $seleccionado ?>><?=mysql_result($q,$x,"TipoUsuario")?></option>
-						<?}?>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td align="right">Usuario:</td>
-			<td><input type="text" size="20" name="usuario" id="usuario" value="<?=$usuario?>"></td>
-			<td>&nbsp;</td>
-			<td align="right">Password:</td>
-			<?
-				$deshabilitado = "disabled";
-				if ($accion == "A")
-				{
-					$deshabilitado = "";	
-				}
-			?>
-			<td><input type="text" size="20" name="pass" id="pass" value="<?=$password?>" <?= $deshabilitado ?>></td>
-		</tr>
-		<tr>
-			<td colspan="5"><center><button type=submit name=submit onclick="return ejecutarAccion('usuarios.php','<?=$accion?>','<?=$idUsuario?>');">Enviar</button></center></td>
+<h1 class="text-center">USUARIOS</h1>
+<form action="usuarios.php" method="post" name="usuario" id="usuario">
+	<input type="hidden" name="Accion" id="Accion" value=<?= $accion ?>>
+	<input type="hidden" name="IdUsuario" id="IdUsuario" value=<?= $idUsuario ?>>
+	<table class="table">
+   		<tr class="d-flex">
+			<td class="col-2 text-right">Nombre:</td>
+       		<td class="col-4 text-center"><input type="text" size="20" name="nombre" id="nombre" value="<?= $nombre ?>"></td>
+       		<td class="col-2 text-right">Tipo Usuario:</td>
+       		<td class="col-4 text-center">
+       			<select class="form-control" name="tipou" id="tipou">
+       				<option value="">Tipo Usuario</option>
+<?php 
+                    //Query
+                    $query="select * from tipo_usuario order by IdTipoUsuario";
+                    $qtipos=mysqli_query ($link, $query);
+                    
+                    while($tipo=mysqli_fetch_array($qtipos, MYSQLI_BOTH))
+                    {
+                        $seleccionado = "";
+                        if ($tipoUsuario == $tipo["IdTipoUsuario"])
+                        {
+                            $seleccionado = "selected";
+                        }
+?>       			
+						<option value="<?= $tipo["IdTipoUsuario"] ?>" <?= $seleccionado ?>><?= $tipo["TipoUsuario"] ?></option>
+<?php 
+                    }
+                    mysqli_free_result($qtipos);
+?>	
+       			</select>
+       		</td>
+       	</tr>
+       	
+       	<tr class="d-flex">
+			<td class="col-2 text-right">Usuario:</td>
+       		<td class="col-4 text-center"><input type="text" size="20" name="usuario" id="usuario" value="<?= $usuario ?>"></td>
+       		<td class="col-2 text-right">Password:</td>
+       		<td class="col-4 text-center">
+<?php 
+                $deshabilitado = "disabled";
+                if ($accion == "A")
+                {
+                    $deshabilitado = "";
+                }
+?>       			
+				<input type="text" size="20" name="pass" id="pass" value="<?= $password ?>">
+       		</td>
+       	</tr>
+		<tr class="d-flex">
+   			<td class="col-5 text-center">&nbsp;</td>
+			<td class="col-2 text-center"><button type="submit" class="btn btn-default"><?= cambiarAcentos(_ENVIAR) ?></button></td>
+			<td class="col-5 text-center">&nbsp;</td>
 		</tr>
 	</table>
-	
-	<table border="1" width="100%">
-		<tr>
-			<th width="30%">
-				Usuario
-			</th>
-			<th width="30%">
-				Tipo Usuario
-			</th>
-			<th width="15%">
-				Modificar
-			</th>
-			<th width="15%">
-				Eliminar
-			</th>
-		</tr>
-	
-	<?
+
+	<table class="table table-bordered">
+   		<thead class="thead-dark">
+	   		<tr class="d-flex">
+	   			<th class="col-4 text-center">Usuario</th>
+	   			<th class="col-4 text-center">Tipo Usuario</th>
+	   			<th class="col-2 text-center">Modificar</th>
+	   			<th class="col-2 text-center">Eliminar</th>
+   			</tr>  
+   		</thead>
+   		
+<?php
 	  	//Query
 	    $query="select * from usuarios order by tipo";
-			$q=mysql_query ($query,$link);
-	
-	    //Obtener el numero de filas devuelto
-	    $filas=mysql_num_rows($q);
+	    $qusuarios=mysqli_query ($link, $query);
 	    
-	    //Mostrar los valores de la base de datos
-	    for ($x=0; $x < $filas; $x++)
+	    while($usuario=mysqli_fetch_array($qusuarios, MYSQLI_BOTH))
 	    {
-	    	$query="select * from tipo_usuario where IdTipoUsuario=".mysql_result($q,$x,"Tipo");
-				$qtipo=mysql_query ($query,$link);
-	    	$tipoUsuarioMostrar=mysql_result($qtipo,0,"TipoUsuario");
-	?>
-				<tr>
-					<td>
-						<?=mysql_result($q,$x,"Usuario")?>
-					</td>
-					<td>
-						<?=$tipoUsuarioMostrar?>
-					</td>
-					<td align="center">
-						<a href="#" onclick="ejecutarAccion('usuarios.php','B','<?=mysql_result($q,$x,"IdUsuario")?>');"><img src="../imagenes/modificar.gif"/></a>
-					</td>
-					<td align="center">
-						<a href="#" onclick="ejecutarAccion('usuarios.php','E','<?=mysql_result($q,$x,"IdUsuario")?>');"><img src="../imagenes/eliminar.gif"/></a>
-					</td>
-				</tr>
-	<?    	
+	        $query="select * from tipo_usuario where IdTipoUsuario=".$usuario["Tipo"];
+	        $qtipo=mysqli_query ($link, $query);
+	        $rowTipo=mysqli_fetch_array($qtipo);
+	        mysqli_free_result($qtipo);
+	    
+?>
+			<tr class="d-flex">
+	   			<td class="col-4 text-center"><?= $usuario["Usuario"] ?></td>
+	   			<td class="col-4 text-center"><?= $rowTipo["TipoUsuario"] ?></td>
+	   			<td class="col-2 text-center">
+	   				<a href="usuarios.php?Accion=B&IdUsuario=<?= $usuario["IdUsuario"] ?>"><img src="../../imagenes/modificar.gif"/></a>
+	   			</td>
+	   			<td class="col-2 text-center">
+	   				<a href="usuarios.php?Accion=E&IdUsuario=<?= $usuario["IdUsuario"] ?>"><img src="../../imagenes/eliminar.gif"/></a>
+	   			</td>
+   			</tr>  	
+<?php 
 	    }
-	?>
-	</table>
+	    mysqli_free_result($qusuarios);
+?>   		
+   	</table>		
+
 </form>	
