@@ -165,41 +165,41 @@
 	<table class="table">
    		<tr class="d-flex">
 			<td class="col-2 text-right">Nombre:</td>
-       		<td class="col-4 text-center"><input type="text" size="20" name="Nombre" id="Nombre" value="<?= $nombre ?>"></td>
+       		<td class="col-4 text-center"><input type="text" class="form-control" size="20" name="Nombre" id="Nombre" value="<?= $nombre ?>"></td>
        		<td class="col-2 text-right">Division:</td>
-       		<td class="col-4 text-center"><input type="text" size="20" name="Division" id="Division" value="<?= $division ?>"></td>
+       		<td class="col-4 text-center"><input type="text" class="form-control" size="20" name="Division" id="Division" value="<?= $division ?>"></td>
        	</tr>
        	
        	<tr class="d-flex">
 			<td class="col-2 text-right">Suben:</td>
-       		<td class="col-4 text-center"><input type="text" size="20" name="Suben" id="Suben" value="<?= $suben ?>"></td>
+       		<td class="col-4 text-center"><input type="text" class="form-control" size="20" name="Suben" id="Suben" value="<?= $suben ?>"></td>
        		<td class="col-2 text-right">Promocionan:</td>
-       		<td class="col-4 text-center"><input type="text" size="20" name="Promocionan" id="Promocionan" value="<?= $promocionan ?>"></td>
+       		<td class="col-4 text-center"><input type="text" class="form-control" size="20" name="Promocionan" id="Promocionan" value="<?= $promocionan ?>"></td>
        	</tr>
 
        	<tr class="d-flex">
 			<td class="col-2 text-right">Bajan:</td>
-       		<td class="col-4 text-center"><input type="text" size="20" name="Bajan" id="Bajan" value="<?= $bajan ?>"></td>
+       		<td class="col-4 text-center"><input type="text" class="form-control" size="20" name="Bajan" id="Bajan" value="<?= $bajan ?>"></td>
        		<td class="col-6 text-right">&nbsp;</td>
        	</tr>
 
        	<tr class="d-flex">
 			<td class="col-2 text-right">Ascenso:</td>
-       		<td class="col-4 text-center"><input type="text" size="20" name="Ascenso" id="Ascenso" value="<?= $ascenso ?>"></td>
+       		<td class="col-4 text-center"><input type="text" class="form-control" size="20" name="Ascenso" id="Ascenso" value="<?= $ascenso ?>"></td>
        		<td class="col-2 text-right">Descenso:</td>
-       		<td class="col-4 text-center"><input type="text" size="20" name="Descenso" id="Descenso" value="<?= $descenso ?>"></td>
+       		<td class="col-4 text-center"><input type="text" class="form-control" size="20" name="Descenso" id="Descenso" value="<?= $descenso ?>"></td>
        	</tr>
        	
        	<tr class="d-flex">
 			<td class="col-2 text-right">Puntos Ganar:</td>
-       		<td class="col-4 text-center"><input type="text" size="20" name="PGanar" id="PGanar" value="<?= $puntos_ganar ?>"></td>
+       		<td class="col-4 text-center"><input type="text" class="form-control" size="20" name="PGanar" id="PGanar" value="<?= $puntos_ganar ?>"></td>
        		<td class="col-2 text-right">Puntos Empatar:</td>
-       		<td class="col-4 text-center"><input type="text" size="20" name="PEmpatar" id="PEmpatar" value="<?= $puntos_empatar ?>"></td>
+       		<td class="col-4 text-center"><input type="text" class="form-control" size="20" name="PEmpatar" id="PEmpatar" value="<?= $puntos_empatar ?>"></td>
        	</tr>
 	
 		<tr class="d-flex">
 			<td class="col-2 text-right">Puntos Perder:</td>
-       		<td class="col-4 text-center"><input type="text" size="20" name="PPerder" id="PPerder" value="<?= $puntos_perder ?>"></td>
+       		<td class="col-4 text-center"><input type="text" class="form-control" size="20" name="PPerder" id="PPerder" value="<?= $puntos_perder ?>"></td>
        		<td class="col-6 text-right">&nbsp;</td>
        	</tr>
 	

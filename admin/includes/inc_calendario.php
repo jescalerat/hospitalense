@@ -50,16 +50,16 @@
 				$resultado2=$_POST[$idResult2];
 			}
 			
-			if ($_POST[$idAplazado] == ""){
-			    $aplazadoTemp=0;
-			}else{
+			if (isset($_POST[$idAplazado])){
 			    $aplazadoTemp=1;
+			}else{
+			    $aplazadoTemp=0;
 			}
 			
-			if ($_POST[$idSuspendido] == ""){
-			    $suspendidoTemp=0;
-			}else{
+			if (isset($_POST[$idSuspendido])){
 			    $suspendidoTemp=1;
+			}else{
+			    $suspendidoTemp=0;
 			}
 			
 			if ($aplazadoTemp == 0 && $suspendidoTemp == 0){
@@ -81,7 +81,7 @@
             $query.=", DiaSemana=".$_POST[$idDia];
             $query.=", Aplazado=".$aplazado;
             $query.=" where IdLiga=".$primerId;
-			mysql_query ($query,$link);
+            mysqli_query ($link, $query);
 			print ("<br>".$query.";");
 
 			$primerId++;
@@ -221,10 +221,10 @@
 				<tr class="d-flex">
         			<td class="col-4 text-center"><?= $nombreEquipo1 ?></td>
                		<td class="col-2 text-center">
-               			<input type="text" name="resultequipo1#<?= $liga["IdLiga"] ?>" id="resultequipo1#<?= $liga["IdLiga"] ?>" value=<?= $liga["ResultEquipo1"] ?>>
+               			<input type="text" class="form-control" class="form-control" name="resultequipo1#<?= $liga["IdLiga"] ?>" id="resultequipo1#<?= $liga["IdLiga"] ?>" value=<?= $liga["ResultEquipo1"] ?>>
                		</td>
                		<td class="col-2 text-center">
-               			<input type="text" name="resultequipo2#<?= $liga["IdLiga"] ?>" id="resultequipo2#<?= $liga["IdLiga"] ?>" value=<?= $liga["ResultEquipo2"] ?>>
+               			<input type="text" class="form-control" class="form-control" name="resultequipo2#<?= $liga["IdLiga"] ?>" id="resultequipo2#<?= $liga["IdLiga"] ?>" value=<?= $liga["ResultEquipo2"] ?>>
                		</td>
                		<td class="col-4 text-center"><?= $nombreEquipo2 ?></td>
 				</tr>    
@@ -255,14 +255,14 @@
 						</select>
         			</td>
                		<td class="col-2 text-center">
-               			<input type="text" name="hora#<?= $liga["IdLiga"] ?>" id="hora#<?= $liga["IdLiga"] ?>" value=<?= $liga["Hora"] ?>>
+               			<input type="text" class="form-control" name="hora#<?= $liga["IdLiga"] ?>" id="hora#<?= $liga["IdLiga"] ?>" value=<?= $liga["Hora"] ?>>
                		</td>
                		<td class="col-2 text-center">
-               			<input type="text" name="minutos#<?= $liga["IdLiga"] ?>" id="minutos#<?= $liga["IdLiga"] ?>" value=<?= $liga["Minutos"] ?>>
+               			<input type="text" class="form-control" name="minutos#<?= $liga["IdLiga"] ?>" id="minutos#<?= $liga["IdLiga"] ?>" value=<?= $liga["Minutos"] ?>>
                		</td>
                		<td class="col-4 text-center">
-               			<input type="text" name="fecha#<?= $liga["IdLiga"] ?>" id="fecha#<?= $liga["IdLiga"] ?>" value=<?= $liga["Fecha"] ?>>
-               			<input type="text" name="dia#<?= $liga["IdLiga"] ?>" id="dia#<?= $liga["IdLiga"] ?>" value=<?= $liga["DiaSemana"] ?>>
+               			<input type="text" class="form-control" name="fecha#<?= $liga["IdLiga"] ?>" id="fecha#<?= $liga["IdLiga"] ?>" value=<?= $liga["Fecha"] ?>>
+               			<input type="text" class="form-control" name="dia#<?= $liga["IdLiga"] ?>" id="dia#<?= $liga["IdLiga"] ?>" value=<?= $liga["DiaSemana"] ?>>
                		</td>
 				</tr> 
 				
@@ -276,7 +276,7 @@
                                 $checkAplazado="checked";
                             }
 ?>
-	                        <label><input type="checkbox" name="aplazado#<?= $liga["IdLiga"] ?>" id="aplazado#<?= $liga["IdLiga"] ?>" value="<?= $checkAplazado ?>">Aplazado</label>
+	                        <label><input type="checkbox" name="aplazado#<?= $liga["IdLiga"] ?>" id="aplazado#<?= $liga["IdLiga"] ?>" <?= $checkAplazado ?>>Aplazado</label>
                         </div>
         			</td>
         			<td class="col-4 text-center">

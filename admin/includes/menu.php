@@ -46,22 +46,22 @@
 ?>
 		<tr>
 			<td>
-				<a class="list-group-item list-group-item-action list-group-item-light" href="calendario.php">Calendario</a>
+				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>calendario.php">Calendario</a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a class="list-group-item list-group-item-action list-group-item-light" href="goleadores.php">Goleadores</a>
+				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>goleadores.php">Goleadores</a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a class="list-group-item list-group-item-action list-group-item-light" href="jugadores.php">Jugadores</a>
+				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>jugadores.php">Jugadores</a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a class="list-group-item list-group-item-action list-group-item-light" href="material.php">Material</a>
+				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>material.php">Material</a>
 			</td>
 		</tr>
 		<tr>
@@ -69,37 +69,37 @@
 		</tr>
 		<tr>
 			<td>
-				<a class="list-group-item list-group-item-action list-group-item-light" href="pagos.php">Pagos</a>
+				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>pagos.php">Pagos</a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a class="list-group-item list-group-item-action list-group-item-light" href="entrega_mat.php">Entrega material</a>
+				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>entrega_mat.php">Entrega material</a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a class="list-group-item list-group-item-action list-group-item-light" href="cambio_cat.php">Cambio categoria</a>
+				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>cambio_cat.php">Cambio categoria</a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a class="list-group-item list-group-item-action list-group-item-light" href="informe.php">Informe</a>
+				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>informe.php">Informe</a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a class="list-group-item list-group-item-action list-group-item-light" href="noticias.php">Noticias</a>
+				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>noticias.php">Noticias</a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a class="list-group-item list-group-item-action list-group-item-light" href="historia.php">Historia</a>
+				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>historia.php">Historia</a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a class="list-group-item list-group-item-action list-group-item-light" href="directiva.php">Directiva</a>
+				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>directiva.php">Directiva</a>
 			</td>
 		</tr>
 		<tr>

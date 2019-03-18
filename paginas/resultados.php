@@ -34,7 +34,7 @@
 			<table class="table">
 				<tr>
 					<td>
-						<h2 class="text-center"><?= cambiarAcentos(strtoupper($rowcategoria["Categoria"]))." ".cambiarAcentos(strtoupper($rowcategoria["Division"])) ?></h2>
+						<h2 class="text-center"><?= cambiarAcentos(mb_strtoupper($rowcategoria["Categoria"]))." ".cambiarAcentos(mb_strtoupper($rowcategoria["Division"])) ?></h2>
 					</td>
 				</tr>
 				<tr>

@@ -1352,6 +1352,17 @@ function buscaTwitter($equipo,$link)
     return $twitter;
 }
 
+function buscaJugador($jugador,$link)
+{
+    $query="select * from jugadores where IdJugador=".$jugador;
+    $qjugador=mysqli_query ($link, $query);
+    $rowjugador=mysqli_fetch_array($qjugador);
+    
+    $nombreJugador = $rowjugador["Nombre"]." ".$rowjugador["Apellido1"]." ".$rowjugador["Apellido2"];
+    mysqli_free_result($qjugador);
+    return $nombreJugador;
+}
+
 function posicionClasificacion($categoria, $equipo, $link)
 {
 	$query="select * from clasificacion where IdCategoria=".$categoria." order by Puntos desc, Golaverage desc, GolesFavor desc, GolesContra asc, Ganados desc, Empatados desc, Perdidos desc";

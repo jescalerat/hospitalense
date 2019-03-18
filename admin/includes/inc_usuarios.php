@@ -67,7 +67,7 @@
 	<table class="table">
    		<tr class="d-flex">
 			<td class="col-2 text-right">Nombre:</td>
-       		<td class="col-4 text-center"><input type="text" size="20" name="nombre" id="nombre" value="<?= $nombre ?>"></td>
+       		<td class="col-4 text-center"><input type="text" class="form-control" size="20" name="nombre" id="nombre" value="<?= $nombre ?>"></td>
        		<td class="col-2 text-right">Tipo Usuario:</td>
        		<td class="col-4 text-center">
        			<select class="form-control" name="tipou" id="tipou">
@@ -96,7 +96,7 @@
        	
        	<tr class="d-flex">
 			<td class="col-2 text-right">Usuario:</td>
-       		<td class="col-4 text-center"><input type="text" size="20" name="usuario" id="usuario" value="<?= $usuario ?>"></td>
+       		<td class="col-4 text-center"><input type="text" class="form-control" size="20" name="usuario" id="usuario" value="<?= $usuario ?>"></td>
        		<td class="col-2 text-right">Password:</td>
        		<td class="col-4 text-center">
 <?php 
@@ -106,7 +106,7 @@
                     $deshabilitado = "";
                 }
 ?>       			
-				<input type="text" size="20" name="pass" id="pass" value="<?= $password ?>">
+				<input type="text" class="form-control" size="20" name="pass" id="pass" value="<?= $password ?>" <?= $deshabilitado ?>>
        		</td>
        	</tr>
 		<tr class="d-flex">

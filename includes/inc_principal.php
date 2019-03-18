@@ -61,19 +61,10 @@
 	{
 		$titulo=strtoupper($principal["Categoria"])." (".$principal["Posicion"].cambiarAcentos('º').")";
 			
-		//Cambiar ids por el nombre del equipo
-		$equipo1=$principal["Equipo1"];
-		$equipo2=$principal["Equipo2"];
-
-		$query="select * from equipos where IdEquipo=".$equipo1;
-		$q_equipo1=mysqli_query($link, $query);
-		$rowequipo1=mysqli_fetch_array($q_equipo1);
-
-		$query="select * from equipos where IdEquipo=".$equipo2;
-		$q_equipo2=mysqli_query($link, $query);
-		$rowequipo2=mysqli_fetch_array($q_equipo2);
-		
-		$equipos=cambiarAcentos($rowequipo1["NombreEquipo"])." ".$principal["SubCategoriaLocal"]." - ".cambiarAcentos($rowequipo2["NombreEquipo"])." ".$principal["SubCategoriaVisitante"];
+		$equipo1=buscaEquipo($principal["Equipo1"], $link);
+		$equipo2=buscaEquipo($principal["Equipo2"], $link);
+	
+		$equipos=$equipo1." ".$principal["SubCategoriaLocal"]." - ".$equipo2." ".$principal["SubCategoriaVisitante"];
 
 		$resultados=$principal["ResultEquipo1"]."-".$principal["ResultEquipo2"];
 
@@ -86,8 +77,6 @@
 <?php			
 	}
 	mysqli_free_result($proximajornada);
-	mysqli_free_result($q_equipo1);
-	mysqli_free_result($q_equipo2);
 ?>
 	</table>
 	
@@ -127,20 +116,11 @@
 	while($principal=mysqli_fetch_array($proximajornada, MYSQLI_BOTH))
 	{
 		$titulo=strtoupper($principal["Categoria"])." (".$principal["Posicion"].cambiarAcentos('º').")";
-			
-		//Cambiar ids por el nombre del equipo
-		$equipo1=$principal["Equipo1"];
-		$equipo2=$principal["Equipo2"];
 
-		$query="select * from equipos where IdEquipo=".$equipo1;
-		$q_equipo1=mysqli_query($link, $query);
-		$rowequipo1=mysqli_fetch_array($q_equipo1);
-
-		$query="select * from equipos where IdEquipo=".$equipo2;
-		$q_equipo2=mysqli_query($link, $query);
-		$rowequipo2=mysqli_fetch_array($q_equipo2);
+		$equipo1=buscaEquipo($principal["Equipo1"], $link);
+		$equipo2=buscaEquipo($principal["Equipo2"], $link);
 		
-		$equipos=cambiarAcentos($rowequipo1["NombreEquipo"])." ".$principal["SubCategoriaLocal"]." - ".cambiarAcentos($rowequipo2["NombreEquipo"])." ".$principal["SubCategoriaVisitante"];
+		$equipos=$equipo1." ".$principal["SubCategoriaLocal"]." - ".$equipo2." ".$principal["SubCategoriaVisitante"];
 		
 		$fecha_larga=explode('-',$principal["Fecha"]);
 		$dia=$fecha_larga[0];
@@ -169,8 +149,6 @@
 <?php			
 	}
 	mysqli_free_result($proximajornada);
-	mysqli_free_result($q_equipo1);
-	mysqli_free_result($q_equipo2);
 	mysqli_free_result($q_campo);
 ?>
 	</table>
