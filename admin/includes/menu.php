@@ -104,27 +104,27 @@
 		</tr>
 		<tr>
 			<td>
-				<a class="list-group-item list-group-item-action list-group-item-light" href="galerias.php">Galerias</a>
+				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>galerias.php">Galerias</a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a class="list-group-item list-group-item-action list-group-item-light" href="socios.php">Socios</a>
+				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>socios.php">Socios</a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a class="list-group-item list-group-item-action list-group-item-light" href="formularios.php">Formularios</a>
+				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>formularios.php">Formularios</a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a class="list-group-item list-group-item-action list-group-item-light" href="horarios.php">Horarios</a>
+				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>horarios.php">Horarios</a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a class="list-group-item list-group-item-action list-group-item-light" href="economia.php">Economia</a>
+				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>economia.php">Economia</a>
 			</td>
 		</tr>
 		<tr>
