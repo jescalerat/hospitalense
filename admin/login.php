@@ -27,4 +27,10 @@
                 </div>
             </div>
     	</form>
+<?php 
+        if (isset($_GET["error"])){
+            $mensaje = "<p class=\"text-center text-danger\">La contraseña es incorrecta</p>";
+            print(cambiarAcentos($mensaje));
+        }
+?>    	
 	</body>

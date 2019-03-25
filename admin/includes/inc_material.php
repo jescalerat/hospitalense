@@ -73,7 +73,7 @@
 				if ($resultado <> 1)
 				{
 ?>
-					<p class="text-center">El material que desea eliminar tiene jugadores asignados.<br>Si desea eliminar el material quiteselo antes a los jugadores asignados</p>
+					<p class="text-center text-danger">El material que desea eliminar tiene jugadores asignados.<br>Si desea eliminar el material quiteselo antes a los jugadores asignados</p>
 <?php 
 				}
 ?>

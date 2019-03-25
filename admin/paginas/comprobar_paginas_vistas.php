@@ -2,7 +2,7 @@
     session_start();
     if (!isset($_SESSION['registrado']))
     {
-        header("Location:login.php");
+        header("Location:../login.php");
     }
     require_once("../includes/cabecera.php");
 ?>

@@ -16,7 +16,7 @@
         	</div>
         	<div class="col-9" id="pagina">
 <?php
-              require_once("../includes/inc_jugadores.php");
+              require_once("../includes/inc_cambio_pass.php");
 ?>
         	</div>
     	</div>

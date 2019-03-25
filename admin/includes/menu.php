@@ -132,12 +132,12 @@
 		</tr>
 		<tr>
 			<td>
-				<a class="list-group-item list-group-item-action list-group-item-light" href="cambio_pass.php">Cambio contrase&ntilde;a</a>
+				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>cambio_pass.php">Cambio contrase&ntilde;a</a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<a class="list-group-item list-group-item-action list-group-item-light" href="salir.php">Salir</a>
+				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>salir.php">Salir</a>
 			</td>
 		</tr>
 	</thead>

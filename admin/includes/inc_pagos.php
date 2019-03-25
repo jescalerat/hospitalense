@@ -156,7 +156,7 @@
 	if ($resultado == 1)
 	{
 ?>
-		<p class="text-center">Cambios realizados</p>
+		<p class="text-center text-info">Cambios realizados</p>
 <?php 
 	}
 				

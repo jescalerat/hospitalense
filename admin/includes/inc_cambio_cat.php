@@ -70,7 +70,7 @@
 		if ($mensaje != "")
 		{
 ?>
-			<p class="text-center"><?= cambiarAcentos($mensaje) ?></p>
+			<p class="text-center text-info"><?= cambiarAcentos($mensaje) ?></p>
 <?php 
 	   }
 ?>		

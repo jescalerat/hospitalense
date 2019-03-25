@@ -265,7 +265,7 @@
 				if ($resultado <> 1)
 				{
 ?>
-					<p class="text-center">El jugador que desea eliminar tiene materiales asignados.<br>Si desea eliminar el jugador elimine antes el material que le ha sido asignado</p>
+					<p class="text-center text-danger">El jugador que desea eliminar tiene materiales asignados.<br>Si desea eliminar el jugador elimine antes el material que le ha sido asignado</p>
 <?php 
 				}
 ?>
