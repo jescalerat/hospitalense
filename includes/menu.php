@@ -87,6 +87,7 @@
 					<ul>
 						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=21','principal');">Fase 1 - Grupo A</a></li>
 						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=47','principal');">Fase 2 - Grupo B</a></li>
+						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=48','principal');">Fase 3 - Grupo B</a></li>
 					</ul>
 				</li>
 			</ul>
