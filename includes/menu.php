@@ -1,5 +1,5 @@
 ﻿<!-- http://www.webdesignerwall.com/demo/css3-dropdown-menu/ -->
-
+ 
 <div class="fixed-top">
 	<ul id="nav">
 		<li class="current"><a href="index.php"><?= cambiarAcentos(_MENUINICIO) ?></a></li>
