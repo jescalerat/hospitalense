@@ -1,4 +1,4 @@
-﻿<!-- http://www.webdesignerwall.com/demo/css3-dropdown-menu/ -->
+﻿﻿<!-- http://www.webdesignerwall.com/demo/css3-dropdown-menu/ -->
  
 <div class="fixed-top">
 	<ul id="nav">
@@ -26,7 +26,12 @@
 		</li>
 		<li><a href="#"><?= cambiarAcentos(_MENUCATEGORIA) ?></a>
 			<ul>
-				<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=1','principal');">Veteranos A</a></li>
+				<li><a href="#">Veteranos A</a>
+					<ul>
+						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=1','principal');">Liga</a></li>
+						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=27','principal');">Copa</a></li>
+					</ul>
+				</li>
 				<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=28','principal');">Veteranos B</a></li>
 				<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=2','principal');">Amateur A</a></li>
 				<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=3','principal');">Juvenil A</a></li>
