@@ -182,6 +182,10 @@
             {
                 $pagina_vista="Paginas Amigas";
             }
+            else if ($paginas["Pagina"]==25)
+            {
+                $pagina_vista="Tabla Goleadores";
+            }
             
             //Comprobar que tipo de categoria y jornada se ha visitado
             if ($paginas["Pagina"]==2){

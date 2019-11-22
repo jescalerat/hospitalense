@@ -26,12 +26,13 @@
 		</li>
 		<li><a href="#"><?= cambiarAcentos(_MENUCATEGORIA) ?></a>
 			<ul>
-				<li><a href="#">Veteranos A</a>
+				<!-- <li><a href="#">Veteranos A</a>
 					<ul>
 						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=1','principal');">Liga</a></li>
 						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=27','principal');">Copa</a></li>
 					</ul>
-				</li>
+				</li> -->
+				<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=1','principal');">Veteranos A</a></li>
 				<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=28','principal');">Veteranos B</a></li>
 				<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=2','principal');">Amateur A</a></li>
 				<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=3','principal');">Juvenil A</a></li>
@@ -41,8 +42,9 @@
 				<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=10','principal');">Infantil B</a></li>
 				<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=11','principal');">Alevin A</a></li>
 				<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=12','principal');">Alevin B</a></li>
+				<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=13','principal');">Alevin C</a></li>
 				<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=14','principal');">Benjamin A</a></li>
-				<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=38','principal');">Benjamin B</a></li>
+				<!-- <li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=38','principal');">Benjamin B</a></li> -->
 <!--				<li><a href="#">Femenino Escolar A</a>
 					<ul>
 						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=45','principal');">Fase 1 - Grupo A</a></li>
@@ -56,24 +58,25 @@
 					</ul>
 				</li>
 -->
-				<li><a href="#">Alevin Escolar A</a>
+ 				<li><a href="#">Alevin Escolar A</a>
 					<ul>
 						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=15','principal');">Fase 1 - Grupo A</a></li>
-						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=24','principal');">Fase 2 - Grupo C</a></li>
+						<!-- <li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=24','principal');">Fase 2 - Grupo C</a></li>  -->
 					</ul>
 				</li>
 				<li><a href="#">Alevin Escolar B</a>
 					<ul>
 						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=30','principal');">Fase 1 - Grupo C</a></li>
-						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=31','principal');">Fase 2 - Grupo B</a></li>
+						<!--  <li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=31','principal');">Fase 2 - Grupo B</a></li> -->
 					</ul>
 				</li>				
 				<li><a href="#">Benjamin Escolar A</a>
 					<ul>
 						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=16','principal');">Fase 1 - Grupo D</a></li>
-						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=22','principal');">Fase 2 - Grupo A</a></li>
+						<!-- <li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=22','principal');">Fase 2 - Grupo A</a></li> -->
 					</ul>
 				</li>
+
 <!--
 				<li><a href="#">Benjamin Escolar B</a>
 					<ul>
@@ -84,19 +87,26 @@
 -->
 				<li><a href="#">Pre Benjamin Escolar A</a>
 					<ul>
-						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=19','principal');">Fase 1 - Grupo A</a></li>
-						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=32','principal');">Fase 2 - Grupo C</a></li>
+						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=19','principal');">Fase 1 - Grupo C</a></li>
+						<!-- <li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=32','principal');">Fase 2 - Grupo C</a></li> -->
+					</ul>
+				</li>
+				<li><a href="#">Pre Benjamin Escolar B</a>
+					<ul>
+						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=29','principal');">Fase 1 - Grupo D</a></li>
+						<!-- <li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=32','principal');">Fase 2 - Grupo C</a></li> -->
 					</ul>
 				</li>
 				<li><a href="#">Mini Escolar A</a>
 					<ul>
-						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=21','principal');">Fase 1 - Grupo A</a></li>
-						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=47','principal');">Fase 2 - Grupo B</a></li>
-						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=48','principal');">Fase 3 - Grupo B</a></li>
+						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=21','principal');">Fase 1 - Grupo B</a></li>
+						<!-- <li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=47','principal');">Fase 2 - Grupo B</a></li>
+						<li><a href="#" onclick="llamada_prototype('paginas/resultados.php?IdCategoria=48','principal');">Fase 3 - Grupo B</a></li>  -->
 					</ul>
 				</li>
 			</ul>
-		</li>	
+		</li>
+		<li><a href="#" onclick="llamada_prototype('paginas/tabla_goleadores.php','principal');"><?= cambiarAcentos(_MENUTABLAGOLEADORES) ?></a></li>	
 		<li><a href="#" onclick="llamada_prototype('paginas/equipos.php','principal');"><?= cambiarAcentos(_MENUEQUIPOS) ?></a></li>
 		<li><a href="#" onclick="llamada_prototype('paginas/campos.php','principal');"><?= cambiarAcentos(_MENUCAMPOS) ?></a></li>
 		<li><a href="#">Torneo</a></li>

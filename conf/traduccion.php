@@ -24,6 +24,7 @@
 //Regimen Interno=22 --
 //Estatuto=23 --
 //Paginsa amigas = 24
+//Tabla Goleadores = 25
 
 $idioma=1;
 if (isset($_SESSION['idiomapagina'])){
@@ -246,7 +247,7 @@ if ($idioma==1) //Español
 	define ('_CATEGORIA','Categoria');
 	define ('_TOTAL','Total');
 	define ('_JUGADA','Jugada');
-	define ('_PENALTY','Penalty');
+	define ('_PENALTI','Penalti');
 
 	//Página comentarios
 	define ('_COMENTARIOS','Comentarios');
@@ -326,6 +327,7 @@ if ($idioma==1) //Español
 	define ('_MENUCLASIFICACIONFUERA','Fuera');
 	define ('_MENUCLASIFICACION1VUELTA','1ª vuelta');
 	define ('_MENUCLASIFICACION2VUELTA','2ª vuelta');
+	define ('_MENUTABLAGOLEADORES','Tabla Goleadores');
 	define ('_MENUEQUIPOS','Equipos');
 	define ('_MENUCAMPOS','Campos');
 	define ('_MENUTORNEO','Torneo');
@@ -684,7 +686,7 @@ else if ($idioma==2) //Inglés
 	define ('_EQUIPOTG','Team');
 	define ('_TOTAL','Total');
 	define ('_JUGADA','Goal');
-	define ('_PENALTY','Penalty');
+	define ('_PENALTI','Penalty');
 
 	//Página comentarios
 	define ('_COMENTARIOS','Commentaries');
@@ -1121,7 +1123,7 @@ else if ($idioma==3) //Catalan
 	define ('_EQUIPOTG','Equip');
 	define ('_TOTAL','Total');
 	define ('_JUGADA','Jugada');
-	define ('_PENALTY','Penal');
+	define ('_PENALTI','Penal');
 
 	//Página comentarios
 	define ('_COMENTARIOS','Comentaris');

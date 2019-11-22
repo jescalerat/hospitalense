@@ -56,6 +56,11 @@
 		</tr>
 		<tr>
 			<td>
+				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>actGoleadores.php">Actualizar Goleadores</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
 				<a class="list-group-item list-group-item-action list-group-item-light" href="<?= $rutaMenu ?>jugadores.php">Jugadores</a>
 			</td>
 		</tr>

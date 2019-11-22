@@ -110,7 +110,7 @@
 			}
 			else
 			{
-			    $query="select max(Jornada) as Jornada from liga where ResultEquipo1 is not null and ResultEquipo2 is not null and IdCategoria=".$idCategoria;
+			    $query="select max(Jornada) as Jornada from liga where ResultEquipo1 is not null and ResultEquipo2 is not null and (equipo1=1 or equipo2=1) and IdCategoria=".$idCategoria;
 			    $qJornada=mysqli_query ($link, $query);
 			    $rowJornada=mysqli_fetch_array($qJornada);
 			    
@@ -130,7 +130,7 @@
 			$totaljornadas=$rowParametros["TotalJornadas"];
 			mysqli_free_result($qParametros);
 			
-			$query="Select * from liga where Jornada=".$jornada." and IdCategoria=".$idCategoria." order by IdLiga";
+			$query="Select * from liga where Jornada=".$jornada." and IdCategoria=".$idCategoria." and (equipo1=1 or equipo2=1) order by IdLiga";
 			$qLiga=mysqli_query ($link, $query);
 			$rowLiga=mysqli_fetch_array($qLiga);
 			$idLiga = $rowLiga["IdLiga"];
